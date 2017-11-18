@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
-    public class Pedido
+    public class Pedido : Entity
     {
 
         public Pedido(string identificadorPedido)
@@ -52,5 +53,15 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
             throw new NotImplementedException("AdicionaFormaPagamentoPayPal");
         }
 
-}
+        #region Factory
+        public static class Factory
+        {
+            public static Pedido Create(string identificadorPedido)
+            {
+                return new Pedido(identificadorPedido);                
+            }
+        }
+        #endregion
+
+    }
 }

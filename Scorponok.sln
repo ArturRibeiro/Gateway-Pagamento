@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F94ECED9-4714-4030-8F13-D9AAC32C2DED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F94ECED9-4714-4030-8F13-D9AAC32C2DED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Domain", "3.Domain", "{8A361E68-51F2-4468-A7A3-46E80AC1E538}"
 EndProject
@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Infra", "4.Infra", "{05B7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Tests", "5.Tests", "{B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Domain", "src\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj", "{FE346E31-EBC5-4955-8777-380C91AE506D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Domain", "src\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj", "{FE346E31-EBC5-4955-8777-380C91AE506D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Domain.Core", "src\Scorponok.Gateway.Pagamento.Domain.Core\Scorponok.Gateway.Pagamento.Domain.Core.csproj", "{FBB6A2A1-1210-41DC-B811-37F33B768993}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{FE346E31-EBC5-4955-8777-380C91AE506D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE346E31-EBC5-4955-8777-380C91AE506D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE346E31-EBC5-4955-8777-380C91AE506D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,5 +44,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F94ECED9-4714-4030-8F13-D9AAC32C2DED} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 		{FE346E31-EBC5-4955-8777-380C91AE506D} = {8A361E68-51F2-4468-A7A3-46E80AC1E538}
+		{FBB6A2A1-1210-41DC-B811-37F33B768993} = {8A361E68-51F2-4468-A7A3-46E80AC1E538}
 	EndGlobalSection
 EndGlobal

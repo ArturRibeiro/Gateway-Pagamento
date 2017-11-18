@@ -4,8 +4,6 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
-    
-
     public class Transaction
     {
         private Transaction(int valorEmCentavos, string numeroCartaoCredito, string portador)
@@ -25,7 +23,6 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         /// 
         /// </summary>
         public CartaoCredito CartaoCredito { get; private set; }
-
 
         /// <summary>
         /// Número de Parcelas

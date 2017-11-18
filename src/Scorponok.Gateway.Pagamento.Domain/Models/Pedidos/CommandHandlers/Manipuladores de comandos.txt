@@ -1,0 +1,1 @@
+﻿1 - Os CommandHandlers são manipuladores de comandos

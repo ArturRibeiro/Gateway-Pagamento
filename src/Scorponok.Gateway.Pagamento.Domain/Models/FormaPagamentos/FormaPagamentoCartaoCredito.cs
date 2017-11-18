@@ -15,7 +15,11 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         /// <summary>
         ///     Transações
         /// </summary>
-        internal IList<Transaction> TransactionsInternal { get; private set; }
+        internal IList<Transaction> TransactionsInternal
+        {
+            get;
+            private set;
+        }
 
         public ReadOnlyCollection<Transaction> Transactions
         {
