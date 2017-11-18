@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F94ECED9-4714-4030-8F13-D9AAC32C2DED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Domain", "3.Domain", "{8A361E68-51F2-4468-A7A3-46E80AC1E538}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentation", "1.Presentation", "{6E44E3AE-ED00-4AC7-8194-E43A756D8ED4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Application", "2.Application", "{A80D0FEA-2294-4B48-8AFB-71F753D173FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Infra", "4.Infra", "{05B77673-0628-4B36-9C30-8C1C80D74E6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Tests", "5.Tests", "{B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +28,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F94ECED9-4714-4030-8F13-D9AAC32C2DED} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 	EndGlobalSection
 EndGlobal
