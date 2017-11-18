@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+
+namespace Scorponok.Gateway.Pagamento.Domain.Models
+{
+    public class Pedido
+    {
+
+        public Pedido(string identificadorPedido)
+        {
+            this.IdentificadorPedido = identificadorPedido;
+        }
+
+        #region Propriedades
+        /// <summary>
+        ///     Identificador do pedido na sua base
+        /// </summary>
+        public string IdentificadorPedido { get; private set; }
+
+        public FormaPagamento FormaPagamento { get; private set; }
+        #endregion
+
+        public void AdicionaFormaPagamentoCartaoCredito(int valorEmCentavos, string numeoCartaoCredito, string portador)
+        {
+            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+
+            var transacao = Transaction.Factory.Create(valorEmCentavos, numeoCartaoCredito, portador);
+
+            this.FormaPagamento.CartaoCredito.AdicionaTransacao(transacao);
+        }
+
+        public void AdicionaFormaPagamentoBoleto(Transaction transacao)
+        {
+            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+
+            throw new NotImplementedException("AdicionaFormaPagamentoBoleto");
+        }
+        
+        public void AdicionaFormaPagamentoDebitoOnline(Transaction transacao)
+        {
+            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+
+            throw new NotImplementedException("AdicionaFormaPagamentoDebitoOnline");
+        }
+        
+        public void AdicionaFormaPagamentoPayPal(Transaction transacao)
+        {
+            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+
+            throw new NotImplementedException("AdicionaFormaPagamentoPayPal");
+        }
+
+}
+}
