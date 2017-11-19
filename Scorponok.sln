@@ -5,19 +5,21 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F94ECED9-4714-4030-8F13-D9AAC32C2DED}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Domain", "3.Domain", "{8A361E68-51F2-4468-A7A3-46E80AC1E538}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Domain", "4.Domain", "{8A361E68-51F2-4468-A7A3-46E80AC1E538}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentation", "1.Presentation", "{6E44E3AE-ED00-4AC7-8194-E43A756D8ED4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Application", "2.Application", "{A80D0FEA-2294-4B48-8AFB-71F753D173FB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Application", "3.Application", "{A80D0FEA-2294-4B48-8AFB-71F753D173FB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Infra", "4.Infra", "{05B77673-0628-4B36-9C30-8C1C80D74E6F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Infra", "5.Infra", "{05B77673-0628-4B36-9C30-8C1C80D74E6F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Tests", "5.Tests", "{B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.Tests", "6.Tests", "{B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Domain", "src\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj", "{FE346E31-EBC5-4955-8777-380C91AE506D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Domain.Core", "src\Scorponok.Gateway.Pagamento.Domain.Core\Scorponok.Gateway.Pagamento.Domain.Core.csproj", "{FBB6A2A1-1210-41DC-B811-37F33B768993}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Domain.Core", "src\Scorponok.Gateway.Pagamento.Domain.Core\Scorponok.Gateway.Pagamento.Domain.Core.csproj", "{FBB6A2A1-1210-41DC-B811-37F33B768993}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Services", "2.Services", "{6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,5 @@
 ﻿using Scorponok.Gateway.Pagamento.Domain.Core.Events;
-using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.Events;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;

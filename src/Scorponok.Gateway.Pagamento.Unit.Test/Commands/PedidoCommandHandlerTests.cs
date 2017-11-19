@@ -5,7 +5,7 @@ using Scorponok.Gateway.Pagamento.Domain.Core.Notifications;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
 using Scorponok.Gateway.Pagamento.Domain.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers;
-using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.Commands;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
 using System;
 using System.Collections.Generic;

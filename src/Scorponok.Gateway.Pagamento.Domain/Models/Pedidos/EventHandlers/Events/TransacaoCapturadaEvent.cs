@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.Events
+namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers.Events
 {
-    public class TransacaoCanceladaEvent : BasePedidoEvent
+    public class TransacaoCapturadaEvent : BasePedidoEvent
     {
-        public TransacaoCanceladaEvent(Guid id)
+        public TransacaoCapturadaEvent(Guid id)
         {
             this.AggregateId = id;
         }
