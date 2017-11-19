@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands
 {
-    public class CapturarTransacaoEventCommand : BaseEventCommand
+    public class CapturarPedidoEventCommand : BaseEventCommand
     {
         #region Propriedades
         public Guid Token
@@ -20,7 +20,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Comm
         } 
         #endregion
 
-        public CapturarTransacaoEventCommand(Guid token, int valorEmCentavos)
+        public CapturarPedidoEventCommand(Guid token, int valorEmCentavos)
         {
             this.Token = token;
             this.ValorEmCentavos = valorEmCentavos;

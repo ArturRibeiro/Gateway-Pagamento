@@ -14,7 +14,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Domain
         {
             #region Arrange's
 
-            var pedido = new Pedido(codigoPedido);
+            var pedido = Pedido.Factory.Create(codigoPedido);
             pedido.AdicionaFormaPagamentoCartaoCredito(valorCentavos, numero, portador);
 
             #endregion

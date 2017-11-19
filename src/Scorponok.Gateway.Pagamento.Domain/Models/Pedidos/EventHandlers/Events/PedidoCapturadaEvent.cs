@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers.Events
 {
-    public class TransacaoCapturadaEvent : BasePedidoEvent
+    public class PedidoCapturadaEvent : BasePedidoEvent
     {
-        public TransacaoCapturadaEvent(Guid id)
+        public PedidoCapturadaEvent(Guid id)
         {
             this.AggregateId = id;
         }

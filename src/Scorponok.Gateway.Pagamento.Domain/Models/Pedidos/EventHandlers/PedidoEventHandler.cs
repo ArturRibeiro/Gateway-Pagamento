@@ -7,21 +7,21 @@ using System.Text;
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers
 {
     public class PedidoEventHandler :
-        IHandler<TransacaoAutorizadaEvent>,
-        IHandler<TransacaoCapturadaEvent>,
-        IHandler<TransacaoCanceladaEvent>
+        IHandler<PedidoAutorizadoEvent>,
+        IHandler<PedidoCapturadaEvent>,
+        IHandler<PedidoCanceladoEvent>
     {
-        public void Handle(TransacaoAutorizadaEvent message)
+        public void Handle(PedidoAutorizadoEvent message)
         {
             throw new NotImplementedException();
         }
 
-        public void Handle(TransacaoCanceladaEvent message)
+        public void Handle(PedidoCanceladoEvent message)
         {
             throw new NotImplementedException();
         }
 
-        public void Handle(TransacaoCapturadaEvent message)
+        public void Handle(PedidoCapturadaEvent message)
         {
             throw new NotImplementedException();
         }

@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Services", "2.Services", "{6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Services", "Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.csproj", "{CF44996B-97A4-4272-A655-3883E3656B36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF44996B-97A4-4272-A655-3883E3656B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF44996B-97A4-4272-A655-3883E3656B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF44996B-97A4-4272-A655-3883E3656B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF44996B-97A4-4272-A655-3883E3656B36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +53,6 @@ Global
 		{F94ECED9-4714-4030-8F13-D9AAC32C2DED} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 		{FE346E31-EBC5-4955-8777-380C91AE506D} = {8A361E68-51F2-4468-A7A3-46E80AC1E538}
 		{FBB6A2A1-1210-41DC-B811-37F33B768993} = {8A361E68-51F2-4468-A7A3-46E80AC1E538}
+		{CF44996B-97A4-4272-A655-3883E3656B36} = {6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}
 	EndGlobalSection
 EndGlobal

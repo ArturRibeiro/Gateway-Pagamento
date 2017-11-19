@@ -4,9 +4,18 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands
 {
-    public class AutorizarEventCommand : BaseEventCommand
+    public class AutorizarPedidoEventCommand : BaseEventCommand
     {
         #region Propriedades
+        /// <summary>
+        ///     Identificador do pedido na sua base
+        /// </summary>
+        public string IdentificadorPedido
+        {
+            get;
+            protected set;
+        }
+
         public int ValorCentavos
         {
             get;
@@ -26,7 +35,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Comm
         }
         #endregion
 
-        public AutorizarEventCommand(string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
+        public AutorizarPedidoEventCommand(string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
         {
             this.IdentificadorPedido = identificadorPedido;
             this.ValorCentavos = valorEmCentavos;

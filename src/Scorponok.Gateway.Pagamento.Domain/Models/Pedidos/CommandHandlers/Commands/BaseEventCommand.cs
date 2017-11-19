@@ -7,13 +7,5 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Comm
 {
     public abstract class BaseEventCommand : Command
     {
-        /// <summary>
-        ///     Identificador do pedido na sua base
-        /// </summary>
-        public string IdentificadorPedido
-        {
-            get;
-            protected set;
-        }
     }
 }

@@ -9,7 +9,12 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
     public class Pedido : Entity
     {
 
-        public Pedido(string identificadorPedido)
+        public Pedido()
+        {
+
+        }
+
+        private Pedido(string identificadorPedido)
         {
             this.IdentificadorPedido = identificadorPedido;
         }
@@ -51,6 +56,12 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
             if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
 
             throw new NotImplementedException("AdicionaFormaPagamentoPayPal");
+        }
+
+        internal void CancelarTransacoes()
+        {
+            foreach (var item in this.FormaPagamento.CartaoCredito.TransactionsInternal)
+                item.AlteraStatusTransacaoParaCancelada();
         }
 
         #region Factory

@@ -7,6 +7,7 @@ using Scorponok.Gateway.Pagamento.Domain.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
         private Mock<IUnitOfWork> _mockIUnitOfWork;
         private Mock<IBus> _mockIBus;
         private Mock<IDomainNotificationHandler<DomainNotification>> _mockNotification;
+        private Mock<IPedidoService> _mockPedidoService;
 
         public PedidoCommandHandlerTests()
         {
@@ -27,6 +29,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             _mockIUnitOfWork = new Mock<IUnitOfWork>();
             _mockIBus = new Mock<IBus>();
             _mockNotification = new Mock<IDomainNotificationHandler<DomainNotification>>();
+            _mockPedidoService = new Mock<IPedidoService>();
         }
 
         [Theory, InlineData("A14587522477", 1233, "", "Artur Araújo Santos Ribeiro")]
@@ -34,7 +37,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
         {
             #region Arrange
 
-            var theEvent = new AutorizarEventCommand(identificadorPedido, valorEmCentavos, numeroCartaoCredito, portador);
+            var theEvent = new AutorizarPedidoEventCommand(identificadorPedido, valorEmCentavos, numeroCartaoCredito, portador);
 
             #endregion
 
@@ -47,7 +50,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 
             #region Act
 
-            var command = new PedidoCommandHandler(_mockIPedidoRepository.Object, _mockIUnitOfWork.Object, _mockIBus.Object, _mockNotification.Object);
+            var command = new PedidoCommandHandler(_mockIPedidoRepository.Object, _mockIUnitOfWork.Object, _mockIBus.Object, _mockPedidoService.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
             #endregion

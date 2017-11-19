@@ -6,7 +6,16 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
     public class Transaction
     {
+        public Transaction()
+        {
+            this.ValorCentavos = 0;
+            this.CartaoCredito = null;
+            this.NumeroParcelas = 0;
+            this.Status = null;
+        }
+
         private Transaction(int valorEmCentavos, string numeroCartaoCredito, string portador)
+            : this()
         {
             this.ValorCentavos = valorEmCentavos;
 
@@ -28,6 +37,14 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         /// Número de Parcelas
         /// </summary>
         public int NumeroParcelas { get; private set; }
+
+
+        public string Status { get; private set; }
+
+        internal void AlteraStatusTransacaoParaCancelada()
+        {
+            this.Status = "Cancelada";
+        }
 
         #region Factory
         public static class Factory
