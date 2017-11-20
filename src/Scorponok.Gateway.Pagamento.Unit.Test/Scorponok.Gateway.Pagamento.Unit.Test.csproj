@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Data.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj" />
   </ItemGroup>
 
