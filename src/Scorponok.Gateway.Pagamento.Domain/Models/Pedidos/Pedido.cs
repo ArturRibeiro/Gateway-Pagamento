@@ -11,7 +11,8 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 
         public Pedido()
         {
-
+            this.Id = Guid.NewGuid();
+            this.DataCriacao = DateTime.Now;
         }
 
         private Pedido(string identificadorPedido)
@@ -24,6 +25,8 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         ///     Identificador do pedido na sua base
         /// </summary>
         public string IdentificadorPedido { get; private set; }
+
+        public DateTime DataCriacao { get; private set; }
 
         public FormaPagamento FormaPagamento { get; private set; }
         #endregion

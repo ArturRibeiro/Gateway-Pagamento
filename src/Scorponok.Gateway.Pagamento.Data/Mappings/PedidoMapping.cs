@@ -11,7 +11,10 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Pedido> mp)
         {
+            mp.ToTable("Pedido");
+
             mp.HasKey(x => x.Id).HasName("Id");
+            mp.HasKey(x => x.DataCriacao).HasName("DataCriacao");
 
             mp.Property(x => x.IdentificadorPedido);
         }

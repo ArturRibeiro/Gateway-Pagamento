@@ -25,11 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bounded Context  - Gateway 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bounded Context - Adquirente", "Bounded Context - Adquirente", "{89A28FD1-0EF5-4996-88AF-FD30C43AFE93}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test.Integration", "src\Scorponok.Gateway.Pagamento.Unit.Test.Integration\Scorponok.Gateway.Pagamento.Unit.Test.Integration.csproj", "{4840C671-D59E-4262-93E7-E9DAC0B1E6D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Services", "src\Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.csproj", "{B4B5344A-2423-4576-8820-B9AF1F5B1D59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Services", "src\Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.csproj", "{B4B5344A-2423-4576-8820-B9AF1F5B1D59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Data", "src\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Data.csproj", "{0453BD08-973D-4234-8E69-0342801331AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Data", "src\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Data.csproj", "{0453BD08-973D-4234-8E69-0342801331AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Unit.Test.Integration", "src\Scorponok.Gateway.Pagamento.Unit.Test.Integration\Scorponok.Gateway.Pagamento.Unit.Test.Integration.csproj", "{AA75ED1B-8E91-431D-9F6D-081A281F55E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +49,6 @@ Global
 		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBB6A2A1-1210-41DC-B811-37F33B768993}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4840C671-D59E-4262-93E7-E9DAC0B1E6D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4840C671-D59E-4262-93E7-E9DAC0B1E6D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4840C671-D59E-4262-93E7-E9DAC0B1E6D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4840C671-D59E-4262-93E7-E9DAC0B1E6D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4B5344A-2423-4576-8820-B9AF1F5B1D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4B5344A-2423-4576-8820-B9AF1F5B1D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4B5344A-2423-4576-8820-B9AF1F5B1D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +57,10 @@ Global
 		{0453BD08-973D-4234-8E69-0342801331AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0453BD08-973D-4234-8E69-0342801331AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0453BD08-973D-4234-8E69-0342801331AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA75ED1B-8E91-431D-9F6D-081A281F55E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA75ED1B-8E91-431D-9F6D-081A281F55E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA75ED1B-8E91-431D-9F6D-081A281F55E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA75ED1B-8E91-431D-9F6D-081A281F55E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,9 +75,9 @@ Global
 		{FE346E31-EBC5-4955-8777-380C91AE506D} = {8A361E68-51F2-4468-A7A3-46E80AC1E538}
 		{FBB6A2A1-1210-41DC-B811-37F33B768993} = {8A361E68-51F2-4468-A7A3-46E80AC1E538}
 		{6CE8CDA8-4873-4A73-9986-CCBDC6324F9F} = {A7671ECB-747F-449E-A39C-984EBCA9E2B5}
-		{4840C671-D59E-4262-93E7-E9DAC0B1E6D5} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 		{B4B5344A-2423-4576-8820-B9AF1F5B1D59} = {6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}
 		{0453BD08-973D-4234-8E69-0342801331AD} = {05B77673-0628-4B36-9C30-8C1C80D74E6F}
+		{AA75ED1B-8E91-431D-9F6D-081A281F55E0} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30133B6E-6EB8-4322-A7E4-270FF855802D}

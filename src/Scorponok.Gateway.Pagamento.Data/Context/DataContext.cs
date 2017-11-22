@@ -9,7 +9,7 @@ namespace Scorponok.Gateway.Pagamento.Data.Context
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DbContext> opcoes)
+        public DataContext(DbContextOptions<DataContext> opcoes)
             : base(opcoes)
         {
 
@@ -21,7 +21,11 @@ namespace Scorponok.Gateway.Pagamento.Data.Context
 
             modelBuilder.ApplyConfiguration(new PedidoMapping());
 
+            modelBuilder.Ignore<FormaPagamento>();
+
         }
+
+        public DbSet<Pedido> Pedidos { get; set; }
 
     }
 }
