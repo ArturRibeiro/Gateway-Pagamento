@@ -28,8 +28,9 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
 
             _context = new DataContext(builder.Options);
 
-            //_context.Database.EnsureCreated();
-            //_context.Database.Migrate();
+            // Start with a clean database
+            _context.Database.EnsureDeleted();
+            _context.Database.EnsureCreated();
         }
 
         [Fact]
