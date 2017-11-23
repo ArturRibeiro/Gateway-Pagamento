@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
@@ -29,6 +30,9 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         public DateTime DataCriacao { get; private set; }
 
         public FormaPagamento FormaPagamento { get; private set; }
+
+        public Loja Loja { get; private set; }
+
         #endregion
 
         public void AdicionaFormaPagamentoCartaoCredito(int valorEmCentavos, string numeoCartaoCredito, string portador)

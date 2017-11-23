@@ -43,20 +43,23 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
         [Fact]
         public void Start()
         {
-            var pedido = Builder<Pedido>
-                .CreateNew()
-                    .With(x => x.IdentificadorPedido, "A0012121331")
-                .Build();
-
-            _context.Pedidos.Add(pedido);
-            _context.SaveChanges();
-
             var loja = new Faker<Loja>(locale: "pt_BR")
                 .RuleFor(x => x.Cnpj, b => b.Company.Cnpj())
                 .RuleFor(x => x.Nome, b => b.Company.CompanyName());
 
             _context.Lojas.Add(loja);
             _context.SaveChanges();
+
+            var pedido = Builder<Pedido>
+                .CreateNew()
+                    .With(x => x.IdentificadorPedido, "A0012121331")
+                    .With(x => x.Loja, loja)
+                .Build();
+
+            _context.Pedidos.Add(pedido);
+            _context.SaveChanges();
+
+
         }
     }
 }

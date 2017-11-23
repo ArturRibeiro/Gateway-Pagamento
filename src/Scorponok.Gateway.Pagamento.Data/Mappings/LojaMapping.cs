@@ -12,7 +12,7 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Loja> mp)
         {
-            mp.ToTable("Pedido");
+            mp.ToTable("Loja");
 
             mp.HasKey(x => x.Id).HasName("Id");
 
@@ -38,6 +38,10 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
             mp.Property(x => x.DataAtualizacao)
                 .HasColumnName("DataAtualizacao")
                 .IsRequired();
+
+            mp.HasMany(x => x.Pedidos)
+                .WithOne(x => x.Loja)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

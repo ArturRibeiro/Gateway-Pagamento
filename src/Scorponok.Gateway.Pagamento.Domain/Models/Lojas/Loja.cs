@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Lojas
@@ -23,5 +24,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Lojas
         public DateTime DataCriacao { get; private set; }
 
         public DateTime? DataAtualizacao { get; private set; }
+
+        public IEnumerable<Pedido> Pedidos { get; private set; }
     }
 }
