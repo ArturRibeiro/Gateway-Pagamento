@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F94ECED9-4714-4030-8F13-D9AAC32C2DED}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Domain", "4.Domain", "{8A361E68-51F2-4468-A7A3-46E80AC1E538}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Presentation", "1.Presentation", "{6E44E3AE-ED00-4AC7-8194-E43A756D8ED4}"
@@ -29,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Data", "src\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Data.csproj", "{0453BD08-973D-4234-8E69-0342801331AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Unit.Test.Integration", "src\Scorponok.Gateway.Pagamento.Unit.Test.Integration\Scorponok.Gateway.Pagamento.Unit.Test.Integration.csproj", "{AA75ED1B-8E91-431D-9F6D-081A281F55E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test.Integration", "src\Scorponok.Gateway.Pagamento.Unit.Test.Integration\Scorponok.Gateway.Pagamento.Unit.Test.Integration.csproj", "{AA75ED1B-8E91-431D-9F6D-081A281F55E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F919CAEC-0AC4-450A-BDCF-46359E106872}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F94ECED9-4714-4030-8F13-D9AAC32C2DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F94ECED9-4714-4030-8F13-D9AAC32C2DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F94ECED9-4714-4030-8F13-D9AAC32C2DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F94ECED9-4714-4030-8F13-D9AAC32C2DED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE346E31-EBC5-4955-8777-380C91AE506D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FE346E31-EBC5-4955-8777-380C91AE506D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE346E31-EBC5-4955-8777-380C91AE506D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,12 +57,15 @@ Global
 		{AA75ED1B-8E91-431D-9F6D-081A281F55E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA75ED1B-8E91-431D-9F6D-081A281F55E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA75ED1B-8E91-431D-9F6D-081A281F55E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F919CAEC-0AC4-450A-BDCF-46359E106872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F919CAEC-0AC4-450A-BDCF-46359E106872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F919CAEC-0AC4-450A-BDCF-46359E106872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F919CAEC-0AC4-450A-BDCF-46359E106872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F94ECED9-4714-4030-8F13-D9AAC32C2DED} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 		{8A361E68-51F2-4468-A7A3-46E80AC1E538} = {A7671ECB-747F-449E-A39C-984EBCA9E2B5}
 		{6E44E3AE-ED00-4AC7-8194-E43A756D8ED4} = {A7671ECB-747F-449E-A39C-984EBCA9E2B5}
 		{A80D0FEA-2294-4B48-8AFB-71F753D173FB} = {A7671ECB-747F-449E-A39C-984EBCA9E2B5}
@@ -78,6 +77,7 @@ Global
 		{B4B5344A-2423-4576-8820-B9AF1F5B1D59} = {6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}
 		{0453BD08-973D-4234-8E69-0342801331AD} = {05B77673-0628-4B36-9C30-8C1C80D74E6F}
 		{AA75ED1B-8E91-431D-9F6D-081A281F55E0} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
+		{F919CAEC-0AC4-450A-BDCF-46359E106872} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30133B6E-6EB8-4322-A7E4-270FF855802D}

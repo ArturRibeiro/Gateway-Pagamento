@@ -4,6 +4,7 @@ using Scorponok.Gateway.Pagamento.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 
 namespace Scorponok.Gateway.Pagamento.Data.Context
 {
@@ -20,12 +21,15 @@ namespace Scorponok.Gateway.Pagamento.Data.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new PedidoMapping());
+            modelBuilder.ApplyConfiguration(new PedidoMapping());
 
             modelBuilder.Ignore<FormaPagamento>();
 
         }
 
         public DbSet<Pedido> Pedidos { get; set; }
+
+        public DbSet<Loja> Lojas { get; set; }
 
     }
 }
