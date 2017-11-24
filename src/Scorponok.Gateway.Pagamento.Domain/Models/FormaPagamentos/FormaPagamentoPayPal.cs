@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
-    public class FormaPagamentoPayPal
+    public class FormaPagamentoPayPal : FormaPagamento
     {
     }
 }

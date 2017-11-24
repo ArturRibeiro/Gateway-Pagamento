@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
-    public class FormaPagamentoCartaoCredito
+    public class FormaPagamentoCartaoCredito : FormaPagamento
     {
         public FormaPagamentoCartaoCredito()
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
-    public class FormaPagamentoDebitoOnline
+    public class FormaPagamentoDebitoOnline : FormaPagamento
     {
     }
 }

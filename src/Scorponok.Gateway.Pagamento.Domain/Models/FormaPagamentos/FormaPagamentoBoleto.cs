@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
-    public class FormaPagamentoBoleto
+    public class FormaPagamentoBoleto : FormaPagamento
     {
-        internal FormaPagamentoBoleto()
-        {
+        //internal FormaPagamentoBoleto()
+        //{
 
-        }
+        //}
     }
 }

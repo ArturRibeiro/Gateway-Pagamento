@@ -20,6 +20,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
     {
         private readonly DataContext _context;
 
+
         public DataContextMappingsTests()
         {
             var serviceProvider = new ServiceCollection()
@@ -29,7 +30,10 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
 
             var builder = new DbContextOptionsBuilder<DataContext>();
 
-            builder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Gateway.Pagamentos.Dev;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            //builder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Gateway.Pagamentos.Dev;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+            //    .UseInternalServiceProvider(serviceProvider);
+
+            builder.UseSqlServer($"Data Source=DESKTOP-T5U2T7J;Initial Catalog=Gateway.Pagamento.Dev;Integrated Security=True")
                 .UseInternalServiceProvider(serviceProvider);
 
             _context = new DataContext(builder.Options);
@@ -38,26 +42,47 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
 
             _context.Database.EnsureDeleted();
             _context.Database.EnsureCreated();
+            //_context.Database.Migrate();
         }
 
         [Fact]
         public void Start()
         {
-            var loja = new Faker<Loja>(locale: "pt_BR")
-                .RuleFor(x => x.Cnpj, b => b.Company.Cnpj())
-                .RuleFor(x => x.Nome, b => b.Company.CompanyName());
+            try
+            {
+                var loja = Builder<Loja>
+            .CreateNew()
+                .With(x => x.Nome, Faker.Company.Name())
+                .With(x => x.Cnpj, Faker.Company.Suffix())
+                .With(x => x.RazaoSocial, Faker.Company.Name())
+            .Build();
+                _context.Lojas.Add(loja);
 
-            _context.Lojas.Add(loja);
-            _context.SaveChanges();
 
-            var pedido = Builder<Pedido>
-                .CreateNew()
-                    .With(x => x.IdentificadorPedido, "A0012121331")
-                    .With(x => x.Loja, loja)
-                .Build();
+                var pedido = Builder<Pedido>
+                    .CreateNew()
+                        .With(x => x.IdentificadorPedido, "A0012121331")
+                        .With(x => x.Loja, loja)
+                    .Build();
+                _context.Pedidos.Add(pedido);
 
-            _context.Pedidos.Add(pedido);
-            _context.SaveChanges();
+                var formaPagamentoCartao = Builder<FormaPagamentoCartaoCredito>
+                    .CreateNew()
+                        .With(x => x.Pedido, pedido)
+                    .Build();
+                _context.FormaPagamentos.Add(formaPagamentoCartao);
+
+                //var formaPagamentoBoleto = Builder<FormaPagamentoBoleto>
+                //    .CreateNew()
+                //        .With(x => x.Pedido, pedido)
+                //    .Build();
+                //_context.FormaPagamentos.Add(formaPagamentoBoleto);
+
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+            }
 
 
         }

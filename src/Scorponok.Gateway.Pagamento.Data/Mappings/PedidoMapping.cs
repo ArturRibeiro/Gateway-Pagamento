@@ -13,17 +13,21 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
         {
             mp.ToTable("Pedido");
 
-            mp.HasKey(x => x.Id)
-                .HasName("Id");
+            mp.HasKey(x => x.Id);
 
             mp.Property(x => x.DataCriacao)
                 .HasColumnName("DataCriacao")
                 .IsRequired();
 
-            mp.HasOne(x => x.Loja);
-                //.WithMany(x => x.Pedidos)
-                //.HasForeignKey(x => x.Loja)
-                //.IsRequired();
+            mp.HasOne(x => x.Loja)
+                .WithMany(x => x.Pedidos)
+                .OnDelete(DeleteBehavior.Restrict)
+                .IsRequired();
+
+            mp.HasOne(x => x.FormaPagamento)
+                .WithOne(x => x.Pedido)
+                .IsRequired();
+
 
             mp.Property(x => x.IdentificadorPedido)
                 .HasMaxLength(60)

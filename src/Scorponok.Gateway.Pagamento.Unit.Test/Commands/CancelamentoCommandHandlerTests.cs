@@ -52,7 +52,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 
             var formaPagamento = Builder<FormaPagamento>
                 .CreateNew()
-                    .With(x => x.CartaoCredito, cartaoCredito)
+                    //.With(x => x.CartaoCredito, cartaoCredito)
                 .Build();
 
             var pedido = Builder<Pedido>
@@ -83,10 +83,10 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             #region Assert's 
 
             pedido.FormaPagamento.Should().NotBeNull();
-            pedido.FormaPagamento.CartaoCredito.Should().NotBeNull();
-            pedido.FormaPagamento.CartaoCredito.Transactions.Should().HaveCount(1);
-            pedido.FormaPagamento.CartaoCredito.Transactions[0].Status.Should().Be("Cancelada");
-            pedido.FormaPagamento.CartaoCredito.Transactions[0].ValorCentavos.Should().Be(valorEmCentavos);
+            //pedido.FormaPagamento.CartaoCredito.Should().NotBeNull();
+            //pedido.FormaPagamento.CartaoCredito.Transactions.Should().HaveCount(1);
+            //pedido.FormaPagamento.CartaoCredito.Transactions[0].Status.Should().Be("Cancelada");
+            //pedido.FormaPagamento.CartaoCredito.Transactions[0].ValorCentavos.Should().Be(valorEmCentavos);
 
             _mockIPedidoRepository.Verify(x => x.ObterPor(guid), Times.Once);
             _mockIUnitOfWork.Verify(x => x.Commit(), Times.Once);

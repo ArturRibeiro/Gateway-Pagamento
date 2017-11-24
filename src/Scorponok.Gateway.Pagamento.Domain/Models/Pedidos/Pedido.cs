@@ -37,38 +37,38 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 
         public void AdicionaFormaPagamentoCartaoCredito(int valorEmCentavos, string numeoCartaoCredito, string portador)
         {
-            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+            //if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoCartaoCredito();
 
-            var transacao = Transaction.Factory.Create(valorEmCentavos, numeoCartaoCredito, portador);
+            //var transacao = Transaction.Factory.Create(valorEmCentavos, numeoCartaoCredito, portador);
 
-            this.FormaPagamento.CartaoCredito.AdicionaTransacao(transacao);
+            //this.FormaPagamento.CartaoCredito.AdicionaTransacao(transacao);
         }
 
         public void AdicionaFormaPagamentoBoleto(Transaction transacao)
         {
-            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoBoleto();
 
             throw new NotImplementedException("AdicionaFormaPagamentoBoleto");
         }
         
         public void AdicionaFormaPagamentoDebitoOnline(Transaction transacao)
         {
-            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoDebitoOnline();
 
             throw new NotImplementedException("AdicionaFormaPagamentoDebitoOnline");
         }
         
         public void AdicionaFormaPagamentoPayPal(Transaction transacao)
         {
-            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamento();
+            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoPayPal();
 
             throw new NotImplementedException("AdicionaFormaPagamentoPayPal");
         }
 
         internal void CancelarTransacoes()
         {
-            foreach (var item in this.FormaPagamento.CartaoCredito.TransactionsInternal)
-                item.AlteraStatusTransacaoParaCancelada();
+            //foreach (var item in this.FormaPagamento.CartaoCredito.TransactionsInternal)
+            //    item.AlteraStatusTransacaoParaCancelada();
         }
 
         #region Factory

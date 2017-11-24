@@ -14,7 +14,7 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
         {
             mp.ToTable("Loja");
 
-            mp.HasKey(x => x.Id).HasName("Id");
+            mp.HasKey(x => x.Id);
 
             mp.Property(x => x.Nome)
                 .HasColumnName("Nome")
@@ -36,8 +36,7 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
                 .IsRequired();
 
             mp.Property(x => x.DataAtualizacao)
-                .HasColumnName("DataAtualizacao")
-                .IsRequired();
+                .HasColumnName("DataAtualizacao");
 
             mp.HasMany(x => x.Pedidos)
                 .WithOne(x => x.Loja)

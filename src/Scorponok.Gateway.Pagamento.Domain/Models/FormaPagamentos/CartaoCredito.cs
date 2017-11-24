@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
-    public class CartaoCredito
+    public class CartaoCredito : Entity
     {
         #region Construtores
         public CartaoCredito()
