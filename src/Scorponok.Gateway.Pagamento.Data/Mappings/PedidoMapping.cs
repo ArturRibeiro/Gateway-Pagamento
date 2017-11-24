@@ -24,14 +24,15 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 
-            mp.HasOne(x => x.FormaPagamento)
-                .WithOne(x => x.Pedido)
-                .IsRequired();
-
-
             mp.Property(x => x.IdentificadorPedido)
                 .HasMaxLength(60)
                 .IsRequired();
+
+            //mp.HasOne(x => x.FormaPagamentoBoleto)
+            //    .WithOne(x => x.Pedido);
+
+            //mp.HasOne(x => x.FormaPagamentoCartaoCredito)
+            //    .WithOne(x => x.Pedido);
         }
     }
 }

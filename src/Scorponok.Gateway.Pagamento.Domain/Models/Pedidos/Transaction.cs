@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
+using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 
-namespace Scorponok.Gateway.Pagamento.Domain.Models
+namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos
 {
-    public class Transaction
+    public class Transacao : Entity
     {
-        public Transaction()
+        #region Construtores
+        public Transacao()
         {
             this.ValorCentavos = 0;
             this.CartaoCredito = null;
@@ -14,7 +14,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
             this.Status = null;
         }
 
-        private Transaction(int valorEmCentavos, string numeroCartaoCredito, string portador)
+        private Transacao(int valorEmCentavos, string numeroCartaoCredito, string portador)
             : this()
         {
             this.ValorCentavos = valorEmCentavos;
@@ -22,7 +22,9 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 
             this.CartaoCredito = CartaoCredito.Factory.Create(numeroCartaoCredito, portador);
         }
+        #endregion
 
+        #region Propriedades
         /// <summary>
         /// Valor da transação em centavos. R$ 100,00 = 10000
         /// </summary>
@@ -44,14 +46,15 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         internal void AlteraStatusTransacaoParaCancelada()
         {
             this.Status = "Cancelada";
-        }
+        } 
+        #endregion
 
         #region Factory
         public static class Factory
         {
-            public static Transaction Create(int valorEmCentavos, string numeroCartaoCredito, string portador)
+            public static Transacao Create(int valorEmCentavos, string numeroCartaoCredito, string portador)
             {
-                return new Transaction(valorEmCentavos, numeroCartaoCredito, portador);
+                return new Transacao(valorEmCentavos, numeroCartaoCredito, portador);
             }
         }
         #endregion

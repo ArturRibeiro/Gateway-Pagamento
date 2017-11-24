@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
 
-namespace Scorponok.Gateway.Pagamento.Domain.Models
+namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
 {
-    public class FormaPagamentoBoleto : FormaPagamento
+    public class FormaPagamentoBoleto : Entity
     {
         //internal FormaPagamentoBoleto()
         //{
 
         //}
+        public Pedido Pedido { get; private set; }
     }
 }

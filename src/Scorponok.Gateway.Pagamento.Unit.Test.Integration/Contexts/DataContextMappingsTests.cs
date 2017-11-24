@@ -10,6 +10,7 @@ using System.Text;
 using Bogus;
 using Bogus.Extensions.Brazil;
 using Microsoft.Extensions.Configuration;
+using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Xunit;
 
@@ -41,7 +42,6 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
         [Fact]
         public void Start()
         {
-
             var loja = Builder<Loja>
                 .CreateNew()
                     .With(x => x.Nome, Faker.Company.Name())
@@ -49,7 +49,6 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
                     .With(x => x.RazaoSocial, Faker.Company.Name())
                 .Build();
             _context.Lojas.Add(loja);
-
 
             #region Pedido com forma de pagamento boleto
             var pedido1 = Builder<Pedido>
@@ -64,28 +63,26 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
                     .With(x => x.Id, Guid.NewGuid())
                     .With(x => x.Pedido, pedido1)
                 .Build();
-            _context.FormaPagamentos.Add(formaPagamentoBoleto); 
+            _context.FormaPagamentoBoletos.Add(formaPagamentoBoleto);
             #endregion
 
+            //#region Pedido com forma de pagamento cartão de credito
+            //var pedido2 = Builder<Pedido>
+            //.CreateNew()
+            //    .With(x => x.IdentificadorPedido, "A0012121332")
+            //    .With(x => x.Loja, loja)
+            //.Build();
+            //_context.Pedidos.Add(pedido2);
 
-            #region Pedido com forma de pagamento cartão de credito
-            var pedido2 = Builder<Pedido>
-            .CreateNew()
-                .With(x => x.IdentificadorPedido, "A0012121332")
-                .With(x => x.Loja, loja)
-            .Build();
-            _context.Pedidos.Add(pedido2);
-
-            var formaPagamentoCartao = Builder<FormaPagamentoCartaoCredito>
-                .CreateNew()
-                .With(x => x.Id, Guid.NewGuid())
-                    .With(x => x.Pedido, pedido2)
-                .Build();
-            _context.FormaPagamentos.Add(formaPagamentoCartao); 
-            #endregion
+            //var formaPagamentoCartao = Builder<FormaPagamentoCartaoCredito>
+            //    .CreateNew()
+            //    .With(x => x.Id, Guid.NewGuid())
+            //        .With(x => x.Pedido, pedido2)
+            //    .Build();
+            //_context.FormaPagamentoCartaoCreditos.Add(formaPagamentoCartao); 
+            //#endregion
 
             _context.SaveChanges();
-
         }
     }
 }

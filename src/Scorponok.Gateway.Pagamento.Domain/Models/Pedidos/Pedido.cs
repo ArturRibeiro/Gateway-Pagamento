@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
     public class Pedido : Entity
     {
-
         public Pedido()
         {
             this.Id = Guid.NewGuid();
@@ -29,7 +30,9 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 
         public DateTime DataCriacao { get; private set; }
 
-        public FormaPagamento FormaPagamento { get; private set; }
+        //public FormaPagamentoBoleto FormaPagamentoBoleto { get; private set; }
+
+        //public FormaPagamentoCartaoCredito FormaPagamentoCartaoCredito { get; private set; }
 
         public Loja Loja { get; private set; }
 
@@ -44,27 +47,13 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
             //this.FormaPagamento.CartaoCredito.AdicionaTransacao(transacao);
         }
 
-        public void AdicionaFormaPagamentoBoleto(Transaction transacao)
+        public void AdicionaFormaPagamentoBoleto(Transacao transacao)
         {
-            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoBoleto();
+            //if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoBoleto();
 
-            throw new NotImplementedException("AdicionaFormaPagamentoBoleto");
+            //throw new NotImplementedException("AdicionaFormaPagamentoBoleto");
         }
         
-        public void AdicionaFormaPagamentoDebitoOnline(Transaction transacao)
-        {
-            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoDebitoOnline();
-
-            throw new NotImplementedException("AdicionaFormaPagamentoDebitoOnline");
-        }
-        
-        public void AdicionaFormaPagamentoPayPal(Transaction transacao)
-        {
-            if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoPayPal();
-
-            throw new NotImplementedException("AdicionaFormaPagamentoPayPal");
-        }
-
         internal void CancelarTransacoes()
         {
             //foreach (var item in this.FormaPagamento.CartaoCredito.TransactionsInternal)
