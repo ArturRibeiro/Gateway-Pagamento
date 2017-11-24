@@ -19,6 +19,10 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
                 .WithOne(x => x.FormaPagamento)
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
+
+            mp.HasDiscriminator<string>("TipoPagamento")
+                .HasValue<FormaPagamentoBoleto>("boleto")
+                .HasValue<FormaPagamentoCartaoCredito>("cartao");
         }
     }
 }

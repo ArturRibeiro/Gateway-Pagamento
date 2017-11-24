@@ -22,15 +22,10 @@ namespace Scorponok.Gateway.Pagamento.Data.Context
 
             modelBuilder.ApplyConfiguration(new PedidoMapping());
             modelBuilder.ApplyConfiguration(new LojaMapping());
-            //modelBuilder.ApplyConfiguration(new FormaPagamentoMapping());
+            modelBuilder.ApplyConfiguration(new FormaPagamentoMapping());
 
             modelBuilder.Ignore<CartaoCredito>();
             modelBuilder.Ignore<Transaction>();
-
-            modelBuilder.Entity<FormaPagamento>()
-            .HasDiscriminator<string>("type")
-            .HasValue<FormaPagamentoBoleto>("cash")
-            .HasValue<FormaPagamentoCartaoCredito>("creditcard");
         }
 
         public DbSet<Pedido> Pedidos { get; set; }

@@ -27,63 +27,64 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
                 .AddEntityFrameworkSqlServer()
                 .BuildServiceProvider();
 
-
             var builder = new DbContextOptionsBuilder<DataContext>();
 
-            //builder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Gateway.Pagamentos.Dev;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
-            //    .UseInternalServiceProvider(serviceProvider);
-
-            builder.UseSqlServer($"Data Source=DESKTOP-T5U2T7J;Initial Catalog=Gateway.Pagamento.Dev;Integrated Security=True")
+            builder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=Gateway.Pagamento.Dev;Integrated Security=True")
                 .UseInternalServiceProvider(serviceProvider);
 
             _context = new DataContext(builder.Options);
 
-            // Start with a clean database
-
             _context.Database.EnsureDeleted();
             _context.Database.EnsureCreated();
-            //_context.Database.Migrate();
         }
 
         [Fact]
         public void Start()
         {
-            try
-            {
-                var loja = Builder<Loja>
+
+            var loja = Builder<Loja>
+                .CreateNew()
+                    .With(x => x.Nome, Faker.Company.Name())
+                    .With(x => x.Cnpj, Faker.Company.Suffix())
+                    .With(x => x.RazaoSocial, Faker.Company.Name())
+                .Build();
+            _context.Lojas.Add(loja);
+
+
+            #region Pedido com forma de pagamento boleto
+            var pedido1 = Builder<Pedido>
+                .CreateNew()
+                    .With(x => x.IdentificadorPedido, "A0012121331")
+                    .With(x => x.Loja, loja)
+                .Build();
+            _context.Pedidos.Add(pedido1);
+
+            var formaPagamentoBoleto = Builder<FormaPagamentoBoleto>
+                .CreateNew()
+                    .With(x => x.Id, Guid.NewGuid())
+                    .With(x => x.Pedido, pedido1)
+                .Build();
+            _context.FormaPagamentos.Add(formaPagamentoBoleto); 
+            #endregion
+
+
+            #region Pedido com forma de pagamento cartão de credito
+            var pedido2 = Builder<Pedido>
             .CreateNew()
-                .With(x => x.Nome, Faker.Company.Name())
-                .With(x => x.Cnpj, Faker.Company.Suffix())
-                .With(x => x.RazaoSocial, Faker.Company.Name())
+                .With(x => x.IdentificadorPedido, "A0012121332")
+                .With(x => x.Loja, loja)
             .Build();
-                _context.Lojas.Add(loja);
+            _context.Pedidos.Add(pedido2);
 
+            var formaPagamentoCartao = Builder<FormaPagamentoCartaoCredito>
+                .CreateNew()
+                .With(x => x.Id, Guid.NewGuid())
+                    .With(x => x.Pedido, pedido2)
+                .Build();
+            _context.FormaPagamentos.Add(formaPagamentoCartao); 
+            #endregion
 
-                var pedido = Builder<Pedido>
-                    .CreateNew()
-                        .With(x => x.IdentificadorPedido, "A0012121331")
-                        .With(x => x.Loja, loja)
-                    .Build();
-                _context.Pedidos.Add(pedido);
-
-                var formaPagamentoCartao = Builder<FormaPagamentoCartaoCredito>
-                    .CreateNew()
-                        .With(x => x.Pedido, pedido)
-                    .Build();
-                _context.FormaPagamentos.Add(formaPagamentoCartao);
-
-                //var formaPagamentoBoleto = Builder<FormaPagamentoBoleto>
-                //    .CreateNew()
-                //        .With(x => x.Pedido, pedido)
-                //    .Build();
-                //_context.FormaPagamentos.Add(formaPagamentoBoleto);
-
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-            }
-
+            _context.SaveChanges();
 
         }
     }
