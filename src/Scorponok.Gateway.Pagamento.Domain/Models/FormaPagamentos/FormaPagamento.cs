@@ -2,13 +2,12 @@
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
 {
-    //public abstract class FormaPagamento : Entity
-    //{
-    //    //public readonly FormaPagamentoCartaoCredito CartaoCredito = new FormaPagamentoCartaoCredito();
-    //    //public readonly FormaPagamentoBoleto Boleto = new FormaPagamentoBoleto();
-    //    //public readonly FormaPagamentoDebitoOnline DebitoOnline = new FormaPagamentoDebitoOnline();
-    //    //public readonly FormaPagamentoPayPal PayPal = new FormaPagamentoPayPal();
+    public abstract class FormaPagamento : Entity
+    {
+        public int ValorCentavos { get; private set; }
 
-    //    public Pedido Pedido { get; private set; }
-    //}
+        public string Name { get; private set; }
+
+        public Pedido Pedido { get; private set; }
+    }
 }

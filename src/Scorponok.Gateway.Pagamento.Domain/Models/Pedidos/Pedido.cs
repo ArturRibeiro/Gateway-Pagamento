@@ -6,6 +6,7 @@ using System.Text;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
+using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
@@ -30,9 +31,9 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 
         public DateTime DataCriacao { get; private set; }
 
-        //public FormaPagamentoBoleto FormaPagamentoBoleto { get; private set; }
+        public FormaPagamento FormaPagamento { get; private set; }
 
-        //public FormaPagamentoCartaoCredito FormaPagamentoCartaoCredito { get; private set; }
+        //public FormaPagamentoCartaoCredito CartaoCredito { get; private set; }
 
         public Loja Loja { get; private set; }
 

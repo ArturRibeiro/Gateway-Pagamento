@@ -11,7 +11,7 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Pedido> mp)
         {
-            mp.ToTable("Pedido");
+            mp.ToTable("PEDIDO");
 
             mp.HasKey(x => x.Id);
 
@@ -28,11 +28,9 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
                 .HasMaxLength(60)
                 .IsRequired();
 
-            //mp.HasOne(x => x.FormaPagamentoBoleto)
-            //    .WithOne(x => x.Pedido);
-
-            //mp.HasOne(x => x.FormaPagamentoCartaoCredito)
-            //    .WithOne(x => x.Pedido);
+            mp.HasOne(x => x.FormaPagamento)
+                .WithOne(x => x.Pedido)
+                .IsRequired();
         }
     }
 }

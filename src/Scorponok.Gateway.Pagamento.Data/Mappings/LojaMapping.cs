@@ -12,7 +12,7 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Loja> mp)
         {
-            mp.ToTable("Loja");
+            mp.ToTable("LOJA");
 
             mp.HasKey(x => x.Id);
 

@@ -10,10 +10,9 @@ using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
 using System;
 using Xunit;
-using FluentAssertions;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
-using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
+using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 {
@@ -43,16 +42,16 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 
             var transacao = Builder<Transacao>
                 .CreateNew()
-                    .With(x => x.ValorCentavos, valorEmCentavos)
+                    //.With(x => x.ValorCentavos, valorEmCentavos)
                     .With(x => x.Status, "Autorizado")
                 .Build();
 
-            var cartaoCredito = Builder<FormaPagamentoCartaoCredito>
+            var cartaoCredito = Builder<FormaPagamentoCartao>
                 .CreateNew()
-                    .Do(x => x.AdicionaTransacao(transacao))
+                    //.Do(x => x.AdicionaTransacao(transacao))
                 .Build();
 
-            var formaPagamento = Builder<FormaPagamentoCartaoCredito>
+            var formaPagamento = Builder<FormaPagamentoCartao>
                 .CreateNew()
                     //.With(x => x.CartaoCredito, cartaoCredito)
                 .Build();
