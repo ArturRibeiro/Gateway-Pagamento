@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Domain", "4.Domain", "{8A361E68-51F2-4468-A7A3-46E80AC1E538}"
 EndProject
@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test.Integration", "src\Scorponok.Gateway.Pagamento.Unit.Test.Integration\Scorponok.Gateway.Pagamento.Unit.Test.Integration.csproj", "{AA75ED1B-8E91-431D-9F6D-081A281F55E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F919CAEC-0AC4-450A-BDCF-46359E106872}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F919CAEC-0AC4-450A-BDCF-46359E106872}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus", "src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus.csproj", "{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{F919CAEC-0AC4-450A-BDCF-46359E106872}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F919CAEC-0AC4-450A-BDCF-46359E106872}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F919CAEC-0AC4-450A-BDCF-46359E106872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{0453BD08-973D-4234-8E69-0342801331AD} = {05B77673-0628-4B36-9C30-8C1C80D74E6F}
 		{AA75ED1B-8E91-431D-9F6D-081A281F55E0} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 		{F919CAEC-0AC4-450A-BDCF-46359E106872} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
+		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C} = {05B77673-0628-4B36-9C30-8C1C80D74E6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30133B6E-6EB8-4322-A7E4-270FF855802D}

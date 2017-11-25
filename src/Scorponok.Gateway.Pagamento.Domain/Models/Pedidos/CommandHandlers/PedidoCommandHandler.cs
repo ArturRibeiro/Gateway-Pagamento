@@ -25,7 +25,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         private readonly IPedidoRepository _pedidoRepository;
         private readonly IUnitOfWork _uow;
         private readonly IBus _bus;
-        private readonly IPedidoService _pedidoService;
+        //private readonly IPedidoService _pedidoService;
         private readonly IDomainNotificationHandler<DomainNotification> _notification;
 
         public PedidoCommandHandler(IPedidoRepository pedidoRepository, IUnitOfWork uow, IBus bus, IPedidoService pedidoService, IDomainNotificationHandler<DomainNotification> notification)
@@ -33,7 +33,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         {
             _pedidoRepository = pedidoRepository;
             _bus = bus;
-            _pedidoService = pedidoService;
+            //_pedidoService = pedidoService;
             _notification = notification;
         }
 
@@ -56,7 +56,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
 
         public void Handle(CancelarPedidoEventCommand message)
         {
-            var pedido = _pedidoRepository.ObterPor(message.PedidoToken);
+            var pedido = _pedidoRepository.GetById(message.PedidoToken);
 
             //Chama o serviço de pedido para continuar processando o fluxo
 

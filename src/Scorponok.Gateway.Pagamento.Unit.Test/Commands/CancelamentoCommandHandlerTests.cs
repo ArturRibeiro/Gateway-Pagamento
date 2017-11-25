@@ -68,7 +68,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 
             #region Stub's
 
-            _mockIPedidoRepository.Setup(x => x.ObterPor(guid)).Returns(pedido);
+            _mockIPedidoRepository.Setup(x => x.GetById(guid)).Returns(pedido);
             _mockIUnitOfWork.Setup(x => x.Commit()).Returns(new CommandResult(true));
 
             #endregion
@@ -89,7 +89,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             //pedido.FormaPagamento.CartaoCredito.Transactions[0].Status.Should().Be("Cancelada");
             //pedido.FormaPagamento.CartaoCredito.Transactions[0].ValorCentavos.Should().Be(valorEmCentavos);
 
-            _mockIPedidoRepository.Verify(x => x.ObterPor(guid), Times.Once);
+            _mockIPedidoRepository.Verify(x => x.GetById(guid), Times.Once);
             _mockIUnitOfWork.Verify(x => x.Commit(), Times.Once);
             #endregion
 

@@ -1,22 +1,22 @@
 ﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
+using System.Linq;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Interfaces
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
-        void Add(TEntity entity);
+        void Add(TEntity obj);
 
-        TEntity Save(TEntity entity);
+        TEntity GetById(Guid id);
 
-        void Remove(TEntity entity);
+        IQueryable<TEntity> GetAll();
 
-        TEntity Updade(TEntity entity);
+        void Update(TEntity obj);
 
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        void Remove(Guid id);
+
+        int SaveChanges();
 
     }
 }
