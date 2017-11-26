@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test", "src\Scorponok.Gateway.Pagamento.Unit.Test\Scorponok.Gateway.Pagamento.Unit.Test.csproj", "{F919CAEC-0AC4-450A-BDCF-46359E106872}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus", "src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus.csproj", "{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus", "src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus.csproj", "{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility", "src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility.csproj", "{9C57F820-BC63-4C08-8522-1210D43E4B6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C57F820-BC63-4C08-8522-1210D43E4B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C57F820-BC63-4C08-8522-1210D43E4B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C57F820-BC63-4C08-8522-1210D43E4B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C57F820-BC63-4C08-8522-1210D43E4B6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{AA75ED1B-8E91-431D-9F6D-081A281F55E0} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 		{F919CAEC-0AC4-450A-BDCF-46359E106872} = {B1B9435A-3F4F-4E1E-97DB-4E9D96B28DDA}
 		{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C} = {05B77673-0628-4B36-9C30-8C1C80D74E6F}
+		{9C57F820-BC63-4C08-8522-1210D43E4B6A} = {05B77673-0628-4B36-9C30-8C1C80D74E6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30133B6E-6EB8-4322-A7E4-270FF855802D}

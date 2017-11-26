@@ -15,7 +15,6 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
     {
         private readonly DataContext _context;
 
-
         public DataContextMappingsTests()
         {
             var serviceProvider = new ServiceCollection()
@@ -31,10 +30,9 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts
 
             _context.Database.EnsureDeleted();
             _context.Database.EnsureCreated();
-            //_context.Database.Migrate();
         }
 
-        [Fact]
+        //[Fact]
         public void Start()
         {
             var loja = Builder<Loja>

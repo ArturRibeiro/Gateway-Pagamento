@@ -38,7 +38,9 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
             mp.Property(x => x.DataAtualizacao)
                 .HasColumnName("DataAtualizacao");
 
-            mp.HasMany(x => x.Pedidos)
+            mp.Ignore(x => x.Pedidos);
+
+            mp.HasMany(x => x.PedidosInternal)
                 .WithOne(x => x.Loja)
                 .OnDelete(DeleteBehavior.Cascade);
         }

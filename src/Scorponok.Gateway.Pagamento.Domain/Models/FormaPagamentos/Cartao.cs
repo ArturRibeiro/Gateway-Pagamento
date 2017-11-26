@@ -11,6 +11,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
         #region Construtores
         public Cartao()
         {
+            this.Id = Guid.NewGuid();
             this.Expiracao = 0;
             this.Bandeira = null;
             this.Cvv = null;
@@ -113,6 +114,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
                 return new Cartao(numeroCartaoCredito, portador);
             }
         }
+
         #endregion
     }
 }

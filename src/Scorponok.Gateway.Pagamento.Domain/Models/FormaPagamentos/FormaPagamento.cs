@@ -1,13 +1,19 @@
 ﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
+using System;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
 {
     public abstract class FormaPagamento : Entity
     {
-        public int ValorCentavos { get; private set; }
+        protected FormaPagamento()
+        {
+            this.Id = Guid.NewGuid();
+        }
 
-        public string Name { get; private set; }
+        public int ValorCentavos { get; protected set; }
 
-        public Pedido Pedido { get; private set; }
+        public string Name { get; protected set; }
+
+        public Pedido Pedido { get; protected set; }
     }
 }

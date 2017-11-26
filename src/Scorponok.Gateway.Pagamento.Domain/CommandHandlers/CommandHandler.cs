@@ -29,8 +29,8 @@ namespace Scorponok.Gateway.Pagamento.Domain.CommandHandlers
             if (_notification.HasNotifications()) return false;
 
             var commandResult = _uow.Commit();
-            
-            _bus.RaiseEvent(new DomainNotification("Commit", "Ocorreu um erro ao  salvar os dados no banco."));
+
+            if (!commandResult.Success) _bus.RaiseEvent(new DomainNotification("Commit", "Ocorreu um erro ao  salvar os dados no banco."));
 
             return commandResult.Success;
         }

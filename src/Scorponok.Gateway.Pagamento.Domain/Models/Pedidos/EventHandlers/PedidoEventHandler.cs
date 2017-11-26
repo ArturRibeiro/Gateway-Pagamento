@@ -13,17 +13,17 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers
     {
         public void Handle(PedidoAutorizadoEvent message)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void Handle(PedidoCanceladoEvent message)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void Handle(PedidoCapturadaEvent message)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

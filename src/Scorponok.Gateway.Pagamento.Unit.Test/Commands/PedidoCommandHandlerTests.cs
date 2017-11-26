@@ -4,6 +4,7 @@ using Scorponok.Gateway.Pagamento.Domain.Core.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Core.Notifications;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
 using Scorponok.Gateway.Pagamento.Domain.Models;
+using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
@@ -18,6 +19,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
     public class PedidoCommandHandlerTests
     {
         private Mock<IPedidoRepository> _mockIPedidoRepository;
+        private Mock<ILojaRepository> _mockILojaRepository;
         private Mock<IUnitOfWork> _mockIUnitOfWork;
         private Mock<IBus> _mockIBus;
         private Mock<IDomainNotificationHandler<DomainNotification>> _mockNotification;
@@ -26,6 +28,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
         public PedidoCommandHandlerTests()
         {
             _mockIPedidoRepository = new Mock<IPedidoRepository>();
+            _mockILojaRepository = new Mock<ILojaRepository>();
             _mockIUnitOfWork = new Mock<IUnitOfWork>();
             _mockIBus = new Mock<IBus>();
             _mockNotification = new Mock<IDomainNotificationHandler<DomainNotification>>();
@@ -37,7 +40,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
         {
             #region Arrange
 
-            var theEvent = new AutorizarPedidoEventCommand(identificadorPedido, valorEmCentavos, numeroCartaoCredito, portador);
+            var theEvent = new AutorizarPedidoEventCommand(Guid.NewGuid(), identificadorPedido, valorEmCentavos, numeroCartaoCredito, portador);
 
             #endregion
 
@@ -50,7 +53,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 
             #region Act
 
-            var command = new PedidoCommandHandler(_mockIPedidoRepository.Object, _mockIUnitOfWork.Object, _mockIBus.Object, _mockPedidoService.Object, _mockNotification.Object);
+            var command = new PedidoCommandHandler(_mockILojaRepository.Object, _mockIPedidoRepository.Object, _mockIUnitOfWork.Object, _mockIBus.Object, _mockPedidoService.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
             #endregion

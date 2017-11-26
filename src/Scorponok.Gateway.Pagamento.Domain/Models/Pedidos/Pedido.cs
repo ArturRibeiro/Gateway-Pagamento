@@ -12,16 +12,23 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 {
     public class Pedido : Entity
     {
+        #region Construtores
         public Pedido()
         {
             this.Id = Guid.NewGuid();
             this.DataCriacao = DateTime.Now;
         }
 
-        private Pedido(string identificadorPedido)
+        private Pedido(Loja loja, string IdentificadorPedido, int valorEmCentavos, string numeoCartaoCredito, string portador)
+            : this()
         {
-            this.IdentificadorPedido = identificadorPedido;
-        }
+            this.Loja = loja;
+
+            this.IdentificadorPedido = numeoCartaoCredito;
+
+            this.AdicionaFormaPagamentoCartao(valorEmCentavos, numeoCartaoCredito, portador);
+        } 
+        #endregion
 
         #region Propriedades
         /// <summary>
@@ -32,20 +39,14 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         public DateTime DataCriacao { get; private set; }
 
         public FormaPagamento FormaPagamento { get; private set; }
-
-        //public FormaPagamentoCartaoCredito CartaoCredito { get; private set; }
-
+        
         public Loja Loja { get; private set; }
 
         #endregion
 
-        public void AdicionaFormaPagamentoCartaoCredito(int valorEmCentavos, string numeoCartaoCredito, string portador)
+        public void AdicionaFormaPagamentoCartao(int valorEmCentavos, string numeoCartaoCredito, string portador)
         {
-            //if (this.FormaPagamento == null) this.FormaPagamento = new FormaPagamentoCartaoCredito();
-
-            //var transacao = Transaction.Factory.Create(valorEmCentavos, numeoCartaoCredito, portador);
-
-            //this.FormaPagamento.CartaoCredito.AdicionaTransacao(transacao);
+            this.FormaPagamento = FormaPagamentoCartao.Factory.Create(this, numeoCartaoCredito, valorEmCentavos, portador);
         }
 
         public void AdicionaFormaPagamentoBoleto(Transacao transacao)
@@ -57,16 +58,15 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         
         internal void CancelarTransacoes()
         {
-            //foreach (var item in this.FormaPagamento.CartaoCredito.TransactionsInternal)
-            //    item.AlteraStatusTransacaoParaCancelada();
+
         }
 
         #region Factory
         public static class Factory
         {
-            public static Pedido Create(string identificadorPedido)
+            internal static Pedido AutorizarPedido(Loja loja, string IdentificadorPedido, int valorCentavos, string numeroCartaoCredito, string portador)
             {
-                return new Pedido(identificadorPedido);                
+                return new Pedido(loja, IdentificadorPedido, valorCentavos, numeroCartaoCredito, portador);
             }
         }
         #endregion

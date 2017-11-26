@@ -20,7 +20,7 @@ namespace Scorponok.Gateway.Pagamento.Data.Mappings
                 .IsRequired();
 
             mp.HasOne(x => x.Loja)
-                .WithMany(x => x.Pedidos)
+                .WithMany(x => x.PedidosInternal)
                 .OnDelete(DeleteBehavior.Restrict)
                 .IsRequired();
 

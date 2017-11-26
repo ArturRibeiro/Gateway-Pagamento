@@ -13,12 +13,14 @@ using Xunit;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
+using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 {
     public class CancelamentoCommandHandlerTests
     {
         private Mock<IPedidoRepository> _mockIPedidoRepository;
+        private Mock<ILojaRepository> _mockILojaRepository;
         private Mock<IUnitOfWork> _mockIUnitOfWork;
         private Mock<IBus> _mockIBus;
         private Mock<IDomainNotificationHandler<DomainNotification>> _mockNotification;
@@ -27,6 +29,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
         public CancelamentoCommandHandlerTests()
         {
             _mockIPedidoRepository = new Mock<IPedidoRepository>();
+            _mockILojaRepository = new Mock<ILojaRepository>();
             _mockIUnitOfWork = new Mock<IUnitOfWork>();
             _mockIBus = new Mock<IBus>();
             _mockNotification = new Mock<IDomainNotificationHandler<DomainNotification>>();
@@ -43,7 +46,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             var transacao = Builder<Transacao>
                 .CreateNew()
                     //.With(x => x.ValorCentavos, valorEmCentavos)
-                    .With(x => x.Status, "Autorizado")
+                    .With(x => x.Status, TransacaoStatus.Autorizado)
                 .Build();
 
             var cartaoCredito = Builder<FormaPagamentoCartao>
@@ -76,7 +79,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             #region Act
 
             var theEvent = new CancelarPedidoEventCommand(guid, valorEmCentavos);
-            var command = new PedidoCommandHandler(_mockIPedidoRepository.Object, _mockIUnitOfWork.Object, _mockIBus.Object, _mockPedidoService.Object, _mockNotification.Object);
+            var command = new PedidoCommandHandler(_mockILojaRepository.Object, _mockIPedidoRepository.Object, _mockIUnitOfWork.Object, _mockIBus.Object, _mockPedidoService.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
             #endregion

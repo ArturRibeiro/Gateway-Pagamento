@@ -1,50 +1,60 @@
 ﻿using Scorponok.Gateway.Pagamento.Domain.CommandHandlers;
 using Scorponok.Gateway.Pagamento.Domain.Core.Bus;
-using Scorponok.Gateway.Pagamento.Domain.Core.Events;
 using Scorponok.Gateway.Pagamento.Domain.Core.Notifications;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
+using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers.Events;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.ICommandHandler;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
+using Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
 {
     /// <summary>
     /// Manipulador de comando....
     /// </summary>
-    public class PedidoCommandHandler : CommandHandler
-        , IHandler<AutorizarPedidoEventCommand>
-        , IHandler<CancelarPedidoEventCommand>
-        , IHandler<CapturarPedidoEventCommand>
+    public class PedidoCommandHandler : CommandHandler, IPedidoCommandHandler
     {
-
         private readonly IPedidoRepository _pedidoRepository;
+        private readonly ILojaRepository _lojaRepository;
         private readonly IUnitOfWork _uow;
         private readonly IBus _bus;
-        //private readonly IPedidoService _pedidoService;
+        private readonly IPedidoService _pedidoService;
         private readonly IDomainNotificationHandler<DomainNotification> _notification;
 
-        public PedidoCommandHandler(IPedidoRepository pedidoRepository, IUnitOfWork uow, IBus bus, IPedidoService pedidoService, IDomainNotificationHandler<DomainNotification> notification)
+        public PedidoCommandHandler(ILojaRepository lojaRepository, IPedidoRepository pedidoRepository, IUnitOfWork uow, IBus bus, IPedidoService pedidoService, IDomainNotificationHandler<DomainNotification> notification)
             : base(uow, bus, notification)
         {
+            _lojaRepository = lojaRepository;
             _pedidoRepository = pedidoRepository;
             _bus = bus;
-            //_pedidoService = pedidoService;
+            _pedidoService = pedidoService;
             _notification = notification;
         }
 
         public void Handle(AutorizarPedidoEventCommand message)
         {
-            var pedido = Pedido.Factory.Create(message.IdentificadorPedido);
+            Verify.ThrowIf(message == null, () => new ArgumentNullException("message"));
 
-            //Realiza as validações de negocio....
-            //falta definir os erros encontrados 
-            //this.NotifyErrors(pedido.ValidationResult);
+            var loja = _lojaRepository.GetById(message.LojaToken);
 
+            Verify.ThrowIf(loja == null, () => new ArgumentNullException("loja"));
+
+            var pedido = Pedido.Factory.AutorizarPedido(loja
+                , message.IdentificadorPedido
+                , message.ValorCentavos
+                , message.NumeroCartaoCredito
+                , message.Portador);
+
+            loja.AdicionaPedido(pedido);
+
+            ////Realiza as validações de negocio....
+            ////falta definir os erros encontrados 
+            ////this.NotifyErrors(pedido.ValidationResult);
+            
             _pedidoRepository.Add(pedido);
 
             if (this.Commit())

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain.Core\Scorponok.Gateway.Pagamento.Domain.Core.csproj" />
+    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility.csproj" />
   </ItemGroup>
 
 </Project>

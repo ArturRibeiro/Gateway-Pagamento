@@ -11,7 +11,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Transacoes
             //this.ValorCentavos = 0;
             //this.CartaoCredito = null;
             this.NumeroParcelas = 0;
-            this.Status = null;
+            this.Status = TransacaoStatus.Criado;
         }
 
         private Transacao(int valorEmCentavos, string numeroCartaoCredito, string portador)
@@ -52,7 +52,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Transacoes
             private set;
         }
 
-        public string Status
+        public TransacaoStatus Status
         {
             get;
             private set;
@@ -60,7 +60,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Transacoes
 
         internal void AlteraStatusTransacaoParaCancelada()
         {
-            this.Status = "Cancelada";
+            this.Status = TransacaoStatus.Cancelado;
         }
         #endregion
 

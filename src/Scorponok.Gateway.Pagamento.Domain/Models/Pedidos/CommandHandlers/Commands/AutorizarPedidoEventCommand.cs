@@ -7,13 +7,19 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Comm
     public class AutorizarPedidoEventCommand : BaseEventCommand
     {
         #region Propriedades
+        public Guid LojaToken
+        {
+            get;
+            private set;
+        }
+
         /// <summary>
         ///     Identificador do pedido na sua base
         /// </summary>
         public string IdentificadorPedido
         {
             get;
-            protected set;
+            private set;
         }
 
         public int ValorCentavos
@@ -35,8 +41,9 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Comm
         }
         #endregion
 
-        public AutorizarPedidoEventCommand(string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
+        public AutorizarPedidoEventCommand(Guid lojaToken, string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
         {
+            this.LojaToken = lojaToken;
             this.IdentificadorPedido = identificadorPedido;
             this.ValorCentavos = valorEmCentavos;
             this.NumeroCartaoCredito = numeroCartaoCredito;
