@@ -1,14 +1,9 @@
-﻿using FizzWare.NBuilder;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Scorponok.Gateway.Pagamento.Data.Context;
-using Scorponok.Gateway.Pagamento.Data.Repositorys;
-using Scorponok.Gateway.Pagamento.Data.UoW;
 using Scorponok.Gateway.Pagamento.Domain.Core.Bus;
 using Scorponok.Gateway.Pagamento.Domain.Core.Events;
 using Scorponok.Gateway.Pagamento.Domain.Core.Notifications;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
-using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands;
@@ -19,10 +14,11 @@ using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus;
 using Scorponok.Gateway.Pagamento.Services;
-using Scorponok.Gateway.Pagamento.Unit.Test.Integration.Fakes;
 using System;
-using System.Configuration;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.UoW;
 using Xunit;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
 {

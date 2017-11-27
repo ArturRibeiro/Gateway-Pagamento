@@ -33,4 +33,4 @@
 //[assembly: AssemblyFileVersion("1.0.0.0")]
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("Scorponok.Gateway.Pagamento.Data")]
+[assembly: InternalsVisibleTo("Scorponok.Gateway.Pagamento.Cross.Cutting.Data")]

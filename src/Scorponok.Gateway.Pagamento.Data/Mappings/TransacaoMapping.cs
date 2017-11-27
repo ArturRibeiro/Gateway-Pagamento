@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
-namespace Scorponok.Gateway.Pagamento.Data.Mappings
+namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
 {
     public class TransacaoMapping : IEntityTypeConfiguration<Transacao>
     {

@@ -1,11 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Scorponok.Gateway.Pagamento.Data.Mappings
+namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
 {
     public class CartaoMapping : IEntityTypeConfiguration<Cartao>
     {

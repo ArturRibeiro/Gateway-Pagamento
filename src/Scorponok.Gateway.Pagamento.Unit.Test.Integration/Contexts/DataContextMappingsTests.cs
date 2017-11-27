@@ -1,12 +1,11 @@
 ﻿using FizzWare.NBuilder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Scorponok.Gateway.Pagamento.Data.Context;
 using Scorponok.Gateway.Pagamento.Domain.Models;
 using System;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
-using Xunit;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts

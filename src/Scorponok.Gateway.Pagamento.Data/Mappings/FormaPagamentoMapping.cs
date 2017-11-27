@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 
-namespace Scorponok.Gateway.Pagamento.Data.Mappings
+namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
 {
     public class FormaPagamentoMapping : IEntityTypeConfiguration<FormaPagamento>
     {
