@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
 using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Scorponok.Gateway.Pagamento.Data.Context;
-using System.Linq;
 
-namespace Scorponok.Gateway.Pagamento.Data.Repositorys
+namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys
 {
     public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : Entity
     {

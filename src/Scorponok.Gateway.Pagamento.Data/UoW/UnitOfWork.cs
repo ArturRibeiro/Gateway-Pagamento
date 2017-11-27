@@ -1,9 +1,8 @@
-﻿
-using Scorponok.Gateway.Pagamento.Data.Context;
+﻿using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
 using Scorponok.Gateway.Pagamento.Domain.Core.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
 
-namespace Scorponok.Gateway.Pagamento.Data.UoW
+namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.UoW
 {
     public class UnitOfWork : IUnitOfWork
     {

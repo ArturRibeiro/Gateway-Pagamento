@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Domain", "4.Domain", "{8A361E68-51F2-4468-A7A3-46E80AC1E538}"
 EndProject
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bounded Context - Adquirent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Services", "src\Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.csproj", "{B4B5344A-2423-4576-8820-B9AF1F5B1D59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Data", "src\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Data.csproj", "{0453BD08-973D-4234-8E69-0342801331AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Cross.Cutting.Data", "src\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Cross.Cutting.Data.csproj", "{0453BD08-973D-4234-8E69-0342801331AD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Unit.Test.Integration", "src\Scorponok.Gateway.Pagamento.Unit.Test.Integration\Scorponok.Gateway.Pagamento.Unit.Test.Integration.csproj", "{AA75ED1B-8E91-431D-9F6D-081A281F55E0}"
 EndProject
@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus", "src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus.csproj", "{ADB7E9E9-8BD8-4086-AFA5-0F1965F93E3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility", "src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility.csproj", "{9C57F820-BC63-4C08-8522-1210D43E4B6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility", "src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility.csproj", "{9C57F820-BC63-4C08-8522-1210D43E4B6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

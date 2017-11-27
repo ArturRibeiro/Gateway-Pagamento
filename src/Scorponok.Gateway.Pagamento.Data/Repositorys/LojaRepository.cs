@@ -1,11 +1,8 @@
-﻿using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
+﻿using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
+using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Scorponok.Gateway.Pagamento.Data.Context;
 
-namespace Scorponok.Gateway.Pagamento.Data.Repositorys
+namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys
 {
     public class LojaRepository : RepositoryBase<Loja>, ILojaRepository
     {

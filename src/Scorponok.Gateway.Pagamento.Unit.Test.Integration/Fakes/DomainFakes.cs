@@ -1,12 +1,12 @@
 ﻿using FizzWare.NBuilder;
 using Microsoft.Extensions.DependencyInjection;
-using Scorponok.Gateway.Pagamento.Data.Repositorys;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Faker;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Fakes
 {

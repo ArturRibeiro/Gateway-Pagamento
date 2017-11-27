@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Scorponok.Gateway.Pagamento.Data.Mappings;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings;
 using Scorponok.Gateway.Pagamento.Domain.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
-namespace Scorponok.Gateway.Pagamento.Data.Context
+namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context
 {
     public class DataContext : DbContext
     {

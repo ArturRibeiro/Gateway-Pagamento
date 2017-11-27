@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Data.csproj" />
+    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Cross.Cutting.Data.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain.Core\Scorponok.Gateway.Pagamento.Domain.Core.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.csproj" />
