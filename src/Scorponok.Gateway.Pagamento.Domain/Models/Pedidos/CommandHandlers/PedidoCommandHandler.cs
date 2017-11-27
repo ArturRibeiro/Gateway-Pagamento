@@ -18,12 +18,14 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
     /// </summary>
     public class PedidoCommandHandler : CommandHandler, IPedidoCommandHandler
     {
+        #region Atributos
         private readonly IPedidoRepository _pedidoRepository;
         private readonly ILojaRepository _lojaRepository;
         private readonly IUnitOfWork _uow;
         private readonly IBus _bus;
         private readonly IPedidoService _pedidoService;
-        private readonly IDomainNotificationHandler<DomainNotification> _notification;
+        private readonly IDomainNotificationHandler<DomainNotification> _notification; 
+        #endregion
 
         public PedidoCommandHandler(ILojaRepository lojaRepository, IPedidoRepository pedidoRepository, IUnitOfWork uow, IBus bus, IPedidoService pedidoService, IDomainNotificationHandler<DomainNotification> notification)
             : base(uow, bus, notification)
