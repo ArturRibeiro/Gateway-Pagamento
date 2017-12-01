@@ -17,6 +17,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         {
             this.Id = Guid.NewGuid();
             this.DataCriacao = DateTime.Now;
+            this.PedidoHistoricos = new List<PedidoHistorico>();
         }
 
         private Pedido(Loja loja, string IdentificadorPedido, int valorEmCentavos, string numeoCartaoCredito, string portador)
@@ -42,11 +43,30 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         
         public Loja Loja { get; private set; }
 
+        public IList<PedidoHistorico> PedidoHistoricos { get; private set; }
+
         #endregion
 
         public void AdicionaFormaPagamentoCartao(int valorEmCentavos, string numeoCartaoCredito, string portador)
         {
-            this.FormaPagamento = FormaPagamentoCartao.Factory.Create(this, numeoCartaoCredito, valorEmCentavos, portador);
+            var formaPagamento = FormaPagamentoCartao.Factory.Create(this, numeoCartaoCredito, valorEmCentavos, portador);
+
+            foreach (var item in formaPagamento.Cartao.Transactions)
+            {
+                this.PedidoHistoricos.Add(PedidoHistorico.Factory.Create(Loja.Id
+                    , Loja.Nome
+                    , this.Id
+                    , this.IdentificadorPedido
+                    , this.DataCriacao
+                    , "cartao"
+                    , formaPagamento.ValorCentavos
+                    , formaPagamento.Name
+                    , item.NumeroParcelas
+                    , item.Status));
+            }
+
+
+            this.FormaPagamento = formaPagamento;
         }
 
         public void AdicionaFormaPagamentoBoleto(Transacao transacao)

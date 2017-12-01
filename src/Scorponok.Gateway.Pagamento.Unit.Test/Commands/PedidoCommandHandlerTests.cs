@@ -4,6 +4,7 @@ using Scorponok.Gateway.Pagamento.Domain.Core.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Core.Notifications;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
 using Scorponok.Gateway.Pagamento.Domain.Models;
+using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands;
@@ -45,7 +46,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             #endregion
 
             #region Stub's
-
+            _mockILojaRepository.Setup(x => x.GetById(theEvent.LojaToken)).Returns(new Loja());
             _mockIPedidoRepository.Setup(x => x.Add(It.IsAny<Pedido>())).Verifiable();
             _mockIUnitOfWork.Setup(x => x.Commit()).Returns(new CommandResult(true));
 
@@ -61,6 +62,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             #region Assert's 
 
             _mockIPedidoRepository.Verify(x => x.Add(It.IsAny<Pedido>()), Times.Once);
+            _mockILojaRepository.Verify(x => x.GetById(theEvent.LojaToken), Times.Once);
             _mockIUnitOfWork.Verify(x => x.Commit(), Times.Once);
             #endregion
 

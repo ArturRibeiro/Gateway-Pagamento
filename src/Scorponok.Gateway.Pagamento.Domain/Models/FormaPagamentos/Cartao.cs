@@ -111,7 +111,11 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
         {
             public static Cartao Create(string numeroCartaoCredito, string portador)
             {
-                return new Cartao(numeroCartaoCredito, portador);
+                var cartao = new Cartao(numeroCartaoCredito, portador);
+
+                cartao.AdicionaTransacao(Transacao.Factory.Create(82822, numeroCartaoCredito, "TESTET TESTE"));
+
+                return cartao;
             }
         }
 
