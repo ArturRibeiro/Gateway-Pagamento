@@ -1,7 +1,4 @@
 ﻿using Scorponok.Gateway.Pagamento.Services.Cliente.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Scorponok.Gateway.Pagamento.Services.Cliente.Messages;
 using RestSharp;
 

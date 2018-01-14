@@ -71,7 +71,6 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
             //    //Processo concluido....
             //    _bus.RaiseEvent(new PedidoCanceladoEvent(pedido.Id));
             //}
-
         }
 
         public void Handle(CapturarPedidoEventCommand message)

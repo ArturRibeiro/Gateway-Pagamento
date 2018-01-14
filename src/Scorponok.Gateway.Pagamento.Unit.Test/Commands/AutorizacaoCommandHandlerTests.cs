@@ -37,7 +37,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
         [Theory, InlineData("A14587522477", 1233, "", "Artur Araújo Santos Ribeiro")]
         public void Realiza_uma_autorizacao_com_forma_pagamento_carao_credito(string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
         {
-            #region Arrange
+            //Arrange's
 
             var theEvent = new AutorizarPedidoEventCommand(Guid.NewGuid(), identificadorPedido, valorEmCentavos, numeroCartaoCredito, portador);
 
@@ -45,29 +45,19 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
                 .CreateNew()
                 .Build();
 
-            #endregion
-
-            #region Stub's
-
+            //Stub's
             _mockILojaService.Setup(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador))
                 .Returns(loja);
             
             _mockIUnitOfWork.Setup(x => x.Commit()).Returns(new CommandResult(true));
 
-            #endregion
-
-            #region Act
-
+            //Act's
             var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockILojaService.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
-            #endregion
-
-            #region Assert's 
-
+            //Assert's
             _mockILojaService.Verify(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador), Times.Once);
             _mockIUnitOfWork.Verify(x => x.Commit(), Times.Once);
-            #endregion
 
         }
     }

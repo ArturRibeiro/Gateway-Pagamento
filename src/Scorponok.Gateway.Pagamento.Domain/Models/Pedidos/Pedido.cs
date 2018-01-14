@@ -20,7 +20,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
             this.PedidoHistoricos = new List<PedidoHistorico>();
         }
 
-        private Pedido(Loja loja, string IdentificadorPedido, int valorEmCentavos, string numeoCartaoCredito, string portador)
+        internal Pedido(Loja loja, string IdentificadorPedido, int valorEmCentavos, string numeoCartaoCredito, string portador)
             : this()
         {
             this.Loja = loja;
@@ -84,9 +84,9 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         #region Factory
         public static class Factory
         {
-            public static Pedido Create(Loja loja, string IdentificadorPedido, int valorCentavos, string numeroCartaoCredito, string portador)
+            public static Pedido Create(Loja loja, string identificadorPedido, int valorCentavos, string numeroCartaoCredito, string portador)
             {
-                return new Pedido(loja, IdentificadorPedido, valorCentavos, numeroCartaoCredito, portador);
+                return new Pedido(loja, identificadorPedido, valorCentavos, numeroCartaoCredito, portador);
             }
         }
         #endregion
