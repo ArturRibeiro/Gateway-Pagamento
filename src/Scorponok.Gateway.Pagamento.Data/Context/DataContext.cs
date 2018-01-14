@@ -3,6 +3,7 @@ using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings;
 using Scorponok.Gateway.Pagamento.Domain.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
 namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context
@@ -24,6 +25,8 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context
             modelBuilder.ApplyConfiguration(new FormaPagamentoMapping());
             modelBuilder.ApplyConfiguration(new CartaoMapping());
             modelBuilder.ApplyConfiguration(new TransacaoMapping());
+
+            modelBuilder.Ignore<PedidoHistorico>();
         }
 
         public DbSet<Pedido> Pedidos { get; set; }

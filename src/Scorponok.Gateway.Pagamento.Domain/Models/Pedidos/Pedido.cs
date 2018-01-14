@@ -84,7 +84,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         #region Factory
         public static class Factory
         {
-            internal static Pedido AutorizarPedido(Loja loja, string IdentificadorPedido, int valorCentavos, string numeroCartaoCredito, string portador)
+            public static Pedido Create(Loja loja, string IdentificadorPedido, int valorCentavos, string numeroCartaoCredito, string portador)
             {
                 return new Pedido(loja, IdentificadorPedido, valorCentavos, numeroCartaoCredito, portador);
             }

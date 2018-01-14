@@ -17,6 +17,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj" />
+    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Services.Cliente\Scorponok.Gateway.Pagamento.Services.Cliente.csproj" />
+    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

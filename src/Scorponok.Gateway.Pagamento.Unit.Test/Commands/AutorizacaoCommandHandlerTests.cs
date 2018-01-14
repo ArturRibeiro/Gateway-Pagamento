@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using FizzWare.NBuilder;
+using Moq;
 using Scorponok.Gateway.Pagamento.Domain.Core.Bus;
 using Scorponok.Gateway.Pagamento.Domain.Core.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Core.Notifications;
@@ -17,52 +18,54 @@ using Xunit;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 {
-    public class PedidoCommandHandlerTests
+    public class AutorizacaoCommandHandlerTests
     {
-        private Mock<IPedidoRepository> _mockIPedidoRepository;
-        private Mock<ILojaRepository> _mockILojaRepository;
+        private Mock<ILojaService> _mockILojaService;
         private Mock<IUnitOfWork> _mockIUnitOfWork;
         private Mock<IBus> _mockIBus;
         private Mock<IDomainNotificationHandler<DomainNotification>> _mockNotification;
-        private Mock<IPedidoService> _mockPedidoService;
 
-        public PedidoCommandHandlerTests()
+        public AutorizacaoCommandHandlerTests()
         {
-            _mockIPedidoRepository = new Mock<IPedidoRepository>();
-            _mockILojaRepository = new Mock<ILojaRepository>();
+            
             _mockIUnitOfWork = new Mock<IUnitOfWork>();
             _mockIBus = new Mock<IBus>();
             _mockNotification = new Mock<IDomainNotificationHandler<DomainNotification>>();
-            _mockPedidoService = new Mock<IPedidoService>();
+            _mockILojaService = new Mock<ILojaService>();
         }
 
         [Theory, InlineData("A14587522477", 1233, "", "Artur Araújo Santos Ribeiro")]
-        public void Realiza_uma_autorizacao(string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
+        public void Realiza_uma_autorizacao_com_forma_pagamento_carao_credito(string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
         {
             #region Arrange
 
             var theEvent = new AutorizarPedidoEventCommand(Guid.NewGuid(), identificadorPedido, valorEmCentavos, numeroCartaoCredito, portador);
 
+            var loja = Builder<Loja>
+                .CreateNew()
+                .Build();
+
             #endregion
 
             #region Stub's
-            _mockILojaRepository.Setup(x => x.GetById(theEvent.LojaToken)).Returns(new Loja());
-            _mockIPedidoRepository.Setup(x => x.Add(It.IsAny<Pedido>())).Verifiable();
+
+            _mockILojaService.Setup(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador))
+                .Returns(loja);
+            
             _mockIUnitOfWork.Setup(x => x.Commit()).Returns(new CommandResult(true));
 
             #endregion
 
             #region Act
 
-            var command = new PedidoCommandHandler(_mockILojaRepository.Object, _mockIPedidoRepository.Object, _mockIUnitOfWork.Object, _mockIBus.Object, _mockPedidoService.Object, _mockNotification.Object);
+            var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockILojaService.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
             #endregion
 
             #region Assert's 
 
-            _mockIPedidoRepository.Verify(x => x.Add(It.IsAny<Pedido>()), Times.Once);
-            _mockILojaRepository.Verify(x => x.GetById(theEvent.LojaToken), Times.Once);
+            _mockILojaService.Verify(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador), Times.Once);
             _mockIUnitOfWork.Verify(x => x.Commit(), Times.Once);
             #endregion
 

@@ -13,12 +13,12 @@ using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.ICommandHandler;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus;
-using Scorponok.Gateway.Pagamento.Services;
 using System;
 using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys;
 using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.UoW;
 using Xunit;
 using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
+using Scorponok.Gateway.Pagamento.Services.Entity;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
 {
@@ -77,7 +77,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
 
         private void RegistraServices(ServiceCollection services)
         {
-            services.AddScoped<IPedidoService, PedidoService>();
+            services.AddScoped<ILojaService, LojaService>();
         }
 
         private void RegistraCommandHandlers(ServiceCollection services)
@@ -89,7 +89,8 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
-            services.AddScoped<ILojaRepository, LojaRepository>();
+            services.AddTransient<ILojaRepository, LojaRepository>();
+            //services.AddTransient<IOperationTransient, Operation>();
         }
     }
 }

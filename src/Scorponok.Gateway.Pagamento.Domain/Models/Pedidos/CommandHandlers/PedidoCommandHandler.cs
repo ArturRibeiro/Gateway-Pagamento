@@ -19,21 +19,17 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
     public class PedidoCommandHandler : CommandHandler, IPedidoCommandHandler
     {
         #region Atributos
-        private readonly IPedidoRepository _pedidoRepository;
-        private readonly ILojaRepository _lojaRepository;
         private readonly IUnitOfWork _uow;
         private readonly IBus _bus;
-        private readonly IPedidoService _pedidoService;
-        private readonly IDomainNotificationHandler<DomainNotification> _notification; 
+        private readonly ILojaService _lojaService;
+        private readonly IDomainNotificationHandler<DomainNotification> _notification;
         #endregion
 
-        public PedidoCommandHandler(ILojaRepository lojaRepository, IPedidoRepository pedidoRepository, IUnitOfWork uow, IBus bus, IPedidoService pedidoService, IDomainNotificationHandler<DomainNotification> notification)
+        public PedidoCommandHandler(IUnitOfWork uow, IBus bus, ILojaService lojaService, IDomainNotificationHandler<DomainNotification> notification)
             : base(uow, bus, notification)
         {
-            _lojaRepository = lojaRepository;
-            _pedidoRepository = pedidoRepository;
             _bus = bus;
-            _pedidoService = pedidoService;
+            _lojaService = lojaService;
             _notification = notification;
         }
 
@@ -41,23 +37,17 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         {
             Verify.ThrowIf(message == null, () => new ArgumentNullException("message"));
 
-            var loja = _lojaRepository.GetById(message.LojaToken);
-
-            Verify.ThrowIf(loja == null, () => new ArgumentNullException("loja"));
-
-            var pedido = Pedido.Factory.AutorizarPedido(loja
+            var pedido = _lojaService.Save(message.LojaToken
                 , message.IdentificadorPedido
                 , message.ValorCentavos
                 , message.NumeroCartaoCredito
                 , message.Portador);
 
-            loja.AdicionaPedido(pedido);
+
 
             ////Realiza as validações de negocio....
             ////falta definir os erros encontrados 
             ////this.NotifyErrors(pedido.ValidationResult);
-            
-            _pedidoRepository.Add(pedido);
 
             if (this.Commit())
             {
@@ -68,19 +58,19 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
 
         public void Handle(CancelarPedidoEventCommand message)
         {
-            var pedido = _pedidoRepository.GetById(message.PedidoToken);
+            //var pedido = _pedidoRepository.GetById(message.PedidoToken);
 
             //Chama o serviço de pedido para continuar processando o fluxo
 
-            pedido.CancelarTransacoes();
+            //pedido.CancelarTransacoes();
 
-            _pedidoRepository.Add(pedido);
+            //_pedidoRepository.Add(pedido);
 
-            if (this.Commit())
-            {
-                //Processo concluido....
-                _bus.RaiseEvent(new PedidoCanceladoEvent(pedido.Id));
-            }
+            //if (this.Commit())
+            //{
+            //    //Processo concluido....
+            //    _bus.RaiseEvent(new PedidoCanceladoEvent(pedido.Id));
+            //}
 
         }
 
