@@ -20,6 +20,8 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
             get;
             private set;
         }
+
+        public override string Tipo => "Cartao";
         #endregion
 
 

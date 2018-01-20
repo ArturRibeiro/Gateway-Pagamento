@@ -10,6 +10,8 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
             this.Id = Guid.NewGuid();
         }
 
+        public abstract string Tipo { get; }
+
         public int ValorCentavos { get; protected set; }
 
         public string Name { get; protected set; }

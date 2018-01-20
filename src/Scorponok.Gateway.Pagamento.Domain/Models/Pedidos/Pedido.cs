@@ -53,16 +53,19 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 
             foreach (var item in formaPagamento.Cartao.Transactions)
             {
-                this.PedidoHistoricos.Add(TransacaoHistorico.Factory.Create(Loja.Id
-                    , Loja.Nome
-                    , this.Id
-                    , this.IdentificadorPedido
-                    , this.DataCriacao
-                    , "cartao"
-                    , formaPagamento.ValorCentavos
-                    , formaPagamento.Name
-                    , item.NumeroParcelas
-                    , item.Status));
+                var lojaVO = LojaVO.Create(Loja.Id, Loja.Nome);
+                var pedidoVO = PedidoVO.Create(this.Id, this.IdentificadorPedido, this.DataCriacao);
+                var transacaoVO = TransacaoVO.Create(item.NumeroParcelas, item.Status);
+                var formaPagamentoVO = FormaPagamentoVO.Create(formaPagamento.ValorCentavos, formaPagamento.Tipo);
+                var cartaoVO = CartaoVO.Create(formaPagamento.Cartao.Bandeira, formaPagamento.Cartao.Expiracao, formaPagamento.Cartao.Numero, formaPagamento.Cartao.Portador);
+
+
+                PedidoHistoricos.Add(TransacaoHistorico.Factory.Create(
+                     lojaVO
+                    , pedidoVO
+                    , formaPagamentoVO
+                    , transacaoVO
+                    , cartaoVO));
             }
 
 

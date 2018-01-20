@@ -18,7 +18,6 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new PedidoMapping());
             modelBuilder.ApplyConfiguration(new LojaMapping());
@@ -27,7 +26,7 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context
             modelBuilder.ApplyConfiguration(new TransacaoMapping());
             modelBuilder.ApplyConfiguration(new PedidoHistoricoMapping());
 
-            
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Pedido> Pedidos { get; set; }

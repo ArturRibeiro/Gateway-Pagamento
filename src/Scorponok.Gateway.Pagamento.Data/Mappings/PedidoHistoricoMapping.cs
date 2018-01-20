@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
@@ -14,8 +11,43 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
             mp.ToTable("Historico_Transacao");
 
             mp.HasKey(x => x.Id);
-            mp.OwnsOne(x => x.LojaVO);
-            
+
+            mp.OwnsOne(o => o.LojaVO, c =>
+            {
+                c.Property(p => p.LojaId).HasColumnName("LojaId");
+                c.Property(p => p.LojaNome).HasColumnName("LojaNome");
+            });
+
+            mp.OwnsOne(o => o.PedidoVO, c =>
+            {
+                c.Ignore(p => p.PedidoId);
+                //c.Property(p => p.PedidoId).HasColumnName("PedidoId");
+                c.Property(p => p.PedidoIdentificador).HasColumnName("PedidoIdentificador");
+                c.Property(p => p.PedidoDataCriacao).HasColumnName("PedidoDataCriacao");
+            });
+
+            mp.OwnsOne(o => o.TransacaoVO, c =>
+            {
+                c.Property(p => p.TransacaoStatus).HasColumnName("TransacaoStatus");
+                c.Property(p => p.TransacaoNumeroParcelas).HasColumnName("TransacaoNumeroParcelas");
+            });
+
+            mp.OwnsOne(o => o.FormaPagamentoVO, c =>
+            {
+                c.Property(p => p.FormaPagamentoTipo).HasColumnName("FormaPagamentoTipo");
+                c.Property(p => p.FormaPagamentoValorCentavos).HasColumnName("FormaPagamentoValorCentavos");
+            });
+
+            mp.OwnsOne(o => o.CartaoVO, c =>
+            {
+                c.Ignore(x => x.CartaoCvv);
+                c.Property(p => p.CartaoBandeira).HasColumnName("CartaoBandeira");
+                c.Property(p => p.CartaoExpiracao).HasColumnName("CartaoExpiracao");
+                c.Property(p => p.CartaoNumero).HasColumnName("CartaoNumero");
+                c.Property(p => p.CartaoPortador).HasColumnName("CartaoPortador");
+
+            });
+
 
 
             //mp.Property(x => x.PedidoId)
