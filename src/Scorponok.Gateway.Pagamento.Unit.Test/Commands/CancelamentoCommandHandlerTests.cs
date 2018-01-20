@@ -24,8 +24,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
         private Mock<IUnitOfWork> _mockIUnitOfWork;
         private Mock<IBus> _mockIBus;
         private Mock<IDomainNotificationHandler<DomainNotification>> _mockNotification;
-        private Mock<IProdutoService> _mockProdutoService;
-
+        
         public CancelamentoCommandHandlerTests()
         {
             _mockIPedidoRepository = new Mock<IPedidoRepository>();
@@ -33,7 +32,6 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             _mockIUnitOfWork = new Mock<IUnitOfWork>();
             _mockIBus = new Mock<IBus>();
             _mockNotification = new Mock<IDomainNotificationHandler<DomainNotification>>();
-            _mockProdutoService = new Mock<IProdutoService>();
         }
 
         [Theory, InlineData("A0000548227", 1233)]
@@ -79,7 +77,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             #region Act
 
             var theEvent = new CancelarPedidoEventCommand(guid, valorEmCentavos);
-            var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockProdutoService.Object, _mockNotification.Object);
+            var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockIPedidoRepository.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
             #endregion

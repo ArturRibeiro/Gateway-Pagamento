@@ -20,7 +20,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 {
     public class AutorizacaoCommandHandlerTests
     {
-        private Mock<IProdutoService> _mockProdutoService;
+        private Mock<IPedidoRepository> _mockPedidoRepository;
         private Mock<IUnitOfWork> _mockIUnitOfWork;
         private Mock<IBus> _mockIBus;
         private Mock<IDomainNotificationHandler<DomainNotification>> _mockNotification;
@@ -31,7 +31,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             _mockIUnitOfWork = new Mock<IUnitOfWork>();
             _mockIBus = new Mock<IBus>();
             _mockNotification = new Mock<IDomainNotificationHandler<DomainNotification>>();
-            _mockProdutoService = new Mock<IProdutoService>();
+            _mockPedidoRepository = new Mock<IPedidoRepository>();
         }
 
         [Theory, InlineData("A14587522477", 1233, "", "Artur Araújo Santos Ribeiro")]
@@ -45,17 +45,17 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
                 .Build();
 
             //Stub's
-            _mockProdutoService.Setup(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador))
+            _mockPedidoRepository.Setup(x => x.Create(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador))
                 .Returns(pedido);
             
             _mockIUnitOfWork.Setup(x => x.Commit()).Returns(new CommandResult(true));
 
             //Act's
-            var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockProdutoService.Object, _mockNotification.Object);
+            var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockPedidoRepository.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
             //Assert's
-            _mockProdutoService.Verify(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador), Times.Once);
+            _mockPedidoRepository.Verify(x => x.Create(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador), Times.Once);
             _mockIUnitOfWork.Verify(x => x.Commit(), Times.Once);
 
         }

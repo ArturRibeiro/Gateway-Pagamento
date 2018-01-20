@@ -21,15 +21,15 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         #region Atributos
         private readonly IUnitOfWork _uow;
         private readonly IBus _bus;
-        private readonly IProdutoService _prudutoService;
+        private readonly IPedidoRepository _pedidoRepository;
         private readonly IDomainNotificationHandler<DomainNotification> _notification;
         #endregion
 
-        public PedidoCommandHandler(IUnitOfWork uow, IBus bus, IProdutoService prudutoService, IDomainNotificationHandler<DomainNotification> notification)
+        public PedidoCommandHandler(IUnitOfWork uow, IBus bus, IPedidoRepository pedidoRepository, IPedidoRepository _pedidoRepository, IDomainNotificationHandler<DomainNotification> notification)
             : base(uow, bus, notification)
         {
             _bus = bus;
-            _prudutoService = prudutoService;
+            _pedidoRepository = pedidoRepository;
             _notification = notification;
         }
 
@@ -37,7 +37,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         {
             Verify.ThrowIf(message == null, () => new ArgumentNullException("message"));
 
-            var pedido = _prudutoService.Save(message.LojaToken
+            var pedido = _pedidoRepository.Create(message.LojaToken
                 , message.IdentificadorPedido
                 , message.ValorCentavos
                 , message.NumeroCartaoCredito

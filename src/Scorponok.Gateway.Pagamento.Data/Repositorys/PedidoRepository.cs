@@ -1,7 +1,9 @@
-﻿using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
+﻿using System;
+using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
 using Scorponok.Gateway.Pagamento.Domain.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
+using Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility;
 
 namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys
 {
@@ -13,11 +15,23 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys
 
         }
 
-        public override void Create(Pedido pedido)
+        public Pedido Create(Guid lojaToken, string identificadorPedido, int valorCentavos, string numeroCartaoCredito, string portador)
         {
-            _dataContext.Set<Loja>().Attach(pedido.Loja);
+            Verify.ThrowIf(identificadorPedido == null, () => new ArgumentNullException("identificadorPedido"));
+            Verify.ThrowIf(valorCentavos <= 0, () => new ArgumentNullException("valorCentavos"));
+            Verify.ThrowIf(numeroCartaoCredito == null, () => new ArgumentNullException("numeroCartaoCredito"));
+            Verify.ThrowIf(portador == null, () => new ArgumentNullException("portador"));
 
-            base.Create(pedido);
+            var loja = new Loja(lojaToken);
+
+            var pedido = Pedido.Factory.Create(loja, identificadorPedido, valorCentavos, numeroCartaoCredito, portador);
+
+            _dataContext.Set<Loja>().Attach(pedido.Loja);
+            _dataContext.Entry(pedido.Loja).Reload();
+
+            this.Create(pedido);
+
+            return pedido;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<FormaPagamento> mb)
         {
-            mb.ToTable("FORMA_PAGAMENTO");
+            mb.ToTable("FormaPagamento");
 
             mb.HasKey(x => x.Id);
 

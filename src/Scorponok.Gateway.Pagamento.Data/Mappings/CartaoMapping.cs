@@ -8,7 +8,7 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Cartao> builder)
         {
-            builder.ToTable("CARTAO");
+            builder.ToTable("Cartao");
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Bandeira)

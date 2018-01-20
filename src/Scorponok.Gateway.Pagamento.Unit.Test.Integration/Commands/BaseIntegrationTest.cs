@@ -67,7 +67,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
 
         private void RegistraServices()
         {
-            _services.AddScoped<IProdutoService, ProdutoService>();
+            _services.AddScoped<IPedidoService, PedidoService>();
         }
 
         private void RegistraCommandHandlers()

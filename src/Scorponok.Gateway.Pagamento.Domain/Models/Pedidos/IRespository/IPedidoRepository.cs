@@ -7,6 +7,6 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository
 {
     public interface IPedidoRepository : IRepository<Pedido>
     {
-        //Pedido ObterPor(Guid Id);
+        Pedido Create(Guid lojaToken, string identificadorPedido, int valorCentavos, string numeroCartaoCredito, string portador);
     }
 }

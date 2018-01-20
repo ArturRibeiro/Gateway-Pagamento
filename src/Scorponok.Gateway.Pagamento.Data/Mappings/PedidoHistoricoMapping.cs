@@ -8,7 +8,7 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<TransacaoHistorico> mp)
         {
-            mp.ToTable("Historico_Transacao");
+            mp.ToTable("TransacaoHistorico");
 
             mp.HasKey(x => x.Id);
 
@@ -21,66 +21,40 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
             mp.OwnsOne(o => o.PedidoVO, c =>
             {
                 c.Ignore(p => p.PedidoId);
+                c.Ignore(p => p.PedidoIdentificador);
+                c.Ignore(p => p.PedidoDataCriacao);
                 //c.Property(p => p.PedidoId).HasColumnName("PedidoId");
-                c.Property(p => p.PedidoIdentificador).HasColumnName("PedidoIdentificador");
-                c.Property(p => p.PedidoDataCriacao).HasColumnName("PedidoDataCriacao");
+                //c.Property(p => p.PedidoIdentificador).HasColumnName("PedidoIdentificador");
+                //c.Property(p => p.PedidoDataCriacao).HasColumnName("PedidoDataCriacao");
             });
 
             mp.OwnsOne(o => o.TransacaoVO, c =>
             {
-                c.Property(p => p.TransacaoStatus).HasColumnName("TransacaoStatus");
-                c.Property(p => p.TransacaoNumeroParcelas).HasColumnName("TransacaoNumeroParcelas");
+                c.Property(p => p.TransacaoStatus).HasColumnName("Status");
+                c.Ignore(p => p.TransacaoNumeroParcelas);
+                //c.Property(p => p.TransacaoNumeroParcelas).HasColumnName("TransacaoNumeroParcelas");
             });
 
             mp.OwnsOne(o => o.FormaPagamentoVO, c =>
             {
-                c.Property(p => p.FormaPagamentoTipo).HasColumnName("FormaPagamentoTipo");
-                c.Property(p => p.FormaPagamentoValorCentavos).HasColumnName("FormaPagamentoValorCentavos");
+                c.Ignore(p => p.FormaPagamentoTipo);
+                c.Ignore(p => p.FormaPagamentoValorCentavos);
+                //c.Property(p => p.FormaPagamentoTipo).HasColumnName("FormaPagamentoTipo");
+                //c.Property(p => p.FormaPagamentoValorCentavos).HasColumnName("FormaPagamentoValorCentavos");
             });
 
             mp.OwnsOne(o => o.CartaoVO, c =>
             {
                 c.Ignore(x => x.CartaoCvv);
-                c.Property(p => p.CartaoBandeira).HasColumnName("CartaoBandeira");
-                c.Property(p => p.CartaoExpiracao).HasColumnName("CartaoExpiracao");
-                c.Property(p => p.CartaoNumero).HasColumnName("CartaoNumero");
-                c.Property(p => p.CartaoPortador).HasColumnName("CartaoPortador");
-
+                c.Ignore(x => x.CartaoBandeira);
+                c.Ignore(x => x.CartaoExpiracao);
+                c.Ignore(x => x.CartaoNumero);
+                c.Ignore(x => x.CartaoPortador);
+                //c.Property(p => p.CartaoBandeira).HasColumnName("CartaoBandeira");
+                //c.Property(p => p.CartaoExpiracao).HasColumnName("CartaoExpiracao");
+                //c.Property(p => p.CartaoNumero).HasColumnName("CartaoNumero");
+                //c.Property(p => p.CartaoPortador).HasColumnName("CartaoPortador");
             });
-
-
-
-            //mp.Property(x => x.PedidoId)
-            //    .HasColumnName("PedidoId")
-            //    .IsRequired();
-
-            //mp.Property(x => x.PedidoIdentificador)
-            //    .HasColumnName("IdentificadorPedido")
-            //    .IsRequired();
-
-            //mp.Property(x => x.PedidoDataCriacao)
-            //    .HasColumnName("DataCriacaoPedido")
-            //    .IsRequired();
-
-            //mp.Property(x => x.FormaPagamentoNome)
-            //    .HasColumnName("FormaPagamentoDescricao")
-            //    .IsRequired();
-
-            //mp.Property(x => x.FormaPagamentoValorCentavos)
-            //    .HasColumnName("ValorCentavos")
-            //    .IsRequired();
-
-            ////mp.Property(x => x.Nome)
-            ////    .HasColumnName("")
-            ////    .IsRequired();
-
-            //mp.Property(x => x.TransacaoNumeroParcelas)
-            //    .HasColumnName("NumeroParcelas")
-            //    .IsRequired();
-
-            //mp.Property(x => x.TransacaoStatus)
-            //    .HasColumnName("StatusTransacao")
-            //    .IsRequired();
         }
     }
 }
