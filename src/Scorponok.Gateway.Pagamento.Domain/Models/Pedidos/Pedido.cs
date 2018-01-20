@@ -17,7 +17,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         {
             this.Id = Guid.NewGuid();
             this.DataCriacao = DateTime.Now;
-            this.PedidoHistoricos = new List<PedidoHistorico>();
+            this.PedidoHistoricos = new List<TransacaoHistorico>();
         }
 
         internal Pedido(Loja loja, string IdentificadorPedido, int valorEmCentavos, string numeoCartaoCredito, string portador)
@@ -43,7 +43,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
         
         public Loja Loja { get; private set; }
 
-        public IList<PedidoHistorico> PedidoHistoricos { get; private set; }
+        public IList<TransacaoHistorico> PedidoHistoricos { get; private set; }
 
         #endregion
 
@@ -53,7 +53,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models
 
             foreach (var item in formaPagamento.Cartao.Transactions)
             {
-                this.PedidoHistoricos.Add(PedidoHistorico.Factory.Create(Loja.Id
+                this.PedidoHistoricos.Add(TransacaoHistorico.Factory.Create(Loja.Id
                     , Loja.Nome
                     , this.Id
                     , this.IdentificadorPedido

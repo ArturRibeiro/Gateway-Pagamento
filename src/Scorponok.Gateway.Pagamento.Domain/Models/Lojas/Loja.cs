@@ -19,6 +19,12 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Lojas
             this.DataAtualizacao = null;
             this.PedidosInternal = new List<Pedido>();
         }
+
+        public Loja(Guid id)
+            : this()
+        {
+            this.Id = id;
+        }
         #endregion
 
         #region Propriedades

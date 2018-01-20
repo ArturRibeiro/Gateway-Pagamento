@@ -6,7 +6,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Interfaces
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
-        void Add(TEntity obj);
+        void Create(TEntity obj);
 
         TEntity GetById(Guid id);
 

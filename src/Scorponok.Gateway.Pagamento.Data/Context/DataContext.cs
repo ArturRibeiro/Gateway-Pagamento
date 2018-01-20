@@ -25,8 +25,9 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context
             modelBuilder.ApplyConfiguration(new FormaPagamentoMapping());
             modelBuilder.ApplyConfiguration(new CartaoMapping());
             modelBuilder.ApplyConfiguration(new TransacaoMapping());
+            modelBuilder.ApplyConfiguration(new PedidoHistoricoMapping());
 
-            modelBuilder.Ignore<PedidoHistorico>();
+            
         }
 
         public DbSet<Pedido> Pedidos { get; set; }
@@ -40,6 +41,8 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context
         public DbSet<Cartao> Cartoes { get; set; }
 
         public DbSet<Transacao> Transacoes { get; set; }
+
+        public DbSet<TransacaoHistorico> TransacaoHistoricos { get; set; }
     }
 
 }

@@ -20,7 +20,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 {
     public class AutorizacaoCommandHandlerTests
     {
-        private Mock<ILojaService> _mockILojaService;
+        private Mock<IProdutoService> _mockProdutoService;
         private Mock<IUnitOfWork> _mockIUnitOfWork;
         private Mock<IBus> _mockIBus;
         private Mock<IDomainNotificationHandler<DomainNotification>> _mockNotification;
@@ -31,32 +31,31 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
             _mockIUnitOfWork = new Mock<IUnitOfWork>();
             _mockIBus = new Mock<IBus>();
             _mockNotification = new Mock<IDomainNotificationHandler<DomainNotification>>();
-            _mockILojaService = new Mock<ILojaService>();
+            _mockProdutoService = new Mock<IProdutoService>();
         }
 
         [Theory, InlineData("A14587522477", 1233, "", "Artur Araújo Santos Ribeiro")]
         public void Realiza_uma_autorizacao_com_forma_pagamento_carao_credito(string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito, string portador)
         {
             //Arrange's
-
             var theEvent = new AutorizarPedidoEventCommand(Guid.NewGuid(), identificadorPedido, valorEmCentavos, numeroCartaoCredito, portador);
 
-            var loja = Builder<Loja>
+            var pedido = Builder<Pedido>
                 .CreateNew()
                 .Build();
 
             //Stub's
-            _mockILojaService.Setup(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador))
-                .Returns(loja);
+            _mockProdutoService.Setup(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador))
+                .Returns(pedido);
             
             _mockIUnitOfWork.Setup(x => x.Commit()).Returns(new CommandResult(true));
 
             //Act's
-            var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockILojaService.Object, _mockNotification.Object);
+            var command = new PedidoCommandHandler(_mockIUnitOfWork.Object, _mockIBus.Object, _mockProdutoService.Object, _mockNotification.Object);
             command.Handle(theEvent);
 
             //Assert's
-            _mockILojaService.Verify(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador), Times.Once);
+            _mockProdutoService.Verify(x => x.Save(theEvent.LojaToken, theEvent.IdentificadorPedido, theEvent.ValorCentavos, theEvent.NumeroCartaoCredito, theEvent.Portador), Times.Once);
             _mockIUnitOfWork.Verify(x => x.Commit(), Times.Once);
 
         }

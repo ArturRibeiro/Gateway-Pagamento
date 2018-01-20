@@ -18,7 +18,7 @@ namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys
             _dbSet = _dataContext.Set<TEntity>();
         }
 
-        public virtual void Add(TEntity obj)
+        public virtual void Create(TEntity obj)
         {
             _dbSet.Add(obj);
         }

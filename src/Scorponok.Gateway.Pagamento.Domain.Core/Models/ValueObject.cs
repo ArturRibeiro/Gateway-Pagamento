@@ -2,20 +2,14 @@
 {
     public abstract class ValueObject<T> where T : ValueObject<T>
     {
-        public override bool Equals(object obj)
+        public ValueObject()
         {
-            var valueObject = obj as T;
-            return !ReferenceEquals(valueObject, null) && EqualsCore(valueObject);
         }
-
-        protected abstract bool EqualsCore(T other);
 
         public override int GetHashCode()
         {
-            return GetHashCodeCore();
+            return base.GetHashCode();
         }
-
-        protected abstract int GetHashCodeCore();
 
         public static bool operator ==(ValueObject<T> a, ValueObject<T> b)
         {

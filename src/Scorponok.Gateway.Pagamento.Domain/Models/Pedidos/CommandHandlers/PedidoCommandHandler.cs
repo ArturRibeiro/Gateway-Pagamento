@@ -21,15 +21,15 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         #region Atributos
         private readonly IUnitOfWork _uow;
         private readonly IBus _bus;
-        private readonly ILojaService _lojaService;
+        private readonly IProdutoService _prudutoService;
         private readonly IDomainNotificationHandler<DomainNotification> _notification;
         #endregion
 
-        public PedidoCommandHandler(IUnitOfWork uow, IBus bus, ILojaService lojaService, IDomainNotificationHandler<DomainNotification> notification)
+        public PedidoCommandHandler(IUnitOfWork uow, IBus bus, IProdutoService prudutoService, IDomainNotificationHandler<DomainNotification> notification)
             : base(uow, bus, notification)
         {
             _bus = bus;
-            _lojaService = lojaService;
+            _prudutoService = prudutoService;
             _notification = notification;
         }
 
@@ -37,23 +37,18 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         {
             Verify.ThrowIf(message == null, () => new ArgumentNullException("message"));
 
-            var pedido = _lojaService.Save(message.LojaToken
+            var pedido = _prudutoService.Save(message.LojaToken
                 , message.IdentificadorPedido
                 , message.ValorCentavos
                 , message.NumeroCartaoCredito
                 , message.Portador);
 
-
-
             ////Realiza as validações de negocio....
             ////falta definir os erros encontrados 
             ////this.NotifyErrors(pedido.ValidationResult);
 
-            if (this.Commit())
-            {
-                //Processo concluido....
-                _bus.RaiseEvent(new PedidoAutorizadoEvent(pedido.Id));
-            }
+            if (this.Commit()) _bus.RaiseEvent(new PedidoAutorizadoEvent(pedido.Id));
+
         }
 
         public void Handle(CancelarPedidoEventCommand message)

@@ -25,7 +25,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Fakes
         {
             var repository = ServiceProvider.GetService<ILojaRepository>();
 
-            BuilderSetup.SetCreatePersistenceMethod<Loja>(repository.Add);
+            BuilderSetup.SetCreatePersistenceMethod<Loja>(repository.Create);
 
             return Builder<Loja>
                 .CreateNew()
