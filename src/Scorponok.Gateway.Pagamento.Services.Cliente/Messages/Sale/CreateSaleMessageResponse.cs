@@ -10,7 +10,7 @@ namespace Scorponok.Gateway.Pagamento.Services.Cliente.Messages
     /// Resposta da criação de uma nova venda
     /// </summary>
     [DataContract(Name = "CreateSaleResponse", Namespace = "")]
-    public class CreateSaleResponse : BaseResponse
+    public class CreateSaleMessageResponse : BaseResponse
     {
 
         /// <summary>

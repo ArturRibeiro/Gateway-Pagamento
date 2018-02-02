@@ -7,7 +7,7 @@ namespace Scorponok.Gateway.Pagamento.Services.Cliente.Messages {
     /// Resposta da ação de gerenciamento da venda
     /// </summary>
     [DataContract(Name = "ManageSaleResponse", Namespace = "")]
-    public class ManageSaleResponse : BaseResponse {
+    public class ManageSaleMessageResponse : BaseResponse {
 
         /// <summary>
         /// Coleção de transações de cartão de crédito

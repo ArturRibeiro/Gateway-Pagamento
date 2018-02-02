@@ -7,9 +7,9 @@ namespace Scorponok.Gateway.Pagamento.Services.Cliente.Messages {
     /// Resposta da consulta de pedidos
     /// </summary>
     [DataContract(Name = "QuerySaleResponse", Namespace = "")]
-    public class QuerySaleResponse : BaseResponse {
+    public class QuerySaleMessageResponse : BaseResponse {
 
-        public QuerySaleResponse() {
+        public QuerySaleMessageResponse() {
             this.SaleDataCollection = new Collection<SaleData>();
         }
 

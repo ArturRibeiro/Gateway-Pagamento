@@ -8,7 +8,7 @@ namespace Scorponok.Gateway.Pagamento.Services.Cliente.Messages {
     /// Gerenciar Venda
     /// </summary>
     [DataContract(Name = "ManageSaleRequest", Namespace = "")]
-    public class ManageSaleRequest {
+    public class ManageSaleMessageRequest {
 
         /// <summary>
         /// Coleções de transdações de cartão de crédito

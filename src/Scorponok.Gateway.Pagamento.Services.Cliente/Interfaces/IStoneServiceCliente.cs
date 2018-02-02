@@ -9,6 +9,6 @@ namespace Scorponok.Gateway.Pagamento.Services.Cliente.Interfaces
 {
     public interface IStoneServiceCliente
     {
-        CreateSaleResponse Autorizar(CreateSaleRequest createSaleMessageRequest);
+        IRestResponse<CreateSaleMessageResponse> Autorizar(CreateSaleMessageRequest createSaleMessageRequest);
     }
 }

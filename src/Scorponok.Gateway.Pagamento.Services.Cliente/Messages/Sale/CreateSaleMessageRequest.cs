@@ -8,10 +8,10 @@ namespace Scorponok.Gateway.Pagamento.Services.Cliente.Messages
     /// Criação de uma nova venda
     /// </summary>
     [DataContract(Name = "CreateSaleRequest", Namespace = "")]
-    public class CreateSaleRequest
+    public class CreateSaleMessageRequest : BaseMessageRequest
     {
 
-        public CreateSaleRequest()
+        public CreateSaleMessageRequest()
         {
             Options = new SaleOptions();
         }

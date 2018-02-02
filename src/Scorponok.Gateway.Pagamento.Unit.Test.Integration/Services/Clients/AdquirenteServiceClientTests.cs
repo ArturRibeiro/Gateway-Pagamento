@@ -1,16 +1,13 @@
 ﻿using RestSharp;
 using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Runtime.Serialization;
-using System.Text;
 using Xunit;
-using FluentAssertions;
 using Scorponok.Gateway.Pagamento.Services.Cliente.Messages;
 using Scorponok.Gateway.Pagamento.Services.Cliente.Messages.EnumTypes;
 using System.Collections.ObjectModel;
 using Scorponok.Gateway.Pagamento.Services.Cliente.Stone;
-
+using FluentAssertions;
+using System.Net;
+using System.Collections.Generic;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
 {
@@ -18,7 +15,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
 
     #endregion
 
-    
+
 
     public class StoneAdquirenteServiceClientTests
     {
@@ -42,15 +39,11 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
         //    rootObjectMessageResponse.StatusCode.Should().Be(httpStatusCode);
         //}
 
-        [Theory]
-        [InlineData(HttpStatusCode.Created)]
-        public void Authorized(HttpStatusCode httpStatusCode)
+        public IList<CreditCardTransaction> CriandoTransacaoBasicaStone()
         {
-
-            //Arrange's            
-            var transaction1 = new CreditCardTransaction()
+            // Cria a transação.
+            var transaction = new CreditCardTransaction()
             {
-                Options = new CreditCardTransactionOptions() { PaymentMethodCode = 1 },
                 AmountInCents = 10000,
                 CreditCard = new CreditCard()
                 {
@@ -61,7 +54,6 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
                     HolderName = "LUKE SKYWALKER",
                     SecurityCode = "123"
                 },
-                CreditCardOperation = CreditCardOperationEnum.AuthOnly,
                 InstallmentCount = 1
             };
 
@@ -82,23 +74,38 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
                 InstallmentCount = 1
             };
 
+            return new [] { transaction, transaction2 };
+        }
+
+        [Theory]
+        [InlineData("MerchantKey", "7b379c45-57d6-4508-ae56-29bb0b3c9741")]
+        public void Authorized(string merchantKey, string token)
+        {
+
+            //Arrange's            
+            var transacoes = CriandoTransacaoBasicaStone();            
+
             // Cria requisição.
-            var createSaleRequest = new CreateSaleRequest()
+            var createSaleRequest = new CreateSaleMessageRequest()
             {
                 // Adiciona a transação na requisição.
-                CreditCardTransactionCollection = new Collection<CreditCardTransaction>(new CreditCardTransaction[] { transaction1, transaction2 }),
+                CreditCardTransactionCollection = new Collection<CreditCardTransaction>(transacoes),
                 Order = new Order() { OrderReference = Guid.NewGuid().ToString() }
             };
+
+            createSaleRequest.AddToken(merchantKey, token);
+
             createSaleRequest.Options.AntiFraudServiceCode = 0;
             createSaleRequest.Options.IsAntiFraudEnabled = false;
             createSaleRequest.Options.Retries = 0;
 
+            //Act's
             var service = new StoneServiceCliente();
-
             var createSaleMessageResponse = service.Autorizar(createSaleRequest);
-            
 
-            //createSaleMessageResponse.StatusCode.Should().Be(httpStatusCode);
+            //Assert's
+            createSaleMessageResponse.IsSuccessful.Should().Be(true);
+            createSaleMessageResponse.StatusCode.Should().Be(HttpStatusCode.Created);
         }
 
 

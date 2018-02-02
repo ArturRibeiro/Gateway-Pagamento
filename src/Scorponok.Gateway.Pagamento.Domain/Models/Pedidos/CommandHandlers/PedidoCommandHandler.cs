@@ -2,12 +2,10 @@
 using Scorponok.Gateway.Pagamento.Domain.Core.Bus;
 using Scorponok.Gateway.Pagamento.Domain.Core.Notifications;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
-using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers.Commands;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers.Events;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.ICommandHandler;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
-using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility;
 using System;
 
@@ -25,7 +23,7 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers
         private readonly IDomainNotificationHandler<DomainNotification> _notification;
         #endregion
 
-        public PedidoCommandHandler(IUnitOfWork uow, IBus bus, IPedidoRepository pedidoRepository, IPedidoRepository _pedidoRepository, IDomainNotificationHandler<DomainNotification> notification)
+        public PedidoCommandHandler(IUnitOfWork uow, IBus bus, IPedidoRepository pedidoRepository, IDomainNotificationHandler<DomainNotification> notification)
             : base(uow, bus, notification)
         {
             _bus = bus;
