@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Adquirente.Pagame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Shared.Contracts.Messages", "Shared\src\Scorponok.Shared.Contracts.Messages\Scorponok.Shared.Contracts.Messages.csproj", "{00EBD7C2-BA1A-490A-B567-D66160DBACB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Shared.Fluent.HttpClient", "Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj", "{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{00EBD7C2-BA1A-490A-B567-D66160DBACB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00EBD7C2-BA1A-490A-B567-D66160DBACB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00EBD7C2-BA1A-490A-B567-D66160DBACB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +153,7 @@ Global
 		{0D3B27DD-0FFD-41C5-B269-65911EF8DBC6} = {AECE1BFA-3319-4680-B5BF-A143CE2790DC}
 		{D05AE7C5-B22E-433A-AC7B-2EDBB616E0CB} = {AECE1BFA-3319-4680-B5BF-A143CE2790DC}
 		{00EBD7C2-BA1A-490A-B567-D66160DBACB1} = {DFBF9A6A-DCCA-48DD-8BA3-CEC1EAE7597B}
+		{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA} = {DFBF9A6A-DCCA-48DD-8BA3-CEC1EAE7597B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30133B6E-6EB8-4322-A7E4-270FF855802D}

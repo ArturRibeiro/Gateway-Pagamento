@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Scorponok.Shared.Utility.Utility
+namespace Scorponok.Shared.Utility
 {
     public static class Verify
     {

@@ -7,7 +7,7 @@ using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.EventHandlers.Events;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.ICommandHandler;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
-using Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility;
+using Scorponok.Shared.Utility;
 using System;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.CommandHandlers

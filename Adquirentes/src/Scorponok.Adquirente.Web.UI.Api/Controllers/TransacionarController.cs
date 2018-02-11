@@ -10,15 +10,16 @@ using Scorponok.Shared.Contracts.Messages.Retentar.Requests;
 
 namespace Scorponok.Adquirente.Web.UI.Api.Controllers
 {
-    [Produces("application/json")]
+    //[Produces("application/json")]
     [Route("api/Adquirente")]
     public class TransacionarController : Controller
     {
+
         [HttpPost, Route("autorizar/Transacao")]
         public async Task<HttpResponseMessage> Autorizar([FromBody] AutorizaMessageRequest request)
             => await AutorizarTransacao(request);
 
-        [HttpPost(Name = "capturar")]
+        [HttpPost, Route("capturar/Transacao")]
         public async Task<HttpResponseMessage> Capturar([FromBody] CapturaMessageRequest request)
             => await CapturarTransacao(request);
 
@@ -34,22 +35,30 @@ namespace Scorponok.Adquirente.Web.UI.Api.Controllers
 
         private async Task<HttpResponseMessage> AutorizarTransacao(AutorizaMessageRequest request)
         {
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            //response.Content = new HttpContent();
+            return response;
         }
 
         private async Task<HttpResponseMessage> CapturarTransacao(CapturaMessageRequest request)
         {
-            throw new NotImplementedException();
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            //response.Content = new HttpContent();
+            return response;
         }
 
         private async Task<HttpResponseMessage> CancelaTransacao(CancelaMessageRequest request)
         {
-            throw new NotImplementedException();
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            //response.Content = new HttpContent();
+            return response;
         }
 
         private async Task<HttpResponseMessage> RetentarTransacao(RetentaMessageRequest request)
         {
-            throw new NotImplementedException();
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            //response.Content = new HttpContent();
+            return response;
         }
         #endregion
 
