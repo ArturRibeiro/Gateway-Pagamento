@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\FormaPagamentos\FormaPagamentoCartaoCredito.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="7.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\src\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility.csproj" />
+    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain.Core\Scorponok.Gateway.Pagamento.Domain.Core.csproj" />
+  </ItemGroup>
+
+</Project>
