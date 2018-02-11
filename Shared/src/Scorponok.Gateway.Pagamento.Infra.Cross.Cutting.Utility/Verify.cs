@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Utility
+namespace Scorponok.Shared.Utility.Utility
 {
     public static class Verify
     {

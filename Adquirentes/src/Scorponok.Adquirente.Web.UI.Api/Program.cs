@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Adquirente.Web.UI.Api
+namespace Scorponok.Adquirente.Web.UI.Api
 {
     public class Program
     {

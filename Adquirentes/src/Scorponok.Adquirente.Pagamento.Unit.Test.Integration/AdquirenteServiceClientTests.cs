@@ -74,7 +74,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
                 InstallmentCount = 1
             };
 
-            return new [] { transaction, transaction2 };
+            return new[] { transaction, transaction2 };
         }
 
         [Theory]
@@ -83,7 +83,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
         {
 
             //Arrange's            
-            var transacoes = CriandoTransacaoBasicaStone();            
+            var transacoes = CriandoTransacaoBasicaStone();
 
             // Cria requisição.
             var createSaleRequest = new CreateSaleMessageRequest()
@@ -107,8 +107,5 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
             createSaleMessageResponse.IsSuccessful.Should().Be(true);
             createSaleMessageResponse.StatusCode.Should().Be(HttpStatusCode.Created);
         }
-
-
-
     }
 }

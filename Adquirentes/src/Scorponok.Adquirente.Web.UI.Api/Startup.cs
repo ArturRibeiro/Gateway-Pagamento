@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Adquirente.Web.UI.Api
+namespace Scorponok.Adquirente.Web.UI.Api
 {
     public class Startup
     {

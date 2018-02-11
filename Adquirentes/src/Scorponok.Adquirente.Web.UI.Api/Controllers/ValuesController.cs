@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Adquirente.Web.UI.Api.Controllers
+namespace Scorponok.Adquirente.Web.UI.Api.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller

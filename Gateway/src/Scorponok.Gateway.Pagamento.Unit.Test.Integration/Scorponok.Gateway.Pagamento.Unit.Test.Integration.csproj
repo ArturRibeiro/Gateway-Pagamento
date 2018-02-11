@@ -7,14 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Services\Clients\AdquirenteServiceClientTests.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Services\Clients\AdquirenteServiceClientTests.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Faker.NETCore" Version="1.0.1" />
     <PackageReference Include="FluentAssertions" Version="4.19.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
@@ -34,6 +26,10 @@
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
