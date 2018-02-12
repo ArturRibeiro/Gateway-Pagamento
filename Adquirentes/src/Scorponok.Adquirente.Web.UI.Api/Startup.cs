@@ -29,12 +29,29 @@ namespace Scorponok.Adquirente.Web.UI.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            switch (env.EnvironmentName)
+            {
+                case "Integration.Test": ConfiguraAmbienteDeTest(app, env); break;
+                case "Development": ConfiguraAmbienteDeDesenvolvimento(app, env); break;
+                default:
+                    throw new NotImplementedException($"Não existe ambiente configurado: {env.EnvironmentName}");
+            }
+
+            app.UseMvc();
+        }
+
+        private void ConfiguraAmbienteDeTest(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void ConfiguraAmbienteDeDesenvolvimento(IApplicationBuilder app, IHostingEnvironment env)
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseMvc();
+            
         }
     }
 }

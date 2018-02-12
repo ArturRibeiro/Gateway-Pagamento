@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.TestHost;
 using Scorponok.Adquirente.Web.UI.Api;
 using System;
+using System.Configuration;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.FluentHttpclient
         private string acceptHeader = "application/json";
         private TimeSpan timeout = new TimeSpan(0, 0, 15);
         private bool allowAutoRedirect = false;
+       
 
         public HttpRequestBuilder()
         {
@@ -91,10 +94,10 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.FluentHttpclient
             //handler.AllowAutoRedirect = this.allowAutoRedirect;
             //var client = new HttpClient(handler);
 
-            var host = new WebHostBuilder()
-                .UseStartup<Startup>();
-            var _server = new TestServer(host);
-            var client = _server.CreateClient();
+            //var host = new WebHostBuilder()
+            //    .UseStartup<Startup>();
+            //var _server = new TestServer(host);
+            var client = ConfigurationEnvironment().CreateClient();
             client.Timeout = this.timeout;
 
             return await client.SendAsync(request);
@@ -111,6 +114,28 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.FluentHttpclient
                 throw new ArgumentNullException("Request Uri");
         }
 
+        /// <summary>
+        /// Referencias: 
+        ///     https://jack-vanlightly.com/blog/2017/10/8/api-series-part-6-aspnet-core-20-and-integration-testing
+        ///     http://asp.net-hacker.rocks/2017/09/27/testing-aspnetcore.html
+        /// </summary>
+        /// <returns></returns>
+        private TestServer ConfigurationEnvironment()
+        {
+            // Devemos configurar o caminho real do projeto direcionado
+            var appRootPath = @"C:\Users\scorponok\Source\github\Gateway-Pagamento\Adquirentes\src\Scorponok.Adquirente.Web.UI.Api";
+
+            var environmentName = "Integration.Test";// ConfigurationManager.AppSettings["Environment.Scorponok.Adquirente.Web.UI.Api"];
+
+            // define variáveis ​​de ambiente
+            Environment.SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", environmentName);
+            Environment.SetEnvironmentVariable("REGISTRY_CONFIG_FILE", Path.Combine(appRootPath, "appsettings.json"));
+            //Environment.SetEnvironmentVariable("REGISTRY_DB_PASSWORD_SECRET_FILE", Path.Combine(appRootPath, "InsecureSecretFiles", "RegistryDbPassword.txt"));
+            Environment.SetEnvironmentVariable("REGISTRY_USE_DOCKER_SECRETS", "false");
+
+            return new TestServer(Program.GetWebHostBuilder(appRootPath, null));
+
+        }
         #endregion
     }
 }
