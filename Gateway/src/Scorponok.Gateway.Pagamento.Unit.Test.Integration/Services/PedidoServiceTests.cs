@@ -1,10 +1,7 @@
 ﻿using FluentAssertions;
 using Scorponok.Gateway.Pagamento.Unit.Test.Integration.FluentHttpclient;
 using Scorponok.Shared.Contracts.Messages.Autorizar.Requests;
-using Scorponok.Shared.Contracts.Messages.Cancelar.Requests;
-using Scorponok.Shared.Contracts.Messages.Capturar.Requests;
-using Scorponok.Shared.Contracts.Messages.Retentar.Requests;
-using System.Net;
+
 using Xunit;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services

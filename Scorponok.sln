@@ -57,9 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Adquirente.Pagame
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Adquirente.Pagamento.Unit.Test", "Adquirentes\src\Scorponok.Adquirente.Pagamento.Unit.Test\Scorponok.Adquirente.Pagamento.Unit.Test.csproj", "{D05AE7C5-B22E-433A-AC7B-2EDBB616E0CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Shared.Contracts.Messages", "Shared\src\Scorponok.Shared.Contracts.Messages\Scorponok.Shared.Contracts.Messages.csproj", "{00EBD7C2-BA1A-490A-B567-D66160DBACB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Shared.Contracts.Messages", "Shared\src\Scorponok.Shared.Contracts.Messages\Scorponok.Shared.Contracts.Messages.csproj", "{00EBD7C2-BA1A-490A-B567-D66160DBACB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Shared.Fluent.HttpClient", "Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj", "{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Shared.Fluent.HttpClient", "Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj", "{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
