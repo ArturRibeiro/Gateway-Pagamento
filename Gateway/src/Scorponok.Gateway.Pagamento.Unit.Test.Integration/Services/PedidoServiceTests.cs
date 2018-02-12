@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services
 {
-    public class IisExpressFixtureTests
+    public class PedidoServiceTests
     {
         [Fact]
         public async void Autorizar_transacao()
