@@ -18,12 +18,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.FluentHttpclient
         private string bearerToken = "";
         private string acceptHeader = "application/json";
         private TimeSpan timeout = new TimeSpan(0, 0, 15);
-        private bool allowAutoRedirect = false;
-       
-
-        public HttpRequestBuilder()
-        {
-        }
+        private bool allowAutoRedirect = false;       
 
         public HttpRequestBuilder AddMethod(HttpMethod method)
         {

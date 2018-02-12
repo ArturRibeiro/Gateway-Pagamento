@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Text;
 
-namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.FluentHttpclient
+namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
 {
     public class PatchContent : StringContent
     {

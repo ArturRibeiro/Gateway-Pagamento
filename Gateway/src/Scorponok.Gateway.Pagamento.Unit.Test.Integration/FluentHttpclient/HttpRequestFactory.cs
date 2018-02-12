@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.FluentHttpclient
