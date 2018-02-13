@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
 {
-    public static class HttpResponseExtensions
+    public static class FluentHttpResponseExtensions
     {
         public static T ContentAsType<T>(this HttpResponseMessage response)
         {

@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
+﻿using Microsoft.AspNetCore.TestHost;
 using Scorponok.Adquirente.Web.UI.Api;
 using System;
-using System.Configuration;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;

@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="FluentHttpclient\**" />
+    <EmbeddedResource Remove="FluentHttpclient\**" />
+    <None Remove="FluentHttpclient\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Faker.NETCore" Version="1.0.1" />
     <PackageReference Include="FluentAssertions" Version="4.19.4" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.0.1" />
