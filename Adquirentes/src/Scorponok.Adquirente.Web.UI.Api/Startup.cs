@@ -22,9 +22,8 @@ namespace Scorponok.Adquirente.Web.UI.Api
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-        }
+            => services.AddMvc();
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -42,6 +41,7 @@ namespace Scorponok.Adquirente.Web.UI.Api
 
         private void ConfiguraAmbienteDeTest(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.ApplicationServices.
             //throw new NotImplementedException();
         }
 
