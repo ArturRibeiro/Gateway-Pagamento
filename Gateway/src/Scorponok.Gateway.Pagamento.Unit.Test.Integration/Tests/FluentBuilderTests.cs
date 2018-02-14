@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Scorponok.Shared.Contracts.Messages.Autorizar.Requests;
+using Scorponok.Shared.Fluent.HttpClient;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -24,7 +25,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
         [InlineData("http://localhost:54228/api/Adquirente/autorizar/Transacao")]
         public async void Configura_variaveis_de_ambientes(string uri)
         {
-            var builder = await FluentHttpRequestBuilder
+            var builder = await HttpRequestBuilder
                 .CreateNew(cfg =>
                     {
                         cfg.AddWebHostPath(@"C:\Users\scorponok\Source\github\Gateway-Pagamento\Adquirentes\src\Scorponok.Adquirente.Web.UI.Api");
@@ -34,7 +35,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
                     })
                     .AddUri(uri: uri)
                     .AddMethod(HttpMethod.Post)
-                    .AddContent(new FluentJsonContent(new AutorizaMessageRequest()))
+                    .AddContent(new JsonContent(new AutorizaMessageRequest()))
                     .SendAsync();
 
             //Assert's
@@ -49,7 +50,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
         [InlineData("https://jsonplaceholder.typicode.com/posts/1")]
         public async void Get(string uri)
         {
-            var builder = await FluentHttpRequestBuilder
+            var builder = await HttpRequestBuilder
                 .CreateNew()
                     .AddMethod(HttpMethod.Get)
                     .AddUri(uri: uri)
@@ -74,7 +75,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
         [InlineData("https://jsonplaceholder.typicode.com/posts/1")]
         public async void Put(string uri)
         {
-            var builder = await FluentHttpRequestBuilder
+            var builder = await HttpRequestBuilder
                 .CreateNew()
                     .AddMethod(HttpMethod.Put)
                     .AddUri(uri: uri)
@@ -90,7 +91,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
         [InlineData("https://jsonplaceholder.typicode.com/posts/1")]
         public async void Delete(string uri)
         {
-            var builder = await FluentHttpRequestBuilder
+            var builder = await HttpRequestBuilder
                 .CreateNew()
                     .AddMethod(HttpMethod.Delete)
                     .AddUri(uri: uri)
@@ -106,7 +107,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
         [InlineData("https://jsonplaceholder.typicode.com/posts")]
         public async void Post(string uri)
         {
-            var builder = await FluentHttpRequestBuilder
+            var builder = await HttpRequestBuilder
                 .CreateNew()
                     .AddMethod(HttpMethod.Post)
                     .AddUri(uri: uri)

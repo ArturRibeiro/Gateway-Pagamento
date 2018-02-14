@@ -7,6 +7,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Adquirentes\src\Scorponok.Adquirente.Web.UI.Api\Scorponok.Adquirente.Web.UI.Api.csproj" />
   </ItemGroup>
 
 </Project>

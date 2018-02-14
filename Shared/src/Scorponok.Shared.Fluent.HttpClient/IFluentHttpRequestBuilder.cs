@@ -4,11 +4,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
+namespace Scorponok.Shared.Fluent.HttpClient
 {
     public interface IFluentHttpRequestBuilder
     {
-        IFluentHttpRequestBuilder SetEnvironment(Action<FluentSettings> configure);
+        IFluentHttpRequestBuilder SetEnvironment(Action<Settings> configure);
 
         IFluentHttpRequestBuilder AddMethod(HttpMethod method);
 

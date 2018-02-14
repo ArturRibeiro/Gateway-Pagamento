@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Text;
 
-namespace Fiver.Api.HttpClient
+namespace Scorponok.Shared.Fluent.HttpClient
 {
     public class PatchContent : StringContent
     {

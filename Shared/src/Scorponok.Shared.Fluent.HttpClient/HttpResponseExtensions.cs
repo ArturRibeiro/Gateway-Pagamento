@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Net.Http;
 
-namespace Fiver.Api.HttpClient
+namespace Scorponok.Shared.Fluent.HttpClient
 {
     public static class HttpResponseExtensions
     {

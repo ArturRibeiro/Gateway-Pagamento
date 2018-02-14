@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Net.Http;
 
-namespace Fiver.Api.HttpClient
+namespace Scorponok.Shared.Fluent.HttpClient
 {
     public class FileContent : MultipartFormDataContent
     {

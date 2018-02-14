@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
+namespace Scorponok.Shared.Fluent.HttpClient
 {
-    public class FluentSettings
+    public class Settings
     {
         private const string REGISTRY_CONFIG_FILE = "REGISTRY_CONFIG_FILE";
 

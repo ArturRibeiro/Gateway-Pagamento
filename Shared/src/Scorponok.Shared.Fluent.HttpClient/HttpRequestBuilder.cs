@@ -1,112 +1,159 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.TestHost;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Fiver.Api.HttpClient
+namespace Scorponok.Shared.Fluent.HttpClient
 {
-    public class HttpRequestBuilder
+    public sealed class HttpRequestBuilder : IFluentHttpRequestBuilder
     {
-        private HttpMethod method = null;
-        private string requestUri = "";
-        private HttpContent content = null;
-        private string bearerToken = "";
-        private string acceptHeader = "application/json";
-        private TimeSpan timeout = new TimeSpan(0, 0, 15);
-        private bool allowAutoRedirect = false;
+        #region Atributos
+        private HttpRequestMessage _httpRequestMessage;
+        private HttpMethod _method;
+        private Uri _uri;
+        private HttpContent _content;
+        private TimeSpan _timeout = new TimeSpan(0, 0, 15);
+        private string _bearerToken;
+        private string _acceptHeader = "application/json";
+        private bool _allowAutoRedirect = false;
+        private Action<Settings> _environmentVariables;
+        #endregion
 
-        public HttpRequestBuilder()
-        {
-        }
+        #region Construtor
+        public HttpRequestBuilder(HttpRequestMessage httpRequestMessage)
+            => _httpRequestMessage = httpRequestMessage;
 
-        public HttpRequestBuilder AddMethod(HttpMethod method)
-        {
-            this.method = method;
-            return this;
-        }
-        
-        public HttpRequestBuilder AddRequestUri(string requestUri)
-        {
-            this.requestUri = requestUri;
-            return this;
-        }
+        public HttpRequestBuilder(HttpRequestMessage httpRequestMessage, Action<Settings> configure)
+            : this(httpRequestMessage)
+            => _environmentVariables = configure;
+        #endregion
 
-        public HttpRequestBuilder AddContent(HttpContent content)
-        {
-            this.content = content;
-            return this;
-        }
+        #region Métodos Publicos
 
-        public HttpRequestBuilder AddBearerToken(string bearerToken)
+        public IFluentHttpRequestBuilder SetEnvironment(Action<Settings> configure)
         {
-            this.bearerToken = bearerToken;
+            _environmentVariables = configure;
+
             return this;
         }
 
-        public HttpRequestBuilder AddAcceptHeader(string acceptHeader)
+        public IFluentHttpRequestBuilder AddAcceptHeader(string acceptHeader)
         {
-            this.acceptHeader = acceptHeader;
+            if (!string.IsNullOrEmpty(_acceptHeader)) _httpRequestMessage.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptHeader));
+
             return this;
         }
 
-        public HttpRequestBuilder AddTimeout(TimeSpan timeout)
+        public IFluentHttpRequestBuilder AddAllowAutoRedirect(bool allowAutoRedirect)
         {
-            this.timeout = timeout;
+            _allowAutoRedirect = allowAutoRedirect;
             return this;
         }
 
-        public HttpRequestBuilder AddAllowAutoRedirect(bool allowAutoRedirect)
+        public IFluentHttpRequestBuilder AddBearerToken(string bearerToken)
         {
-            this.allowAutoRedirect = allowAutoRedirect;
+            _httpRequestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
+
+            return this;
+        }
+
+        public IFluentHttpRequestBuilder AddContent(HttpContent content)
+        {
+            _httpRequestMessage.Content = content;
+            return this;
+        }
+
+        public IFluentHttpRequestBuilder AddMethod(HttpMethod method)
+        {
+            _httpRequestMessage.Method = method;
+            return this;
+        }
+
+        public IFluentHttpRequestBuilder WithTimeOut(int timeout = 500)
+        {
+            _timeout = new TimeSpan(timeout);
+
+            return this;
+        }
+
+        public IFluentHttpRequestBuilder WithTimeOut(TimeSpan timeout)
+        {
+            _timeout = timeout;
+            return this;
+        }
+
+        public IFluentHttpRequestBuilder AddUri(string uri)
+        {
+            _httpRequestMessage.RequestUri = new Uri(uri);
+            return this;
+        }
+
+        public IFluentHttpRequestBuilder AddUri(Uri uri)
+        {
+            _httpRequestMessage.RequestUri = uri;
+
             return this;
         }
 
         public async Task<HttpResponseMessage> SendAsync()
         {
-            // Check required arguments
-            EnsureArguments();
+            var server = CreatesAllEnvironmentVariables();
 
-            // Set up request
-            var request = new HttpRequestMessage
+            System.Net.Http.HttpClient client;
+
+            if (server == null)
             {
-                Method = this.method,
-                RequestUri = new Uri(this.requestUri)
-            };
+                var handler = new HttpClientHandler { AllowAutoRedirect = _allowAutoRedirect };
+                client = new System.Net.Http.HttpClient(handler) { Timeout = _timeout };
+            }
+            else
+            {
+                client = server.CreateClient();
+                client.Timeout = _timeout;
+            }
+            ;
+            var response = await client.SendAsync(_httpRequestMessage);
 
-            if (this.content != null)
-                request.Content = this.content;
-
-            if (!string.IsNullOrEmpty(this.bearerToken))
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", this.bearerToken);
-
-            request.Headers.Accept.Clear();
-            if (!string.IsNullOrEmpty(this.acceptHeader))
-                request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(this.acceptHeader));
-
-            // Setup client
-            var handler = new HttpClientHandler();
-            handler.AllowAutoRedirect = this.allowAutoRedirect;
-
-            var client = new System.Net.Http.HttpClient(handler);
-            client.Timeout = this.timeout;
-            
-            return await client.SendAsync(request);
+            return response;
         }
+        
+        public static IFluentHttpRequestBuilder CreateNew()
+            => new HttpRequestBuilder(new HttpRequestMessage());
 
-        #region " Private "
-
-        private void EnsureArguments()
-        {
-            if (this.method == null)
-                throw new ArgumentNullException("Method");
-            
-            if (string.IsNullOrEmpty(this.requestUri))
-                throw new ArgumentNullException("Request Uri");
-        }
+        public static IFluentHttpRequestBuilder CreateNew(Action<Settings> configure)
+            => new HttpRequestBuilder(new HttpRequestMessage(), configure);
 
         #endregion
+
+        #region Métodos Privados
+        private static Settings BuildEnvironment(Action<Settings> configure)
+        {
+            var expr = new Settings();
+            configure(expr);
+            return expr;
+        }
+
+        private TestServer CreatesAllEnvironmentVariables()
+        {
+            if (_environmentVariables == null) return null;
+
+            var settings = BuildEnvironment(_environmentVariables);
+
+            if (settings.Variables.Count > 0)
+            {
+                foreach (var item in settings.Variables) CreateEnvironmentVariable(item.Key, item.Value);
+
+                //TODO: Refactor
+                return new TestServer(Adquirente.Web.UI.Api.Program.GetWebHostBuilder(settings.PathWebHost, null));
+            }
+
+            return null;
+        }
+
+        private void CreateEnvironmentVariable(string variable, string value)
+            => System.Environment.SetEnvironmentVariable(variable, value);
+        #endregion
     }
+
 }

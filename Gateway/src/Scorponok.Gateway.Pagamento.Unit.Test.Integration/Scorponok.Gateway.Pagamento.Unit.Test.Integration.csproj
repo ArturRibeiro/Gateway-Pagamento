@@ -32,6 +32,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Adquirentes\src\Scorponok.Adquirente.Web.UI.Api\Scorponok.Adquirente.Web.UI.Api.csproj" />
     <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Contracts.Messages\Scorponok.Shared.Contracts.Messages.csproj" />
+    <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Data\Scorponok.Gateway.Pagamento.Cross.Cutting.Data.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus\Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus.csproj" />
