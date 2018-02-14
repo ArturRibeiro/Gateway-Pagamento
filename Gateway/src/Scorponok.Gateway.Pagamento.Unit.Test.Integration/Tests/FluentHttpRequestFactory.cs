@@ -7,11 +7,11 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
 {
     public static class FluentHttpRequestFactory
     {
-        public static Action<AppSettings> _settings;
+        public static Action<FluentSettings> _settings;
 
         static FluentHttpRequestFactory()
         {
-            _settings = (AppSettings settings) =>
+            _settings = (FluentSettings settings) =>
             {
                 settings.AddWebHostPath(@"C:\Users\scorponok\Source\github\Gateway-Pagamento\Adquirentes\src\Scorponok.Adquirente.Web.UI.Api");
                 settings.AddEnvironment("ASPNETCORE_ENVIRONMENT", "Integration.Test");
@@ -59,7 +59,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
                     .CreateNew(_settings)
                         .AddMethod(HttpMethod.Post)
                         .AddUri(requestUri)
-                        .AddContent(new JsonContent(value))
+                        .AddContent(new FluentJsonContent(value))
                         .AddBearerToken(bearerToken);
 
             return await builder.SendAsync();
@@ -71,7 +71,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
                     .CreateNew(_settings)
                         .AddMethod(HttpMethod.Put)
                         .AddUri(requestUri)
-                        .AddContent(new JsonContent(value))
+                        .AddContent(new FluentJsonContent(value))
                         .AddBearerToken(bearerToken);
 
             return await builder.SendAsync();
@@ -83,7 +83,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
                     .CreateNew(_settings)
                         .AddMethod(new HttpMethod("PATCH"))
                         .AddUri(requestUri)
-                        .AddContent(new PatchContent(value))
+                        .AddContent(new FluentPatchContent(value))
                         .AddBearerToken(bearerToken);
 
             return await builder.SendAsync();
@@ -106,7 +106,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
                     .CreateNew(_settings)
                         .AddMethod(HttpMethod.Post)
                         .AddUri(requestUri)
-                        .AddContent(new FileContent(filePath, apiParamName))
+                        .AddContent(new FluentFileContent(filePath, apiParamName))
                         .AddBearerToken(bearerToken);
 
             return await builder.SendAsync();

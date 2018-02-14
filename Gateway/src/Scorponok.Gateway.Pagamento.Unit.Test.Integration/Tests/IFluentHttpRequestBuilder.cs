@@ -8,7 +8,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
 {
     public interface IFluentHttpRequestBuilder
     {
-        IFluentHttpRequestBuilder SetEnvironment(Action<AppSettings> configure);
+        IFluentHttpRequestBuilder SetEnvironment(Action<FluentSettings> configure);
 
         IFluentHttpRequestBuilder AddMethod(HttpMethod method);
 

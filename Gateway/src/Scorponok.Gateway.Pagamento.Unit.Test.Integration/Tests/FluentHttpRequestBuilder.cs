@@ -17,21 +17,21 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
         private string _bearerToken;
         private string _acceptHeader = "application/json";
         private bool _allowAutoRedirect = false;
-        private Action<AppSettings> _environmentVariables;
+        private Action<FluentSettings> _environmentVariables;
         #endregion
 
         #region Construtor
         public FluentHttpRequestBuilder(HttpRequestMessage httpRequestMessage)
             => _httpRequestMessage = httpRequestMessage;
 
-        public FluentHttpRequestBuilder(HttpRequestMessage httpRequestMessage, Action<AppSettings> configure)
+        public FluentHttpRequestBuilder(HttpRequestMessage httpRequestMessage, Action<FluentSettings> configure)
             : this(httpRequestMessage)
             => _environmentVariables = configure;
         #endregion
 
         #region Métodos Publicos
 
-        public IFluentHttpRequestBuilder SetEnvironment(Action<AppSettings> configure)
+        public IFluentHttpRequestBuilder SetEnvironment(Action<FluentSettings> configure)
         {
             _environmentVariables = configure;
 
@@ -121,15 +121,15 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
         public static IFluentHttpRequestBuilder CreateNew()
             => new FluentHttpRequestBuilder(new HttpRequestMessage());
 
-        public static IFluentHttpRequestBuilder CreateNew(Action<AppSettings> configure)
+        public static IFluentHttpRequestBuilder CreateNew(Action<FluentSettings> configure)
             => new FluentHttpRequestBuilder(new HttpRequestMessage(), configure);
 
         #endregion
 
         #region Métodos Privados
-        private static AppSettings BuildEnvironment(Action<AppSettings> configure)
+        private static FluentSettings BuildEnvironment(Action<FluentSettings> configure)
         {
-            var expr = new AppSettings();
+            var expr = new FluentSettings();
             configure(expr);
             return expr;
         }
