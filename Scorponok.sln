@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Shared.Fluent.Htt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Services", "Gateway\src\Scorponok.Gateway.Pagamento.Services\Scorponok.Gateway.Pagamento.Services.csproj", "{75D78F02-CF11-47AF-9804-AFF9F6457636}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Gateway.Pagamento.Transformations", "Gateway\src\Scorponok.Gateway.Pagamento.Transformations\Scorponok.Gateway.Pagamento.Transformations.csproj", "{8DBD31A4-64E5-4656-8A11-0242C992E7AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{75D78F02-CF11-47AF-9804-AFF9F6457636}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75D78F02-CF11-47AF-9804-AFF9F6457636}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75D78F02-CF11-47AF-9804-AFF9F6457636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DBD31A4-64E5-4656-8A11-0242C992E7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DBD31A4-64E5-4656-8A11-0242C992E7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DBD31A4-64E5-4656-8A11-0242C992E7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DBD31A4-64E5-4656-8A11-0242C992E7AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +153,7 @@ Global
 		{00EBD7C2-BA1A-490A-B567-D66160DBACB1} = {DFBF9A6A-DCCA-48DD-8BA3-CEC1EAE7597B}
 		{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA} = {DFBF9A6A-DCCA-48DD-8BA3-CEC1EAE7597B}
 		{75D78F02-CF11-47AF-9804-AFF9F6457636} = {6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}
+		{8DBD31A4-64E5-4656-8A11-0242C992E7AF} = {6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30133B6E-6EB8-4322-A7E4-270FF855802D}

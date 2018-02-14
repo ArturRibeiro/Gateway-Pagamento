@@ -24,7 +24,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
     public class BaseIntegrationTest
     {
 
-        private readonly ServiceCollection _services;
+        protected readonly ServiceCollection _services;
         protected readonly ServiceProvider _serviceProvider;
 
         public BaseIntegrationTest()

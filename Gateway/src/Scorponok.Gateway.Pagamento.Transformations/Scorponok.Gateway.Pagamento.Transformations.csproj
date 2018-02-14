@@ -5,10 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Contracts.Messages\Scorponok.Shared.Contracts.Messages.csproj" />
-    <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj" />
     <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj" />
-    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Transformations\Scorponok.Gateway.Pagamento.Transformations.csproj" />
   </ItemGroup>
 
 </Project>
