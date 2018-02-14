@@ -12,6 +12,7 @@ namespace Scorponok.Shared.Fluent.HttpClient
         {
             _settings = (Settings settings) =>
             {
+                //TODO:[scorponok]: Refatorar, essa configuração deve ser do lado de quem está utilizando o HttpRequestFactory....
                 settings.AddWebHostPath(@"C:\Users\scorponok\Source\github\Gateway-Pagamento\Adquirentes\src\Scorponok.Adquirente.Web.UI.Api");
                 settings.AddEnvironment("ASPNETCORE_ENVIRONMENT", "Integration.Test");
                 settings.AddEnvironment("REGISTRY_CONFIG_FILE", "appsettings.json");
