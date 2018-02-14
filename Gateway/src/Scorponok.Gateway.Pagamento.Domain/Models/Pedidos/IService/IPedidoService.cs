@@ -1,4 +1,6 @@
-﻿namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService
+﻿using System.Threading.Tasks;
+
+namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService
 {
     public interface IPedidoService
     {

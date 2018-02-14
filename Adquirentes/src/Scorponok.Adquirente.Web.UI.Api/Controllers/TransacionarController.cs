@@ -17,81 +17,49 @@ namespace Scorponok.Adquirente.Web.UI.Api.Controllers
 
         [HttpPost, Route("autorizar/Transacao")]
         public async Task<HttpResponseMessage> Autorizar([FromBody] AutorizaMessageRequest request)
-            => await AutorizarTransacao(request);
+            => AutorizarTransacao(request);
 
         [HttpPost, Route("capturar/Transacao")]
         public async Task<HttpResponseMessage> Capturar([FromBody] CapturaMessageRequest request)
-            => await CapturarTransacao(request);
+            => CapturarTransacao(request);
 
         [HttpPost, Route("cancelar/Transacao")]
         public async Task<HttpResponseMessage> Cancelar([FromBody] CancelaMessageRequest request)
-            => await CancelaTransacao(request);
+            => CancelaTransacao(request);
 
         [HttpPost, Route("retentar/Transacao")]
         public async Task<HttpResponseMessage> Retentar([FromBody] RetentaMessageRequest request)
-            => await RetentarTransacao(request);
+            => RetentarTransacao(request);
 
         #region Métodos Privados
 
-        private async Task<HttpResponseMessage> AutorizarTransacao(AutorizaMessageRequest request)
+        private HttpResponseMessage AutorizarTransacao(AutorizaMessageRequest request)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             //response.Content = new HttpContent();
             return response;
         }
 
-        private async Task<HttpResponseMessage> CapturarTransacao(CapturaMessageRequest request)
+        private HttpResponseMessage CapturarTransacao(CapturaMessageRequest request)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             //response.Content = new HttpContent();
             return response;
         }
 
-        private async Task<HttpResponseMessage> CancelaTransacao(CancelaMessageRequest request)
+        private HttpResponseMessage CancelaTransacao(CancelaMessageRequest request)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             //response.Content = new HttpContent();
             return response;
         }
 
-        private async Task<HttpResponseMessage> RetentarTransacao(RetentaMessageRequest request)
+        private HttpResponseMessage RetentarTransacao(RetentaMessageRequest request)
         {
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             //response.Content = new HttpContent();
             return response;
         }
         #endregion
-
-        //// GET: api/Transacionar
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        //// GET: api/Transacionar/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return $"value: {id}";
-        //}
-
-        //// POST: api/Transacionar
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT: api/Transacionar/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

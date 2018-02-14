@@ -17,7 +17,7 @@ using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes.CommandHandlers;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes.ICommandHandler;
 using Scorponok.Gateway.Pagamento.Infra.Cross.Cutting.Bus;
-using Scorponok.Gateway.Pagamento.Services.Entity;
+using Scorponok.Gateway.Pagamento.Services;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
 {

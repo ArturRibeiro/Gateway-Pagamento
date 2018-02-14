@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Contracts.Messages\Scorponok.Shared.Contracts.Messages.csproj" />
+    <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj" />
+    <ProjectReference Include="..\Scorponok.Gateway.Pagamento.Domain\Scorponok.Gateway.Pagamento.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
