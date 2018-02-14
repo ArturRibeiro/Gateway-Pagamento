@@ -3,9 +3,9 @@ using System.Net.Http;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
 {
-    public class FileContent : MultipartFormDataContent
+    public class FluentFileContent : MultipartFormDataContent
     {
-        public FileContent(string filePath, string apiParamName)
+        public FluentFileContent(string filePath, string apiParamName)
         {
             var filestream = File.Open(filePath, FileMode.Open);
             var filename = Path.GetFileName(filePath);

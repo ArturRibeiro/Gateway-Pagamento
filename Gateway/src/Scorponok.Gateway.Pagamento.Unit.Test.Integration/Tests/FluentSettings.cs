@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
 {
-    public class AppSettings
+    public class FluentSettings
     {
         private const string REGISTRY_CONFIG_FILE = "REGISTRY_CONFIG_FILE";
 

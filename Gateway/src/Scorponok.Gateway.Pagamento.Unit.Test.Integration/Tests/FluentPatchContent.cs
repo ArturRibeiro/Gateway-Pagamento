@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
 {
-    public class PatchContent : StringContent
+    public class FluentPatchContent : StringContent
     {
-        public PatchContent(object value)
+        public FluentPatchContent(object value)
             : base (JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json-patch+json")
         {
         }
