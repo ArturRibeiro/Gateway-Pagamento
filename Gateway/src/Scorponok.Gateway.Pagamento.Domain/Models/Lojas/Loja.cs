@@ -67,6 +67,10 @@ namespace Scorponok.Gateway.Pagamento.Domain.Models.Lojas
         public IReadOnlyCollection<Pedido> Pedidos => new ReadOnlyCollection<Pedido>(this.PedidosInternal.ToList()); 
         #endregion
 
+		/// <summary>
+		/// add pedido
+		/// </summary>
+		/// <param name="pedido"></param>
         public void AdicionaPedido(Pedido pedido)
         {
             Verify.ThrowIf(pedido == null, () => new ArgumentNullException("pedido"));
