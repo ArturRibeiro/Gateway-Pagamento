@@ -26,3 +26,5 @@ O fluxo de Comunica&ccedil;&atilde;o &eacute; iniciado logo que o portador (clie
 	&Eacute;</strong>&nbsp;uma funcionalidade para envio de transa&ccedil;&otilde;es recorrentes sem a necessidade de envio das informa&ccedil;&otilde;es do cart&atilde;o/comprador integralmente em todas as parcelas/transa&ccedil;&otilde;es. Essa funcionalidade tem como objetivo facilitar o controle e envio de informa&ccedil;&otilde;es de transa&ccedil;&otilde;es que s&atilde;o periodicamente encaminhadas com os mesmos valores e dados do comprador (cart&atilde;o).<br />
 	&nbsp;</li>
 </ol>
+
+<img src="https://arturrj.visualstudio.com/_apis/public/build/definitions/0ded2fbe-6536-44f7-a432-bb190910af20/6/badge" />
