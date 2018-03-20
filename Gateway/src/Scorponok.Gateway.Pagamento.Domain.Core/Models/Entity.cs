@@ -2,6 +2,7 @@
 
 namespace Scorponok.Gateway.Pagamento.Domain.Core.Core.Models
 {
+    //Entity
     public abstract class Entity
     {
         public Guid Id { get; protected set; }
