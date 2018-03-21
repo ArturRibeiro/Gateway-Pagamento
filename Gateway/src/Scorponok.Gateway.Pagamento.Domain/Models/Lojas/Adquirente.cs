@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Lojas
 {
+	/// <summary>
+	/// 
+	/// </summary>
     public class Adquirente : Entity
     {
         #region Propriedades
