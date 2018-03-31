@@ -19,6 +19,11 @@ namespace Scorponok.Gateway.Pagamento.Services
                 , new AutorizaMessageRequest())
                 .Result;
 
+	        if (!response.IsSuccessStatusCode)
+	        {
+		        //......
+	        }
+
             return pedido;
         }
     }

@@ -10,8 +10,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands
 {
     public class PedidoCommandHandlerTests : BaseIntegrationTest
     {
-        [Theory]
-        [InlineData("6C5CC434-6727-4EE6-9DA9-3043CA5BDB79", Operadora.Stone, "AWDR35577", 1000, "012345678965")]
+        [Theory, InlineData("6C5CC434-6727-4EE6-9DA9-3043CA5BDB79", Operadora.Stone, "AWDR35577", 1000, "012345678965")]
         public void PedidoCommand_sucesso(string lojaToken, Operadora operadora, string identificadorPedido, int valorEmCentavos, string numeroCartaoCredito)
         {
             var pedidoCommandHandler = _serviceProvider.GetService<IPedidoCommandHandler>();

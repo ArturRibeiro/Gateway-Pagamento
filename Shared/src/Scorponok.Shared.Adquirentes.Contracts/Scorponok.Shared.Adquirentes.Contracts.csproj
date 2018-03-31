@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Stone\Merchants\**" />
+    <Compile Remove="Stone\Orders\**" />
+    <Compile Remove="Stone\Recurrencys\**" />
+    <Compile Remove="Stone\Serialization\**" />
+    <EmbeddedResource Remove="Stone\Merchants\**" />
+    <EmbeddedResource Remove="Stone\Orders\**" />
+    <EmbeddedResource Remove="Stone\Recurrencys\**" />
+    <EmbeddedResource Remove="Stone\Serialization\**" />
+    <None Remove="Stone\Merchants\**" />
+    <None Remove="Stone\Orders\**" />
+    <None Remove="Stone\Recurrencys\**" />
+    <None Remove="Stone\Serialization\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Stone\AdquirenteServiceClientTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Stone\Merchants\Merchant.cs" />
+    <Compile Include="Stone\Orders\Order.cs" />
+    <Compile Include="Stone\Orders\OrderResult.cs" />
+    <Compile Include="Stone\Recurrencys\Recurrency.cs" />
+  </ItemGroup>
+
+</Project>

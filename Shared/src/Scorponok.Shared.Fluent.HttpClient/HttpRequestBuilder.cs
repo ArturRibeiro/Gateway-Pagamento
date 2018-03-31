@@ -38,7 +38,14 @@ namespace Scorponok.Shared.Fluent.HttpClient
             return this;
         }
 
-        public IFluentHttpRequestBuilder AddAcceptHeader(string acceptHeader)
+	    public IFluentHttpRequestBuilder AddHeader(string name, string value)
+	    {
+			_httpRequestMessage.Headers.Add(name, value);
+
+		    return this;
+	    }
+
+	    public IFluentHttpRequestBuilder AddAcceptHeader(string acceptHeader)
         {
             if (!string.IsNullOrEmpty(_acceptHeader)) _httpRequestMessage.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptHeader));
 
@@ -54,8 +61,8 @@ namespace Scorponok.Shared.Fluent.HttpClient
         public IFluentHttpRequestBuilder AddBearerToken(string bearerToken)
         {
             _httpRequestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
-
-            return this;
+	        
+			return this;
         }
 
         public IFluentHttpRequestBuilder AddContent(HttpContent content)

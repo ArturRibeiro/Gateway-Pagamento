@@ -20,6 +20,8 @@ namespace Scorponok.Shared.Fluent.HttpClient
 
         IFluentHttpRequestBuilder AddBearerToken(string bearerToken);
 
+        IFluentHttpRequestBuilder AddHeader(string key, string value);
+
         IFluentHttpRequestBuilder AddAcceptHeader(string acceptHeader);
 
         IFluentHttpRequestBuilder WithTimeOut(int timeout = 500);
