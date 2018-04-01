@@ -9,13 +9,13 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
     /// <summary>
     /// Resultado da transação de cartão de crédito
     /// </summary>
-    [DataContract(Name = "CreditCardTransactionResult", Namespace = "")]
+    [DataContract(Name = "CreditCardTransactionResultCollection", Namespace = "")]
     public class CreditCardTransactionResult {
 
         /// <summary>
         /// Dados do cartão de crédito
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public CreditCardData CreditCard { get; set; }
 
         #region CreditCardTransactionStatus
@@ -43,31 +43,31 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         /// <summary>
         /// Tempo de processamento da transação na adquirente
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public long ExternalTime { get; set; }
 
         /// <summary>
         /// Chave da transação. Utilizada para identificar a transação de cartão de crédito no gateway
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public Guid TransactionKey { get; set; }
 
         /// <summary>
         /// Identificador da transação na adquirente
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public string TransactionIdentifier { get; set; }
 
         /// <summary>
         /// Código de autorização
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public string AuthorizationCode { get; set; }
 
         /// <summary>
         /// Identificador único gerado pela adquirente
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public string UniqueSequentialNumber { get; set; }
 
         #region CreditCardOperation
@@ -95,31 +95,31 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         /// <summary>
         /// Valor total da transação em centavos
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public long AmountInCents { get; set; }
 
         /// <summary>
         /// Valor autorizado em centavos
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public long? AuthorizedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor capturado em centavos
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public long? CapturedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor estornado em centavos
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public long? RefundedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor cancelado em centavos
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public long? VoidedAmountInCents { get; set; }
 
         #region DueDate
@@ -153,49 +153,49 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         /// <summary>
         /// Referência da transação no sistema da loja
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public string TransactionReference { get; set; }
 
         /// <summary>
         /// Código de retorno da adquirente
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public string AcquirerReturnCode { get; set; }
 
         /// <summary>
         /// Mensagem de retorno da adquirente
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public string AcquirerMessage { get; set; }
 
         /// <summary>
         /// Indica se houve sucesso no processamento
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public bool Success { get; set; }
 
         /// <summary>
         /// Código da filiação da loja na adquirente
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public String AffiliationCode { get; set; }
 
         /// <summary>
         /// Nome do método de pagamento
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public String PaymentMethodName { get; set; }
 
         /// <summary>
         /// Nome da adquirente
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public String AcquirerName { get; set; }
 
         /// <summary>
         /// Chave da transação para adquirente, enviada pelo gateway
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public string TransactionKeyToAcquirer { get; set; }
 
         #region CapturedDate
@@ -231,7 +231,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         /// <summary>
         /// Código de estabelecimento
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public String EstablishmentCode { get; set; }
     }
 }

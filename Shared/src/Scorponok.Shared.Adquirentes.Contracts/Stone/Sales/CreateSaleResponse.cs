@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.BoletoTransactions;
@@ -16,14 +17,15 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// <summary>
         /// Lista de transações de cartão de crédito
         /// </summary>
-        [DataMember]
+        //[DataMember]
         public Collection<CreditCardTransactionResult> CreditCardTransactionResultCollection { get; set; }
+        //public CreditCardTransactionResult [] CreditCardTransactionResultCollection { get; set; }
 
         /// <summary>
         /// Lista de transações de boleto
         /// </summary>
-        [DataMember]
-        public Collection<BoletoTransactionResult> BoletoTransactionResultCollection { get; set; }
+        //[DataMember]
+        //public Collection<BoletoTransactionResultCollection> BoletoTransactionResultCollection { get; set; }
 
         /// <summary>
         /// Dados de retorno do pedido

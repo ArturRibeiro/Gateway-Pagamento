@@ -4,6 +4,7 @@ using System.Net;
 using FluentAssertions;
 using RestSharp;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.Sales;
 using Xunit;
 
 namespace Scorponok.Adquirente.Pagamento.Unit.Test.Integration
@@ -58,10 +59,18 @@ namespace Scorponok.Adquirente.Pagamento.Unit.Test.Integration
 			request.AddBody(_createCreditCardSaleRequest);
 
 			//Act's
-			var rootObjectMessageResponse = _client.Execute<dynamic>(request);
+			var rootObjectMessageResponse = _client.Execute<CreateSaleResponse>(request);
 
 			//Assert's
 			rootObjectMessageResponse.StatusCode.Should().Be(httpStatusCode);
+			rootObjectMessageResponse.Data.BuyerKey.Should().Be(Guid.Empty);
+			rootObjectMessageResponse.Data.OrderResult.Should().NotBeNull();
+			rootObjectMessageResponse.Data.OrderResult.OrderReference.Should().NotBeNull();
+			rootObjectMessageResponse.Data.OrderResult.OrderKey.Should().NotBe(Guid.Empty);
+			rootObjectMessageResponse.Data.OrderResult.CreateDate.Should().HaveDay(DateTime.Now.Day);
+			rootObjectMessageResponse.Data.OrderResult.CreateDate.Should().HaveMonth(DateTime.Now.Month);
+			rootObjectMessageResponse.Data.OrderResult.CreateDate.Should().HaveYear(DateTime.Now.Year);
+			//rootObjectMessageResponse.Data.BoletoTransactionResultCollection.Should().HaveCount(0);
 		}
 
 
