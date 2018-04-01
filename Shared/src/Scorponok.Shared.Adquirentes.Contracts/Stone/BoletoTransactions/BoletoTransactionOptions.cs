@@ -11,7 +11,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.BoletoTransactions {
         /// Total de dias para expirar o boleto
         /// </summary>
         [DataMember(EmitDefaultValue = false)]
-        public Nullable<int> DaysToAddInBoletoExpirationDate { get; set; }
+        public int? DaysToAddInBoletoExpirationDate { get; set; }
 
         /// <summary>
         /// Url para notificação da transação
@@ -23,7 +23,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.BoletoTransactions {
         /// Indica se a transação vai precisar ser notificada
         /// </summary>
         [DataMember(EmitDefaultValue = false)]
-        public Nullable<bool> IsNotificationEnabled { get; set; }
+        public bool? IsNotificationEnabled { get; set; }
 
         #region CurrencyIso
 
@@ -49,7 +49,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.BoletoTransactions {
         /// <summary>
         /// Moeda. Opções: BRL, EUR, USD, ARS, BOB, CLP, COP, UYU, MXN, PYG
         /// </summary>
-        public Nullable<CurrencyIso> CurrencyIso { get; set; }
+        public CurrencyIso? CurrencyIso { get; set; }
 
         #endregion
     }

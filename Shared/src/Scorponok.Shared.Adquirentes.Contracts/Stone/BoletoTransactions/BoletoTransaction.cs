@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.Address;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.Sales;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.Addresss;
 
 namespace Scorponok.Shared.Adquirentes.Contracts.Stone.BoletoTransactions {
 

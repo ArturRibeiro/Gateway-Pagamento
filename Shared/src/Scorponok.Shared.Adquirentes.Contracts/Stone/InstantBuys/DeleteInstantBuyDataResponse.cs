@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuy {
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuys {
 
     [DataContract(Namespace = "")]
     public class DeleteInstantBuyDataResponse : BaseResponse {

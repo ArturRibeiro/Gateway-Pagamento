@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Scorponok.Shared.Adquirentes.Contracts
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone
 {
 
     [DataContract(Namespace = "")]
@@ -29,6 +29,6 @@ namespace Scorponok.Shared.Adquirentes.Contracts
         /// Tempo de processamento do gateway. Não inclui tempo da adquirente.
         /// </summary>
         [DataMember]
-        public Nullable<long> InternalTime { get; set; }
+        public long? InternalTime { get; set; }
     }
 }

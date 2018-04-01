@@ -89,7 +89,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.BoletoTransactions {
         /// Valor total pago em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> AmountPaidInCents { get; set; }
+        public long? AmountPaidInCents { get; set; }
 
         #region CreateDate
 

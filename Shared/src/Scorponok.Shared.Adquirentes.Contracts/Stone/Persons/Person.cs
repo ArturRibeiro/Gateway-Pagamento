@@ -92,7 +92,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Persons
         /// <summary>
         /// Sexo da pessoa
         /// </summary>
-        public Nullable<GenderEnum> Gender { get; set; }
+        public GenderEnum? Gender { get; set; }
 
         #endregion
 
@@ -120,7 +120,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Persons
         /// <summary>
         /// Data de nascimento
         /// </summary>
-        public Nullable<DateTime> Birthdate { get; set; }
+        public DateTime? Birthdate { get; set; }
 
         #endregion
 

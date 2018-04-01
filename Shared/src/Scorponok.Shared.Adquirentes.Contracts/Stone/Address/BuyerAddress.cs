@@ -1,13 +1,14 @@
 ﻿using System.Runtime.Serialization;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Addresss
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Address
 {
 
     /// <summary>
     /// Informações de endereço
     /// </summary>
-    [DataContract(Name = "BillingAddress", Namespace = "")]
-    public class BillingAddress {
+    [DataContract(Name = "BuyerAddress", Namespace = "")]
+    public class BuyerAddress {
 
         /// <summary>
         /// País. Opções: Brazil, USA, Argentina, Bolivia, Chile, Colombia, Uruguay, Mexico, Paraguay
@@ -56,5 +57,26 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Addresss
         /// </summary>
         [DataMember]
         public string ZipCode { get; set; }
-    }
+
+        #region AddressType
+
+        /// <summary>
+        /// Tipo de endereço
+        /// </summary>
+        [DataMember(Name = "AddressType")]
+        public AddressType AddressType { get; set; }
+		//private string AddressTypeField {
+		//    get {
+		//        return this.AddressType.ToString();
+		//    }
+		//    set {
+		//        this.AddressType = (AddressTypeEnum)Enum.Parse(typeof(AddressTypeEnum), value);
+		//    }
+		//}
+
+
+
+
+		#endregion
+	}
 }

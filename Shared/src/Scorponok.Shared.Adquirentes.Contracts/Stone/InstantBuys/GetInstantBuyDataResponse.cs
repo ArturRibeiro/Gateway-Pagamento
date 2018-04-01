@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuy {
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuys {
 
     /// <summary>
     /// Dados de cartões de crédito de um comprador

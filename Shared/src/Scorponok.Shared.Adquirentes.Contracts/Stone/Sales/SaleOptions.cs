@@ -11,7 +11,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// Habilita ou desabilita o serviço de anti fraude. Se for nulo o sistema utilizará as configurações da loja.
         /// </summary>
         [DataMember(EmitDefaultValue = false)]
-        public Nullable<bool> IsAntiFraudEnabled { get; set; }
+        public bool? IsAntiFraudEnabled { get; set; }
 
         /// <summary>
         /// Define qual serviço de anti fraude será utilizado. Se for nulo ou zero o sistema utilizará as configurações da loja.
@@ -24,7 +24,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// Define a quantidade de retentativas automáticas que deverão ser feitas. Se for nulo o sistema utilizará as configurações da loja.
         /// </summary>
         [DataMember(EmitDefaultValue = false)]
-        public Nullable<int> Retries { get; set; }
+        public int? Retries { get; set; }
 
         #region CurrencyIso
 
@@ -50,7 +50,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// <summary>
         /// Moeda. Opções: BRL, EUR, USD, ARS, BOB, CLP, COP, UYU, MXN, PYG
         /// </summary>
-        public Nullable<CurrencyIso> CurrencyIso { get; set; }
+        public CurrencyIso? CurrencyIso { get; set; }
 
         #endregion
     }

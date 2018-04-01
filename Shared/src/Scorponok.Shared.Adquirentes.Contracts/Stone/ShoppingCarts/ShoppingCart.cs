@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.Addresss;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.Address;
 
 namespace Scorponok.Shared.Adquirentes.Contracts.Stone.ShoppingCarts
 {

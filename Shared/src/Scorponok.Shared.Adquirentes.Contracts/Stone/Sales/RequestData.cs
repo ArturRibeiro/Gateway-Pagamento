@@ -59,7 +59,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// <summary>
         /// Categoria da venda e-commerce. B2B ou B2C
         /// </summary>
-        public Nullable<EcommerceCategoryEnum> EcommerceCategory { get; set; }
+        public EcommerceCategoryEnum? EcommerceCategory { get; set; }
 
         #endregion
     }

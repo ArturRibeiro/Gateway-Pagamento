@@ -7,6 +7,55 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Address\**" />
+    <Compile Remove="AntiFraud\**" />
+    <Compile Remove="BoletoTransaction\**" />
+    <Compile Remove="CreditCardTransaction\**" />
+    <Compile Remove="EnumTypes\**" />
+    <Compile Remove="InstantBuy\**" />
+    <Compile Remove="Merchant\**" />
+    <Compile Remove="Order\**" />
+    <Compile Remove="Person\**" />
+    <Compile Remove="Recurrency\**" />
+    <Compile Remove="Sale\**" />
+    <Compile Remove="Serialization\**" />
+    <Compile Remove="ShoppingCart\**" />
+    <EmbeddedResource Remove="Address\**" />
+    <EmbeddedResource Remove="AntiFraud\**" />
+    <EmbeddedResource Remove="BoletoTransaction\**" />
+    <EmbeddedResource Remove="CreditCardTransaction\**" />
+    <EmbeddedResource Remove="EnumTypes\**" />
+    <EmbeddedResource Remove="InstantBuy\**" />
+    <EmbeddedResource Remove="Merchant\**" />
+    <EmbeddedResource Remove="Order\**" />
+    <EmbeddedResource Remove="Person\**" />
+    <EmbeddedResource Remove="Recurrency\**" />
+    <EmbeddedResource Remove="Sale\**" />
+    <EmbeddedResource Remove="Serialization\**" />
+    <EmbeddedResource Remove="ShoppingCart\**" />
+    <None Remove="Address\**" />
+    <None Remove="AntiFraud\**" />
+    <None Remove="BoletoTransaction\**" />
+    <None Remove="CreditCardTransaction\**" />
+    <None Remove="EnumTypes\**" />
+    <None Remove="InstantBuy\**" />
+    <None Remove="Merchant\**" />
+    <None Remove="Order\**" />
+    <None Remove="Person\**" />
+    <None Remove="Recurrency\**" />
+    <None Remove="Sale\**" />
+    <None Remove="Serialization\**" />
+    <None Remove="ShoppingCart\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="BaseResponse.cs" />
+    <Compile Remove="ErrorItem.cs" />
+    <Compile Remove="ErrorReport.cs" />
+    <Compile Remove="ServiceConstants.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
     <PackageReference Include="RestSharp" Version="106.2.1" />
@@ -16,6 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Adquirentes.Contracts\Scorponok.Shared.Adquirentes.Contracts.csproj" />
     <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj" />
   </ItemGroup>
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.Address;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.Addresss;
 
 namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Persons
 {
@@ -41,7 +41,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Persons
         /// <summary>
         /// Categoria do comprador
         /// </summary>
-        public Nullable<BuyerCategoryEnum> BuyerCategory { get; set; }
+        public BuyerCategoryEnum? BuyerCategory { get; set; }
 
         #endregion
 

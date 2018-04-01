@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.Addresss;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.Address;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuy
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuys
 {
 
 	[DataContract(Namespace = "")]

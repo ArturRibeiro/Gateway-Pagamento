@@ -21,6 +21,6 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// Chave do pedido. Utilizada para identificar um pedido no gateway
         /// </summary>
         [DataMember]
-        public Nullable<Guid> OrderKey { get; set; }
+        public Guid? OrderKey { get; set; }
     }
 }

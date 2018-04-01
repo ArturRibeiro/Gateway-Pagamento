@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFraud;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFrauds;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.BoletoTransactions;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions;
 

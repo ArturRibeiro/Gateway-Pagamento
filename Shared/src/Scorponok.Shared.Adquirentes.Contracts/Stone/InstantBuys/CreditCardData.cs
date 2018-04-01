@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuy {
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuys {
 
     /// <summary>
     /// Dados do cartão de crédito

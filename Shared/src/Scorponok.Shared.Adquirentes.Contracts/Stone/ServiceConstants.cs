@@ -1,5 +1,5 @@
 ﻿
-namespace Scorponok.Shared.Adquirentes.Contracts
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone
 {
 
     internal static class ServiceConstants {

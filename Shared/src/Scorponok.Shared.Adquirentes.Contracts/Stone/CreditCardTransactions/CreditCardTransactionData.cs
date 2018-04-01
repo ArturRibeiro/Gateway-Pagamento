@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.Sales;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuy;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuys;
 
 namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
 
@@ -74,25 +74,25 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         /// Valor autorizado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> AuthorizedAmountInCents { get; set; }
+        public long? AuthorizedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor capturado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> CapturedAmountInCents { get; set; }
+        public long? CapturedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor estornado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> RefundedAmountInCents { get; set; }
+        public long? RefundedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor cancelado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> VoidedAmountInCents { get; set; }
+        public long? VoidedAmountInCents { get; set; }
 
         #region DueDate
 

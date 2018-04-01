@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFraud {
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFrauds {
 
     /// <summary>
     /// Dados de antifraude
@@ -67,7 +67,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFraud {
         /// Pontuação do pedido
         /// </summary>
         [DataMember]
-        public Nullable<decimal> Score { get; set; }
+        public decimal? Score { get; set; }
 
         /// <summary>
         /// Nome do serviço de antifraude

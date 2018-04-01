@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.Sales;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFraud
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFrauds
 {
 
 	/// <summary>

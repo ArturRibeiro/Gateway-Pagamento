@@ -10,7 +10,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// Indica se o limite extendido está habilitado
         /// </summary>
         [DataMember(EmitDefaultValue = false)]
-        public Nullable<bool> ExtendedLimitEnabled { get; set; }
+        public bool? ExtendedLimitEnabled { get; set; }
 
         /// <summary>
         /// Código do limite extendido

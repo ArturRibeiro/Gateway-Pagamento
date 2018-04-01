@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.Sales;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuy;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.InstantBuys;
 
 namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
 
@@ -102,25 +102,25 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         /// Valor autorizado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> AuthorizedAmountInCents { get; set; }
+        public long? AuthorizedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor capturado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> CapturedAmountInCents { get; set; }
+        public long? CapturedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor estornado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> RefundedAmountInCents { get; set; }
+        public long? RefundedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor cancelado em centavos
         /// </summary>
         [DataMember]
-        public Nullable<long> VoidedAmountInCents { get; set; }
+        public long? VoidedAmountInCents { get; set; }
 
         #region DueDate
 
@@ -146,7 +146,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         /// <summary>
         /// Data da recorrência (poderá ser futura)
         /// </summary>
-        public Nullable<DateTime> DueDate { get; set; }
+        public DateTime? DueDate { get; set; }
 
         #endregion
 
@@ -224,7 +224,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions {
         }
 
         [IgnoreDataMember]
-        public Nullable<DateTime> CapturedDate { get; set; }
+        public DateTime? CapturedDate { get; set; }
 
         #endregion
 

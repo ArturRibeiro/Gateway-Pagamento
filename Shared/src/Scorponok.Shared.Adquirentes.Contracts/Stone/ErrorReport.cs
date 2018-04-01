@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 
-namespace Scorponok.Shared.Adquirentes.Contracts
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone
 {
 
     [DataContract(Name = "ErrorReport", Namespace = "")]

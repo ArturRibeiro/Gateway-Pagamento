@@ -1,21 +1,12 @@
-﻿using RestSharp;
-using System;
-using Xunit;
-//using Scorponok.Gateway.Pagamento.Services.Cliente.Messages;
-//using Scorponok.Gateway.Pagamento.Services.Cliente.Messages.EnumTypes;
+﻿using System;
 using System.Collections.ObjectModel;
-//using Scorponok.Gateway.Pagamento.Services.Cliente.Stone;
-using FluentAssertions;
 using System.Net;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
-using GatewayApiClient;
-using Scorponok.Adquirente.Pagamento.Unit.Test.Integration;
-using Scorponok.Adquirente.Pagamento.Unit.Test.Integration.EnumTypes;
-using Scorponok.Shared.Fluent.HttpClient;
+using FluentAssertions;
+using RestSharp;
+using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
+using Xunit;
 
-namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
+namespace Scorponok.Adquirente.Pagamento.Unit.Test.Integration
 {
 	public class StoneAdquirenteServiceClientTests
 	{
@@ -35,13 +26,13 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
 		public void Transacao_criada_com_sucesso(string creditCardNumber, CreditCardBrand creditCardBrand, int expMonth, int expYear, string securityCode, string holderName, HttpStatusCode httpStatusCode)
 		{
 			//Arrange's
-			var _createCreditCardSaleRequest = new CreateSaleRequest
+			var _createCreditCardSaleRequest = new Shared.Adquirentes.Contracts.Stone.Sales.CreateSaleRequest
 			{
-				CreditCardTransactionCollection = new Collection<CreditCardTransaction>
+				CreditCardTransactionCollection = new Collection<Shared.Adquirentes.Contracts.Stone.CreditCardTransactions.CreditCardTransaction>
 				{
-					new CreditCardTransaction
+					new Shared.Adquirentes.Contracts.Stone.CreditCardTransactions.CreditCardTransaction
 					{
-						CreditCard = new CreditCard
+						CreditCard = new Shared.Adquirentes.Contracts.Stone.CreditCardTransactions.CreditCard
 						{
 							CreditCardNumber = creditCardNumber,
 							CreditCardBrand = creditCardBrand,
@@ -53,7 +44,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services.Clients
 						CreditCardOperation = CreditCardOperation.AuthOnly,
 						TransactionReference = Guid.NewGuid().ToString(),
 						AmountInCents = 100,
-						Options = new CreditCardTransactionOptions
+						Options = new Shared.Adquirentes.Contracts.Stone.CreditCardTransactions.CreditCardTransactionOptions
 						{
 							PaymentMethodCode = 1,
 							CurrencyIso = CurrencyIso.BRL

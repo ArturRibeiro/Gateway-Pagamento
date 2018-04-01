@@ -1,14 +1,13 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
-namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Addresss
+namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Address
 {
 
     /// <summary>
     /// Informações de endereço
     /// </summary>
-    [DataContract(Name = "DeliveryAddress", Namespace = "")]
-    public class DeliveryAddress {
+    [DataContract(Name = "BillingAddress", Namespace = "")]
+    public class BillingAddress {
 
         /// <summary>
         /// País. Opções: Brazil, USA, Argentina, Bolivia, Chile, Colombia, Uruguay, Mexico, Paraguay
