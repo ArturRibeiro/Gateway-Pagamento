@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Scorponok.Shared.Adquirentes.Contracts.Stone.AntiFrauds;
@@ -17,13 +18,13 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// Lista de transações de cartão de crédito
         /// </summary>
         [DataMember]
-        public Collection<CreditCardTransactionData> CreditCardTransactionDataCollection { get; set; }
+        public List<CreditCardTransactionData> CreditCardTransactionDataCollection { get; set; }
 
         /// <summary>
         /// Lista de transações de boleto
         /// </summary>
         [DataMember]
-        public Collection<BoletoTransactionData> BoletoTransactionDataCollection { get; set; }
+        public List<BoletoTransactionData> BoletoTransactionDataCollection { get; set; }
 
         /// <summary>
         /// Dados do pedido
