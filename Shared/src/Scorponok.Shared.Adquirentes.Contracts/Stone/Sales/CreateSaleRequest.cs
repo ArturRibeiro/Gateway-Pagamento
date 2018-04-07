@@ -15,7 +15,7 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales
 	/// Criação de uma nova venda
 	/// </summary>
 	[DataContract(Name = "CreateSaleRequest", Namespace = "")]
-	public class CreateSaleRequest
+	public class CreateSaleRequest : BaseRequest
 	{
 
 		public CreateSaleRequest()

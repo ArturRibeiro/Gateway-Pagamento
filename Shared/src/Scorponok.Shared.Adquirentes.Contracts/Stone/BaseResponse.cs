@@ -3,8 +3,13 @@ using System.Runtime.Serialization;
 
 namespace Scorponok.Shared.Adquirentes.Contracts.Stone
 {
+	[DataContract(Namespace = "")]
+	public abstract class BaseRequest
+	{
 
-    [DataContract(Namespace = "")]
+	}
+
+	[DataContract(Namespace = "")]
     public abstract class BaseResponse {
 
         /// <summary>

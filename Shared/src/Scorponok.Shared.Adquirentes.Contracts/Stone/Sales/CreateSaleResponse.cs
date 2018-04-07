@@ -17,15 +17,14 @@ namespace Scorponok.Shared.Adquirentes.Contracts.Stone.Sales {
         /// <summary>
         /// Lista de transações de cartão de crédito
         /// </summary>
-        //[DataMember]
-        public Collection<CreditCardTransactionResult> CreditCardTransactionResultCollection { get; set; }
-        //public CreditCardTransactionResult [] CreditCardTransactionResultCollection { get; set; }
+        [DataMember]
+        public List<CreditCardTransactionResult> CreditCardTransactionResultCollection { get; set; }
 
         /// <summary>
         /// Lista de transações de boleto
         /// </summary>
-        //[DataMember]
-        //public Collection<BoletoTransactionResultCollection> BoletoTransactionResultCollection { get; set; }
+        [DataMember]
+        public List<BoletoTransactionResultCollection> BoletoTransactionResultCollection { get; set; }
 
         /// <summary>
         /// Dados de retorno do pedido
