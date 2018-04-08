@@ -15,7 +15,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Services
         public async void Autorizar_transacao()
         {
             var response = await HttpRequestFactory.Post($"http://localhost:54228/api/Adquirente/autorizar/Transacao"
-                , new AutorizaMessageRequest());
+                , new AuthOnlyMessageRequest());
 
             response.Should().NotBeNull();
             response.IsSuccessStatusCode.Should().Be(true);

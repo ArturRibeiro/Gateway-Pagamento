@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Scorponok.Shared.Contracts.Messages.Autorizar.Requests;
+using Scorponok.Shared.Contracts.Messages.Autorizar.Responses;
 using Scorponok.Shared.Contracts.Messages.Cancelar.Requests;
 using Scorponok.Shared.Contracts.Messages.Capturar.Requests;
 using Scorponok.Shared.Contracts.Messages.Retentar.Requests;
@@ -16,7 +17,7 @@ namespace Scorponok.Adquirente.Web.UI.Api.Controllers
     {
 
         [HttpPost, Route("autorizar/Transacao")]
-        public async Task<HttpResponseMessage> Autorizar([FromBody] AutorizaMessageRequest request)
+        public async Task<IActionResult> Autorizar([FromBody] AuthOnlyMessageRequest request)
             => AutorizarTransacao(request);
 
         [HttpPost, Route("capturar/Transacao")]
@@ -33,12 +34,15 @@ namespace Scorponok.Adquirente.Web.UI.Api.Controllers
 
         #region Métodos Privados
 
-        private HttpResponseMessage AutorizarTransacao(AutorizaMessageRequest request)
+        private IActionResult AutorizarTransacao(AuthOnlyMessageRequest request)
         {
-            var response = new HttpResponseMessage(HttpStatusCode.OK);
-            //response.Content = new HttpContent();
-            return response;
-        }
+			//var response = new HttpResponseMessage(HttpStatusCode.OK);
+   //         //response.Content = new HttpContent();
+   //         return response;
+
+			return Ok(new AuthOnlyMessageResponse());
+
+		}
 
         private HttpResponseMessage CapturarTransacao(CapturaMessageRequest request)
         {

@@ -7,6 +7,6 @@ namespace Scorponok.Gateway.Pagamento.Transformations
     public class PedidoToAutorizaMessageRequest : Profile
     {
         public PedidoToAutorizaMessageRequest()
-            => CreateMap<Pedido, AutorizaMessageRequest>();
+            => CreateMap<Pedido, AuthOnlyMessageRequest>();
     }
 }

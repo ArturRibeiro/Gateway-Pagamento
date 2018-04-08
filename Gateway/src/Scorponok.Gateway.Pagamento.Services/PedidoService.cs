@@ -16,7 +16,7 @@ namespace Scorponok.Gateway.Pagamento.Services
         public Pedido AutorizaPagamentoAdquirente(Pedido pedido)
         {
             var response = HttpRequestFactory.Post($"http://localhost:54228/api/Adquirente/autorizar/Transacao"
-                , new AutorizaMessageRequest())
+                , new AuthOnlyMessageRequest())
                 .Result;
 
 	        if (!response.IsSuccessStatusCode)

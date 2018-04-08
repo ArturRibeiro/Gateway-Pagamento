@@ -35,7 +35,7 @@ namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Tests
                     })
                     .AddUri(uri: uri)
                     .AddMethod(HttpMethod.Post)
-                    .AddContent(new JsonContent(new AutorizaMessageRequest()))
+                    .AddContent(new JsonContent(new AuthOnlyMessageRequest()))
                     .SendAsync();
 
             //Assert's
