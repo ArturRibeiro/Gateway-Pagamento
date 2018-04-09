@@ -1,6 +1,6 @@
-﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
-using System;
+﻿using System;
 using System.Linq;
+using Scorponok.Gateway.Pagamento.Domain.Core.Models;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Interfaces
 {

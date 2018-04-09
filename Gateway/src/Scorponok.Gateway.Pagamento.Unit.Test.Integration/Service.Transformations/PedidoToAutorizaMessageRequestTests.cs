@@ -3,6 +3,7 @@ using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Scorponok.Gateway.Pagamento.Domain.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 using Scorponok.Gateway.Pagamento.Transformations;
 using Scorponok.Gateway.Pagamento.Unit.Test.Integration.Commands;
 using Scorponok.Shared.Contracts.Messages.Autorizar.Requests;

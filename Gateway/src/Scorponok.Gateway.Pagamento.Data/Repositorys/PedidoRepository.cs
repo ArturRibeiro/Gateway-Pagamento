@@ -2,6 +2,7 @@
 using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
 using Scorponok.Gateway.Pagamento.Domain.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IRespository;
 using Scorponok.Shared.Utility;
 

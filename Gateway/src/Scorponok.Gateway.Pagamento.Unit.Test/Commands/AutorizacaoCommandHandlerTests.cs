@@ -15,6 +15,7 @@ using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 using Xunit;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands

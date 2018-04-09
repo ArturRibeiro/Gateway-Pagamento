@@ -1,39 +1,23 @@
-﻿namespace Scorponok.Shared.Contracts.Messages.Autorizar.Requests
+﻿using System.Runtime.Serialization;
+using Scorponok.Shared.Contracts.Messages.Enuns;
+
+namespace Scorponok.Shared.Contracts.Messages.Autorizar.Requests
 {
-    public class TransactionMessageRequest
-    {
-        /// <summary>
-        /// Valor da transação em centavos. R$ 100,00 = 10000
-        /// </summary>
-        public int AmountInCents
-        {
-            get;
-            set;
-        }
+	public class TransactionMessageRequest
+	{
+		[DataMember(Name = "Options")]
+		public OptionsMessageRequest Options { get; set; }
 
+		[DataMember(Name = "CreditCardOperation")]
+		public CreditCardOperation CreditCardOperation { get; set; }
 
-        public CreditCardMessageRequest CreditCard
-        {
-            get;
-            set;
-        }
+		[DataMember(Name = "AmountInCents")]
+		public long AmountInCents { get; set; }
 
-        /// <summary>
-        /// Tipo de operação a ser realizada
-        /// </summary>
-        public string CreditCardOperation
-        {
-            get;
-            set;
-        }
+		[DataMember(Name = "CreditCard")]
+		public CreditCardMessageRequest CreditCard { get; set; }
 
-        /// <summary>
-        /// Número de Parcelas
-        /// </summary>
-        public int InstallmentCount
-        {
-            get;
-            set;
-        }
-    }
+		[DataMember(Name = "InstallmentCount")]
+		public long InstallmentCount { get; set; }
+	}
 }

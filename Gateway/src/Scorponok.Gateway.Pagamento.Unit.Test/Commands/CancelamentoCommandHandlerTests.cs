@@ -14,6 +14,7 @@ using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas.IRespository;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Commands
 {

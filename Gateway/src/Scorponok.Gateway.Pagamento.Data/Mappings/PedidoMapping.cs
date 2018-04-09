@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Scorponok.Gateway.Pagamento.Domain.Models;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 
 namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Mappings
 {

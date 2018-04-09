@@ -1,7 +1,7 @@
 ﻿using Scorponok.Gateway.Pagamento.Domain.Core.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
-namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos
+namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.VOs
 {
     public class TransacaoVO : ValueObject<CartaoVO>
     {

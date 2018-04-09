@@ -1,8 +1,8 @@
-﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
-using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
+﻿using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Scorponok.Gateway.Pagamento.Domain.Core.Models;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos
 {

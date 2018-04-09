@@ -1,14 +1,12 @@
-﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+using Scorponok.Gateway.Pagamento.Domain.Core.Models;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
-using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.VOs;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
-namespace Scorponok.Gateway.Pagamento.Domain.Models
+namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos
 {
     public class Pedido : Entity
     {

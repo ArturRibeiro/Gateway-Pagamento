@@ -67,8 +67,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Adquirentes.Contracts\Scorponok.Shared.Adquirentes.Contracts.csproj" />
     <ProjectReference Include="..\..\..\Shared\src\Scorponok.Shared.Fluent.HttpClient\Scorponok.Shared.Fluent.HttpClient.csproj" />
+    <ProjectReference Include="..\Scorponok.Adquirentes.Contracts\Scorponok.Adquirentes.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

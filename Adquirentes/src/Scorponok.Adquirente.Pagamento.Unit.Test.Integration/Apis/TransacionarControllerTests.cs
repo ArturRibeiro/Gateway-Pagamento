@@ -17,7 +17,7 @@ namespace Scorponok.Adquirente.Pagamento.Unit.Test.Integration.Apis
 			//Arrange's
 			var authOnlyMessageRequest = Builder<AuthOnlyMessageRequest>
 				.CreateNew()
-					.With(x => x.Transactions, Builder<CreditCardMessageRequest>
+					.With(x => x.Transactions, Builder<TransactionMessageRequest>
 							.CreateListOfSize(1)
 							.Build())
 				.With(x => x.Order, Builder<OrderMessageRequest>

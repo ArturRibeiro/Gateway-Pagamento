@@ -61,9 +61,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Gateway.Pagamento.Transformations", "Gateway\src\Scorponok.Gateway.Pagamento.Transformations\Scorponok.Gateway.Pagamento.Transformations.csproj", "{8DBD31A4-64E5-4656-8A11-0242C992E7AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Shared.Adquirentes.Contracts", "Shared\src\Scorponok.Shared.Adquirentes.Contracts\Scorponok.Shared.Adquirentes.Contracts.csproj", "{F06C539F-A160-4F98-BAEA-07A5FD0F864F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Adquirente.Parsers", "Adquirentes\src\Scorponok.Adquirente.Parsers\Scorponok.Adquirente.Parsers.csproj", "{FD1C1D27-0111-4AA9-8671-13FD58000446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorponok.Adquirente.Parsers", "Adquirentes\src\Scorponok.Adquirente.Parsers\Scorponok.Adquirente.Parsers.csproj", "{FD1C1D27-0111-4AA9-8671-13FD58000446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorponok.Adquirentes.Contracts", "Adquirentes\src\Scorponok.Adquirentes.Contracts\Scorponok.Adquirentes.Contracts.csproj", "{3AE1BA3A-9AF1-4F10-84C5-C1D228AF7ADD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,14 +127,14 @@ Global
 		{8DBD31A4-64E5-4656-8A11-0242C992E7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DBD31A4-64E5-4656-8A11-0242C992E7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DBD31A4-64E5-4656-8A11-0242C992E7AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F06C539F-A160-4F98-BAEA-07A5FD0F864F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F06C539F-A160-4F98-BAEA-07A5FD0F864F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F06C539F-A160-4F98-BAEA-07A5FD0F864F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F06C539F-A160-4F98-BAEA-07A5FD0F864F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD1C1D27-0111-4AA9-8671-13FD58000446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD1C1D27-0111-4AA9-8671-13FD58000446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD1C1D27-0111-4AA9-8671-13FD58000446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD1C1D27-0111-4AA9-8671-13FD58000446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AE1BA3A-9AF1-4F10-84C5-C1D228AF7ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AE1BA3A-9AF1-4F10-84C5-C1D228AF7ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AE1BA3A-9AF1-4F10-84C5-C1D228AF7ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AE1BA3A-9AF1-4F10-84C5-C1D228AF7ADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -166,8 +166,8 @@ Global
 		{C7EF3DFE-5998-4DD0-9F40-11E3B092DFFA} = {DFBF9A6A-DCCA-48DD-8BA3-CEC1EAE7597B}
 		{75D78F02-CF11-47AF-9804-AFF9F6457636} = {6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}
 		{8DBD31A4-64E5-4656-8A11-0242C992E7AF} = {6CE8CDA8-4873-4A73-9986-CCBDC6324F9F}
-		{F06C539F-A160-4F98-BAEA-07A5FD0F864F} = {DFBF9A6A-DCCA-48DD-8BA3-CEC1EAE7597B}
 		{FD1C1D27-0111-4AA9-8671-13FD58000446} = {2B25251E-FF52-4D9D-90BD-F241AAE473C4}
+		{3AE1BA3A-9AF1-4F10-84C5-C1D228AF7ADD} = {2B25251E-FF52-4D9D-90BD-F241AAE473C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30133B6E-6EB8-4322-A7E4-270FF855802D}

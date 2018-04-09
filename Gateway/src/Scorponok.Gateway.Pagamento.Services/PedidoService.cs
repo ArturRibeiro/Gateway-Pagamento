@@ -3,6 +3,7 @@ using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.IService;
 using Scorponok.Shared.Contracts.Messages.Autorizar.Requests;
 using Scorponok.Shared.Fluent.HttpClient;
 using System.Threading.Tasks;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 
 namespace Scorponok.Gateway.Pagamento.Services
 {

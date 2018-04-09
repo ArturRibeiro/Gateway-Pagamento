@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Scorponok.Gateway.Pagamento.Domain.Core.Core.Models
+namespace Scorponok.Gateway.Pagamento.Domain.Core.Models
 {
     //Entity 2
     public abstract class Entity

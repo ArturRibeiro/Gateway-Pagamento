@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Scorponok.Gateway.Pagamento.Domain.Core.Models;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 using Scorponok.Shared.Utility;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Lojas

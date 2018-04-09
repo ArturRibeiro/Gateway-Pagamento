@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using FluentAssertions;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Pedidos
 {

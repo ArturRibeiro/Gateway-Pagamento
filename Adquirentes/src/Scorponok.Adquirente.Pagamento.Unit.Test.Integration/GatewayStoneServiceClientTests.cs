@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using RestSharp;
-using Scorponok.Shared.Adquirentes.Contracts.Stone;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.CreditCardTransactions;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.EnumTypes;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.Sales;
-using Scorponok.Shared.Adquirentes.Contracts.Stone.Sales.Cancel;
+using Scorponok.Adquirentes.Contracts.Stone;
+using Scorponok.Adquirentes.Contracts.Stone.CreditCardTransactions;
+using Scorponok.Adquirentes.Contracts.Stone.Sales;
+using Scorponok.Adquirentes.Contracts.Stone.Sales.Capture;
+using Scorponok.Shared.Contracts.Messages.Enuns;
 
 namespace Scorponok.Adquirente.Pagamento.Unit.Test.Integration
 {

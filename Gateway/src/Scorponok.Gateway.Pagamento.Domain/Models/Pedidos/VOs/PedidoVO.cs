@@ -1,7 +1,7 @@
-﻿using Scorponok.Gateway.Pagamento.Domain.Core.Models;
-using System;
+﻿using System;
+using Scorponok.Gateway.Pagamento.Domain.Core.Models;
 
-namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos
+namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.VOs
 {
     public class PedidoVO : ValueObject<PedidoVO>
     {

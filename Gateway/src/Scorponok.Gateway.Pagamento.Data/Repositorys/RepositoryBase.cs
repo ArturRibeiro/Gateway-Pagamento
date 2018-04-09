@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
-using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
+using Scorponok.Gateway.Pagamento.Domain.Core.Models;
 using Scorponok.Gateway.Pagamento.Domain.Interfaces;
 
 namespace Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Repositorys

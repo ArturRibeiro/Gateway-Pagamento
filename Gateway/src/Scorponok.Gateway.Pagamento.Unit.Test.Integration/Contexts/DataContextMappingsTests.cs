@@ -6,6 +6,7 @@ using System;
 using Scorponok.Gateway.Pagamento.Cross.Cutting.Data.Context;
 using Scorponok.Gateway.Pagamento.Domain.Models.FormaPagamentos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Lojas;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos;
 using Scorponok.Gateway.Pagamento.Domain.Models.Transacoes;
 
 namespace Scorponok.Gateway.Pagamento.Unit.Test.Integration.Contexts

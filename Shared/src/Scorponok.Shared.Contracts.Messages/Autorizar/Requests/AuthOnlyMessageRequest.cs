@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace Scorponok.Shared.Contracts.Messages.Autorizar.Requests
 {
-
 	public class AuthOnlyMessageRequest
 	{
-		public IList<CreditCardMessageRequest> Transactions { get; set; } = new List<CreditCardMessageRequest>();
+		[DataMember(Name = "SaleOptions")]
+		public SaleOptionsMessageRequest SaleOptions { get; set; }
 
-        public OrderMessageRequest Order { get; set; }
-    }
+		[DataMember(Name = "Transactions")]
+		public List<TransactionMessageRequest> Transactions { get; set; }
+
+		[DataMember(Name = "Order")]
+		public OrderMessageRequest Order { get; set; }
+	}
 }

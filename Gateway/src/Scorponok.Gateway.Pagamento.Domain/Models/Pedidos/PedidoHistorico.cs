@@ -1,5 +1,6 @@
-﻿using Scorponok.Gateway.Pagamento.Domain.Core.Core.Models;
-using System;
+﻿using System;
+using Scorponok.Gateway.Pagamento.Domain.Core.Models;
+using Scorponok.Gateway.Pagamento.Domain.Models.Pedidos.VOs;
 
 namespace Scorponok.Gateway.Pagamento.Domain.Models.Pedidos
 {
